@@ -34,7 +34,8 @@ export default function PlayPage() {
       <h1 className="text-3xl font-semibold mb-2">🎉 Welcome to my playground</h1>
       <p className="text-sm text-gray-500 mb-10">Here you can find some of my hobbies.</p>
 
-      <Section title="Engineering" emoji="👩‍🔧">
+
+      <Section title="Engineering" emoji="👩‍🔧" size="lg">
         <div>
           {ENGINEERING_PROJECTS.map((project) => (
             <Card key={project.name} project={project} />
@@ -42,7 +43,7 @@ export default function PlayPage() {
         </div>
       </Section>
 
-      <Section title="Graphic Design" emoji="👩‍🎨">
+      <Section title="Graphic Design" emoji="👩‍🎨" size="lg">
         <div className="space-y-2">
           <div className="py-3 border-b border-gray-100">
             <div className="relative w-full rounded-lg overflow-hidden bg-gray-100 mb-3" style={{ aspectRatio: "16/9" }}>

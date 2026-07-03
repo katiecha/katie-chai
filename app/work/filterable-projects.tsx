@@ -6,12 +6,21 @@ import { Tag } from "@/app/components/tag"
 import { Section } from "@/app/components/section"
 import type { Category } from "@/app/work/data"
 
+// Ordered by domain to match category grouping: Web → Systems → Data → Creative
+const TAG_ORDER = [
+  "TypeScript", "React", "JavaScript", "HTML", "CSS",
+  "C", "Embedded", "MIPS", "Logisim",
+  "Python", "R", "SAS",
+  "Unity", "C#", "Swift",
+]
+
 export function FilterableCSProjects({ categories }: { categories: Category[] }) {
   const [activeTag, setActiveTag] = useState<string | null>(null)
 
-  const allTags = Array.from(
-    new Set(categories.flatMap((cat) => cat.projects.flatMap((p) => p.tags ?? [])))
-  ).sort()
+  const presentTags = new Set(
+    categories.flatMap((cat) => cat.projects.flatMap((p) => p.tags ?? []))
+  )
+  const orderedTags = TAG_ORDER.filter((t) => presentTags.has(t))
 
   const visibleCategories = activeTag
     ? categories
@@ -24,9 +33,14 @@ export function FilterableCSProjects({ categories }: { categories: Category[] })
 
   return (
     <div>
-      {allTags.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-6">
-          {allTags.map((tag) => (
+      {orderedTags.length > 0 && (
+        <div className="flex flex-wrap gap-2 mb-2">
+          {activeTag && (
+            <Tag active={false} onClick={() => setActiveTag(null)}>
+              All
+            </Tag>
+          )}
+          {orderedTags.map((tag) => (
             <Tag
               key={tag}
               active={activeTag === tag}

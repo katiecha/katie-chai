@@ -44,6 +44,7 @@ export const CURRENT_PROJECTS: Project[] = [
       { label: "Site", href: "https://jeanch.ai/happy-fathers-day", type: "site" },
       { label: "GitHub", href: "https://github.com/katiecha/jeanch.ai", type: "github" },
     ],
+    tags: ["TypeScript", "React", "Three.js"],
   },
   {
     name: "Resy Bot",
@@ -51,6 +52,7 @@ export const CURRENT_PROJECTS: Project[] = [
     links: [
       { label: "GitHub", href: "https://github.com/katiecha/resybot", type: "github" },
     ],
+    tags: ["Python"],
   },
   {
     name: "NC ASK",
@@ -58,6 +60,7 @@ export const CURRENT_PROJECTS: Project[] = [
     links: [
       { label: "GitHub", href: "https://github.com/katiecha/NC-ASK", type: "github" },
     ],
+    tags: ["TypeScript", "React", "Python"],
   },
 ]
 

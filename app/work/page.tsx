@@ -53,7 +53,7 @@ export default function WorkPage() {
       </section>
 
       {/* Current Projects */}
-      <Section title="Current Projects" emoji="👩‍💻">
+      <Section title="Current Projects" emoji="👩‍💻" size="lg">
         <div>
           {CURRENT_PROJECTS.map((project) => (
             <Card key={project.name} project={project} />
@@ -62,12 +62,12 @@ export default function WorkPage() {
       </Section>
 
       {/* CS Projects */}
-      <Section title="CS Projects" emoji="👩‍💻">
+      <Section title="CS Projects" emoji="👩‍💻" size="lg">
         <FilterableCSProjects categories={CATEGORIES} />
       </Section>
 
       {/* UI/UX Projects */}
-      <Section title="UI/UX Projects" emoji="🕵️">
+      <Section title="UI/UX Projects" emoji="🕵️" size="lg">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {UIUX_PROJECTS.map((project) => {
             const card = (
@@ -83,9 +83,7 @@ export default function WorkPage() {
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="font-medium text-sm">{project.name}</span>
                     {project.status === "in-progress" && (
-                      <span className="text-xs text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full border border-gray-200">
-                        in progress
-                      </span>
+                      <span title="in progress" className="text-sm leading-none select-none">⚠️</span>
                     )}
                   </div>
                   <p className="text-sm text-gray-500 mt-0.5">{project.description}</p>

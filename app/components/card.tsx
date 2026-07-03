@@ -3,6 +3,7 @@ import { GitHubIcon, XIcon, LinkIcon } from "@/app/components/icons"
 import { Tag } from "@/app/components/tag"
 import type { Project, LinkType } from "@/app/work/data"
 
+
 function CardLinkIcon({ type }: { type: LinkType }) {
   if (type === "github") return <GitHubIcon size={14} />
   if (type === "x") return <XIcon size={14} />
@@ -24,7 +25,9 @@ export function Card({ project }: { project: Project }) {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="font-medium text-sm">{project.name}</span>
-            {project.status === "in-progress" && <Tag>in progress</Tag>}
+            {project.status === "in-progress" && (
+              <span title="in progress" className="text-sm leading-none select-none">⚠️</span>
+            )}
             {project.tags?.map((tag) => <Tag key={tag}>{tag}</Tag>)}
           </div>
           <p className="text-sm text-gray-500 mt-0.5 leading-relaxed">{project.description}</p>
