@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { GitHubIcon, LinkedInIcon, XIcon, ResumeIcon } from "@/app/components/icons"
+import { GitHubIcon, LinkedInIcon, XIcon, LinkIcon } from "@/app/components/icons"
 import { ProjectCard } from "@/app/components/project-card"
 import { Section } from "@/app/components/section"
 import { CURRENT_PROJECTS, CATEGORIES, UIUX_PROJECTS, SOCIAL_LINKS } from "@/app/work/data"
@@ -18,7 +18,7 @@ export default function WorkPage() {
         <div className="flex-1">
           <h1 className="text-3xl font-semibold mb-3">👋 Hi, I&apos;m Katie</h1>
           <p className="text-gray-600 text-base leading-relaxed max-w-lg">
-            I&apos;m interested in building systems that combine intelligence, infrastructure, and good design.
+            I&apos;m interested in building systems that combine intelligence, infrastructure, and thoughtful design.
           </p>
 
           <div className="flex items-center gap-4 mt-5">
@@ -56,7 +56,7 @@ export default function WorkPage() {
               aria-label="Resume"
               className="text-gray-500 hover:text-black transition-colors"
             >
-              <ResumeIcon size={20} />
+              <LinkIcon size={20} />
             </a>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function WorkPage() {
       </section>
 
       {/* Current Projects */}
-      <Section title="Projects" emoji="">
+      <Section title="Current Projects" emoji="👩‍💻">
         <div>
           {CURRENT_PROJECTS.map((project) => (
             <ProjectCard key={project.name} project={project} />
@@ -86,7 +86,7 @@ export default function WorkPage() {
 
       {/* CS Projects */}
       <div className="mt-14">
-        <h2 className="text-lg font-semibold mb-6">👩‍💻 CS</h2>
+        <h2 className="text-lg font-semibold mb-6">👩‍💻 CS Projects</h2>
 
         {CATEGORIES.map((category) => (
           <Section key={category.title} title={category.title} emoji={category.emoji}>

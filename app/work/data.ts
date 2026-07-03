@@ -30,22 +30,30 @@ export const SOCIAL_LINKS = {
 export const CURRENT_PROJECTS: Project[] = [
   {
     name: "Regolith",
-    description: "A workspace for agents and the humans who work with them.",
+    description: "A research and engineering effort focused on intelligent physical systems for autonomous industry.",
     links: [
       { label: "Website", href: "https://www.katiech.ai/", type: "site" },
       { label: "X", href: "https://x.com/RegolithAi", type: "x" },
     ],
   },
   {
+    name: "jeancha.ai",
+    description: "A sailing game built with React Three Fiber, custom GLSL shaders, and graph-based exploration",
+    links: [
+      { label: "Site", href: "https://jeanch.ai/happy-fathers-day", type: "site" },
+      { label: "GitHub", href: "https://github.com/katiecha/jeanch.ai", type: "github" },
+    ],
+  },
+  {
     name: "Resy Bot",
-    description: "An open-source tool to help manage Resy reservations.",
+    description: "An tool to help manage resy reservations. The production version isn't public, but email me if you'd like to learn more.",
     links: [
       { label: "GitHub", href: "https://github.com/katiecha/resybot", type: "github" },
     ],
   },
   {
     name: "NC ASK",
-    description: "An RAG educational platform built with React, TypeScript, FastAPI, and a Supabase vector database that provides info about NC autism resources using Gemini.",
+    description: "An RAG educational platform (React, TypeScript, FastAPI, Supabase vector database, Gemini) that provides info about NC autism resources",
     links: [
       { label: "GitHub", href: "https://github.com/katiecha/NC-ASK", type: "github" },
     ],
@@ -58,14 +66,6 @@ export const CATEGORIES: Category[] = [
     emoji: "🕸️",
     projects: [
       {
-        name: "jeancha.ai",
-        description: "An interactive sailing experience built with React Three Fiber and custom GLSL shaders, made for my dad.",
-        links: [
-          { label: "Site", href: "https://jeanch.ai/happy-fathers-day", type: "site" },
-          { label: "GitHub", href: "https://github.com/katiecha/jeanch.ai", type: "github" },
-        ],
-      },
-      {
         name: "LinkedIn Queens Solver",
         description: "A DOM bot I use to solve LinkedIn Queens.",
         links: [
@@ -74,7 +74,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         name: "Adventure Time Game",
-        description: "A choose-your-own-adventure game written in JavaScript based on my favorite TV show.",
+        description: "A choose-your-own-adventure game I created based on my favorite TV show, Adventure Time",
         links: [
           { label: "Demo", href: "https://katiecha.github.io/new-media/Katie_Chai_Project.html", type: "demo" },
           { label: "GitHub", href: "https://github.com/katiecha/katiecha.github.io/blob/main/new-media/Katie_Chai_Project.html", type: "github" },
@@ -82,7 +82,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         name: "CATCH Website",
-        description: "A website and inventory management system for Carolina Adapts Toys for Children, built with React.",
+        description: "A website / inventory management system for Carolina Adapts Toys for Children (CATCH)",
         links: [
           { label: "Site", href: "https://www.catch-inc.com/", type: "site" },
           { label: "GitHub", href: "https://github.com/cssgunc/catch", type: "github" },
@@ -128,21 +128,21 @@ export const CATEGORIES: Category[] = [
     projects: [
       {
         name: "Build Your Own Computer (C)",
-        description: "A semester-long project where I built different parts of a computer in C.",
+        description: "A semester-long project where I built different parts of a computer! This is my C code:",
         links: [
           { label: "GitHub", href: "https://github.com/katiecha/build-your-own-computer/tree/main/c", type: "github" },
         ],
       },
       {
-        name: "Build Your Own Computer (MIPS)",
-        description: "A semester-long project where I built different parts of a computer in MIPS assembly.",
+        name: "BYOC (MIPS)",
+        description: "A semester-long project where I built different parts of a computer! This is my MIPS code:",
         links: [
           { label: "GitHub", href: "https://github.com/katiecha/build-your-own-computer/tree/main/MIPS-assembly", type: "github" },
         ],
       },
       {
-        name: "Build Your Own Computer (Logisim)",
-        description: "A semester-long project where I built different parts of a computer in Logisim.",
+        name: "BYOC (Logisim)",
+        description: "A semester-long project where I built different parts of a computer! These are my Logisim files:",
         links: [
           { label: "GitHub", href: "https://github.com/katiecha/build-your-own-computer/tree/main/logisim", type: "github" },
         ],
@@ -198,8 +198,8 @@ export const CATEGORIES: Category[] = [
         links: [{ label: "GitHub", href: "https://github.com/katiecha/data-structure-implementations/tree/main/java-intro", type: "github" }],
       },
       {
-        name: "Puzzle Game (Akari)",
-        description: "An imitation of a simple Akari Puzzle Game.",
+        name: "Puzzle Game",
+        description: "An imitation of a simple Akari Puzzle",
         links: [
           { label: "Demo", href: "https://www.katie-chai.com/work/akari", type: "demo" },
         ],
