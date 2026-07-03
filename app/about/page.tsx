@@ -23,11 +23,7 @@ export default function AboutPage() {
             <a href="https://www.ycombinator.com/companies/greenboard" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-black transition-colors">
               YC W24
             </a>
-            ). Check us out{" "}
-            <a href="https://www.greenboard.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-black transition-colors">
-              here
-            </a>
-            .
+            ).
           </p>
         </section>
 
@@ -57,7 +53,9 @@ export default function AboutPage() {
               <span className="mr-1">🩻</span>
               <strong>(Summer 2024)</strong> Interned at Medtronic as a Software Engineer, developing an automated test framework in Python and optimizing motor drive algorithms in C/C++ for their new patch pump.
             </li>
-            <li className="pt-1 text-gray-400 text-xs uppercase tracking-widest font-medium">In the more distant past…</li>
+          </ul>
+          <p className="text-sm text-gray-600 mt-4 mb-2">In the more distant past…</p>
+          <ul className="space-y-1 text-sm text-gray-600">
             <li>🥇 Special Olympics — Software Engineering Intern (+ UI/UX projects)</li>
             <li>🔎 Researched Epidemiology with Professor Jessie K. Edwards</li>
             <li>🧮 Researched Physical Mathematics with Pedro J. Sáenz</li>

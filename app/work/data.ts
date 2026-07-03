@@ -32,7 +32,6 @@ export const CURRENT_PROJECTS: Project[] = [
     name: "Regolith",
     description: "A research and engineering effort focused on intelligent physical systems for autonomous industry.",
     links: [
-      { label: "Website", href: "https://www.katiech.ai/", type: "site" },
       { label: "X", href: "https://x.com/RegolithAi", type: "x" },
     ],
   },

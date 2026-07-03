@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import { Section } from "@/app/components/section"
-import { YouTubeIcon, ExternalLinkIcon, DocsIcon } from "@/app/components/icons"
+import { LinkIcon } from "@/app/components/icons"
 
 export const metadata: Metadata = {
   title: "Play — Katie Chai",
@@ -120,10 +120,8 @@ const ENGINEERING_PROJECTS: EngineeringProject[] = [
   },
 ]
 
-function LinkIcon({ icon }: { icon: "youtube" | "docs" | "site" }) {
-  if (icon === "youtube") return <YouTubeIcon size={14} />
-  if (icon === "docs") return <DocsIcon size={14} />
-  return <ExternalLinkIcon size={14} />
+function PlayLinkIcon() {
+  return <LinkIcon size={14} />
 }
 
 const IG_POSTS = [
@@ -187,7 +185,7 @@ export default function PlayPage() {
                         aria-label={link.label}
                         className="text-gray-400 hover:text-black transition-colors"
                       >
-                        <LinkIcon icon={link.icon} />
+                        <PlayLinkIcon />
                       </a>
                     ))}
                   </div>

@@ -1,28 +1,9 @@
-import {
-  GitHubIcon,
-  XIcon,
-  YouTubeIcon,
-  FigmaIcon,
-  DocsIcon,
-  ExternalLinkIcon,
-} from "@/app/components/icons"
+import { GitHubIcon, LinkIcon } from "@/app/components/icons"
 import type { Project, LinkType } from "@/app/work/data"
 
-function LinkIcon({ type }: { type: LinkType }) {
-  switch (type) {
-    case "github":
-      return <GitHubIcon size={14} />
-    case "youtube":
-      return <YouTubeIcon size={14} />
-    case "figma":
-      return <FigmaIcon size={14} />
-    case "docs":
-      return <DocsIcon size={14} />
-    case "x":
-      return <XIcon size={14} />
-    default:
-      return <ExternalLinkIcon size={14} />
-  }
+function ProjectLinkIcon({ type }: { type: LinkType }) {
+  if (type === "github") return <GitHubIcon size={14} />
+  return <LinkIcon size={14} />
 }
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -52,7 +33,7 @@ export function ProjectCard({ project }: { project: Project }) {
                 aria-label={link.label}
                 className="text-gray-400 hover:text-black transition-colors"
               >
-                <LinkIcon type={link.type} />
+                <ProjectLinkIcon type={link.type} />
               </a>
             ))}
           </div>
