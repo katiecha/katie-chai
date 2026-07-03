@@ -9,11 +9,11 @@ export default function AboutPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-semibold mb-2">👋 Hi again!</h1>
-      <p className="text-gray-500 mb-10">Here&apos;s some more information about me!</p>
+      <p className="text-sm text-gray-500 mb-10">Here&apos;s some more information about me!</p>
 
       <div className="space-y-10">
         <section>
-          <h2 className="text-base font-semibold mb-2">✅ Where do I work?</h2>
+          <h2 className="text-sm font-semibold mb-2">✅ Where do I work?</h2>
           <p className="text-sm text-gray-600 leading-relaxed">
             I am currently a Software Engineer for{" "}
             <a href="https://www.greenboard.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-black transition-colors">
@@ -28,7 +28,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-semibold mb-2">💻 What did I study?</h2>
+          <h2 className="text-sm font-semibold mb-2">💻 What did I study?</h2>
           <p className="text-sm text-gray-600 leading-relaxed">
             I studied Computer Science (and Computational Biology / Bioinformatics) at Duke and UNC through the{" "}
             <a href="https://robertsonscholars.org" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-black transition-colors">
@@ -39,7 +39,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-semibold mb-2">🏢 Where did I intern?</h2>
+          <h2 className="text-sm font-semibold mb-2">🏢 Where did I intern?</h2>
           <ul className="space-y-2 text-sm text-gray-600">
             <li>
               <span className="mr-1">♊️</span>
@@ -65,7 +65,7 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-semibold mb-2">🎉 What do you do for fun?</h2>
+          <h2 className="text-sm font-semibold mb-2">🎉 What do you do for fun?</h2>
           <p className="text-sm text-gray-600 leading-relaxed">
             I enjoy food studies — my favorite class in college was{" "}
             <a href="https://abby-reimer.com/2015/03/18/eats-101-exemplary-or-unattainable/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-black transition-colors">

@@ -1,30 +1,21 @@
-export type PlayLink = {
-  label: string
-  href: string
-  icon: "youtube" | "docs" | "site"
-}
+import type { Project, ProjectLink } from "@/app/work/data"
 
-export type EngineeringProject = {
-  name: string
-  description: string
-  image: string
-  links: PlayLink[]
-}
+export type { Project, ProjectLink }
 
 export type MediaItem = {
   label: string
   image: string
 }
 
-export const ENGINEERING_PROJECTS: EngineeringProject[] = [
+export const ENGINEERING_PROJECTS: Project[] = [
   {
     name: "Soft Robotic Jellyfish",
     description:
       'A robot that is able to "swim" in water for noninvasive exploration of underwater ecosystems, based on Florida Atlantic University\'s soft robotic jellyfish.',
     image: "/images/play/jellyfish.jpg",
     links: [
-      { label: "YouTube", href: "https://www.youtube.com/watch?v=B3q6MmOUwK0", icon: "youtube" },
-      { label: "Instructables", href: "https://www.instructables.com/Soft-Robotic-Jellyfish/", icon: "site" },
+      { label: "YouTube", href: "https://www.youtube.com/watch?v=B3q6MmOUwK0", type: "youtube" },
+      { label: "Instructables", href: "https://www.instructables.com/Soft-Robotic-Jellyfish/", type: "site" },
     ],
   },
   {
@@ -33,7 +24,7 @@ export const ENGINEERING_PROJECTS: EngineeringProject[] = [
       "A face shield service project that utilized laser cutting and 3D printing initially but eventually moved to injection molding.",
     image: "/images/play/face-shields.jpg",
     links: [
-      { label: "YouTube", href: "https://www.youtube.com/watch?v=vZcQNL63mP8", icon: "youtube" },
+      { label: "YouTube", href: "https://www.youtube.com/watch?v=vZcQNL63mP8", type: "youtube" },
     ],
   },
   {
@@ -42,7 +33,7 @@ export const ENGINEERING_PROJECTS: EngineeringProject[] = [
       "A digitized CPR dummy that I designed from scratch using Fusion 360, Autodesk Eagle, 3D printing, molding/casting, and more!",
     image: "/images/play/cpr-dummy.jpg",
     links: [
-      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/projects/final-project/", icon: "docs" },
+      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/projects/final-project/", type: "docs" },
     ],
   },
   {
@@ -51,7 +42,7 @@ export const ENGINEERING_PROJECTS: EngineeringProject[] = [
       "Children's toys with adapted internal circuitry to increase accessibility for children with special needs.",
     image: "/images/play/accessible-toys.jpg",
     links: [
-      { label: "CATCH Toy Catalog", href: "https://www.catch-inc.com/toy-catalog", icon: "site" },
+      { label: "CATCH Toy Catalog", href: "https://www.catch-inc.com/toy-catalog", type: "site" },
     ],
   },
   {
@@ -60,7 +51,7 @@ export const ENGINEERING_PROJECTS: EngineeringProject[] = [
       "A light painting machine I manufactured with classmates that used long exposure photography to capture these images.",
     image: "/images/play/light-painting.jpg",
     links: [
-      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week15/", icon: "docs" },
+      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week15/", type: "docs" },
     ],
   },
   {
@@ -68,7 +59,7 @@ export const ENGINEERING_PROJECTS: EngineeringProject[] = [
     description: "An input circuit board I designed on Autodesk Eagle and surface mount soldered.",
     image: "/images/play/input-board.jpg",
     links: [
-      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week11/", icon: "docs" },
+      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week11/", type: "docs" },
     ],
   },
   {
@@ -76,7 +67,7 @@ export const ENGINEERING_PROJECTS: EngineeringProject[] = [
     description: "An output circuit board I designed on Autodesk Eagle and surface mount soldered.",
     image: "/images/play/output-board.jpg",
     links: [
-      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week17/", icon: "docs" },
+      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week17/", type: "docs" },
     ],
   },
   {
@@ -84,7 +75,7 @@ export const ENGINEERING_PROJECTS: EngineeringProject[] = [
     description: "A networking experiment I developed on Autodesk Eagle and soldered / breadboarded.",
     image: "/images/play/networking.jpg",
     links: [
-      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week12/", icon: "docs" },
+      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week12/", type: "docs" },
     ],
   },
   {
@@ -92,7 +83,7 @@ export const ENGINEERING_PROJECTS: EngineeringProject[] = [
     description: "A DIY oscilloscope I soldered together and used to test various circuitry projects.",
     image: "/images/play/oscilloscope.jpg",
     links: [
-      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week14/", icon: "docs" },
+      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week14/", type: "docs" },
     ],
   },
   {
@@ -100,7 +91,7 @@ export const ENGINEERING_PROJECTS: EngineeringProject[] = [
     description: "A laser cut living hinge as well as some other laser cutting projects.",
     image: "/images/play/living-hinge.jpg",
     links: [
-      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week04/", icon: "docs" },
+      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week04/", type: "docs" },
     ],
   },
   {
@@ -108,7 +99,7 @@ export const ENGINEERING_PROJECTS: EngineeringProject[] = [
     description: "A CNC (computer controlled machining) coffee table for my dad.",
     image: "/images/play/coffee-table.jpg",
     links: [
-      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week08/", icon: "docs" },
+      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week08/", type: "docs" },
     ],
   },
   {
@@ -116,7 +107,7 @@ export const ENGINEERING_PROJECTS: EngineeringProject[] = [
     description: "CNC soap mold & bar of soap created for my mom.",
     image: "/images/play/soap-mold.png",
     links: [
-      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week10/", icon: "docs" },
+      { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week10/", type: "docs" },
     ],
   },
 ]

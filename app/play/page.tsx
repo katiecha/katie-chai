@@ -1,14 +1,8 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import { Card } from "@/app/components/card"
 import { Section } from "@/app/components/section"
-import { LinkIcon } from "@/app/components/icons"
-import {
-  ENGINEERING_PROJECTS,
-  IG_POSTS,
-  IG_STORIES,
-  MERCH,
-  type MediaItem,
-} from "@/app/play/data"
+import { ENGINEERING_PROJECTS, IG_POSTS, IG_STORIES, MERCH, type MediaItem } from "@/app/play/data"
 
 export const metadata: Metadata = {
   title: "Play — Katie Chai",
@@ -38,45 +32,18 @@ export default function PlayPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-12">
       <h1 className="text-3xl font-semibold mb-2">🎉 Welcome to my playground</h1>
-      <p className="text-gray-500 mb-10">Here you can find some of my hobbies.</p>
+      <p className="text-sm text-gray-500 mb-10">Here you can find some of my hobbies.</p>
 
       <Section title="Engineering" emoji="👩‍🔧">
         <div>
           {ENGINEERING_PROJECTS.map((project) => (
-            <div key={project.name} className="py-4 border-b border-gray-100 last:border-0">
-              <div className="relative w-full rounded-lg overflow-hidden bg-gray-100 mb-3" style={{ aspectRatio: "16/9" }}>
-                <Image src={project.image} alt={project.name} fill className="object-cover" />
-              </div>
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  <p className="font-medium text-sm">{project.name}</p>
-                  <p className="text-sm text-gray-500 mt-0.5 leading-relaxed">{project.description}</p>
-                </div>
-                {project.links.length > 0 && (
-                  <div className="flex items-center gap-3 shrink-0 mt-0.5">
-                    {project.links.map((link) => (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={link.label}
-                        className="text-gray-400 hover:text-black transition-colors"
-                      >
-                        <LinkIcon size={14} />
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
+            <Card key={project.name} project={project} />
           ))}
         </div>
       </Section>
 
       <Section title="Graphic Design" emoji="👩‍🎨">
         <div className="space-y-2">
-          {/* CATCH intro */}
           <div className="py-3 border-b border-gray-100">
             <div className="relative w-full rounded-lg overflow-hidden bg-gray-100 mb-3" style={{ aspectRatio: "16/9" }}>
               <Image src="/images/play/catch-collection.jpg" alt="CATCH graphic design" fill className="object-cover" />

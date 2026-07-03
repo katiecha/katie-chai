@@ -12,6 +12,7 @@ export type Project = {
   links: ProjectLink[]
   status?: "in-progress"
   image?: string
+  tags?: string[]
 }
 
 export type Category = {
@@ -32,6 +33,7 @@ export const CURRENT_PROJECTS: Project[] = [
     name: "Regolith",
     description: "A research and engineering effort focused on intelligent physical systems for autonomous industry.",
     links: [
+      { label: "Website", href: "https://www.katiech.ai/", type: "site" },
       { label: "X", href: "https://x.com/RegolithAi", type: "x" },
     ],
   },
@@ -61,7 +63,7 @@ export const CURRENT_PROJECTS: Project[] = [
 
 export const CATEGORIES: Category[] = [
   {
-    title: "Typescript, Javascript, React, etc.",
+    title: "Web & Full-Stack",
     emoji: "🕸️",
     projects: [
       {
@@ -70,6 +72,7 @@ export const CATEGORIES: Category[] = [
         links: [
           { label: "GitHub", href: "https://github.com/katiecha/dom-bots/blob/main/linkedin-queens.js", type: "github" },
         ],
+        tags: ["JavaScript"],
       },
       {
         name: "Adventure Time Game",
@@ -78,6 +81,7 @@ export const CATEGORIES: Category[] = [
           { label: "Demo", href: "https://katiecha.github.io/new-media/Katie_Chai_Project.html", type: "demo" },
           { label: "GitHub", href: "https://github.com/katiecha/katiecha.github.io/blob/main/new-media/Katie_Chai_Project.html", type: "github" },
         ],
+        tags: ["JavaScript", "HTML"],
       },
       {
         name: "CATCH Website",
@@ -86,6 +90,7 @@ export const CATEGORIES: Category[] = [
           { label: "Site", href: "https://www.catch-inc.com/", type: "site" },
           { label: "GitHub", href: "https://github.com/cssgunc/catch", type: "github" },
         ],
+        tags: ["TypeScript", "React"],
       },
       {
         name: "ReSearch",
@@ -94,6 +99,7 @@ export const CATEGORIES: Category[] = [
           { label: "YouTube", href: "https://www.youtube.com/watch?v=qGP18CfBojs", type: "youtube" },
           { label: "GitHub", href: "https://github.com/researph/ReSearch", type: "github" },
         ],
+        tags: ["TypeScript", "React", "Python"],
       },
       {
         name: "Allergy Forecaster",
@@ -102,6 +108,7 @@ export const CATEGORIES: Category[] = [
           { label: "YouTube", href: "https://youtu.be/btPoCuaHIxs?si=-YUrUHb5ikpzJXdC", type: "youtube" },
           { label: "GitHub", href: "https://github.com/426finalproject/finalproject", type: "github" },
         ],
+        tags: ["TypeScript", "React"],
       },
       {
         name: "A Cookbook Website",
@@ -110,6 +117,7 @@ export const CATEGORIES: Category[] = [
           { label: "Site", href: "https://katiecha.github.io/a-cookbook/index.html", type: "site" },
           { label: "GitHub", href: "https://github.com/katiecha/katiecha.github.io/tree/main/a-cookbook", type: "github" },
         ],
+        tags: ["HTML", "CSS"],
       },
       {
         name: "Genetics of Cancer Website",
@@ -118,11 +126,12 @@ export const CATEGORIES: Category[] = [
           { label: "Site", href: "https://genetics-of-cancer.netlify.app/home", type: "site" },
           { label: "GitHub", href: "https://github.com/katiecha/molecular-biology-and-genetics", type: "github" },
         ],
+        tags: ["HTML", "CSS"],
       },
     ],
   },
   {
-    title: "C / MIPS / Logisim / Embedded",
+    title: "Systems & Embedded",
     emoji: "👾",
     projects: [
       {
@@ -131,6 +140,7 @@ export const CATEGORIES: Category[] = [
         links: [
           { label: "GitHub", href: "https://github.com/katiecha/build-your-own-computer/tree/main/c", type: "github" },
         ],
+        tags: ["C"],
       },
       {
         name: "BYOC (MIPS)",
@@ -138,6 +148,7 @@ export const CATEGORIES: Category[] = [
         links: [
           { label: "GitHub", href: "https://github.com/katiecha/build-your-own-computer/tree/main/MIPS-assembly", type: "github" },
         ],
+        tags: ["MIPS"],
       },
       {
         name: "BYOC (Logisim)",
@@ -145,6 +156,7 @@ export const CATEGORIES: Category[] = [
         links: [
           { label: "GitHub", href: "https://github.com/katiecha/build-your-own-computer/tree/main/logisim", type: "github" },
         ],
+        tags: ["Logisim"],
       },
       {
         name: "Force Sensor",
@@ -152,6 +164,7 @@ export const CATEGORIES: Category[] = [
         links: [
           { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week16/", type: "docs" },
         ],
+        tags: ["C", "Embedded"],
       },
       {
         name: "ATtiny LED Blink",
@@ -159,6 +172,7 @@ export const CATEGORIES: Category[] = [
         links: [
           { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week09/", type: "docs" },
         ],
+        tags: ["C", "Embedded"],
       },
     ],
   },
@@ -170,31 +184,37 @@ export const CATEGORIES: Category[] = [
         name: "Password Manager",
         description: "A password manager implementing a Hash Map.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/data-structure-implementations/tree/main/hash-map", type: "github" }],
+        tags: ["Java"],
       },
       {
         name: "Patient Priority System",
         description: "A patient priority system implementing a Binary Heap.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/data-structure-implementations/tree/main/binary-heap", type: "github" }],
+        tags: ["Java"],
       },
       {
         name: "AVL Tree",
         description: "An implementation of an AVL Tree.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/data-structure-implementations/tree/main/avl-tree", type: "github" }],
+        tags: ["Java"],
       },
       {
         name: "Binary Search Tree",
         description: "An implementation of a Binary Search Tree.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/data-structure-implementations/tree/main/binary-search-tree", type: "github" }],
+        tags: ["Java"],
       },
       {
         name: "Linked List",
         description: "An implementation of a Linked List.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/data-structure-implementations/tree/main/linked-list", type: "github" }],
+        tags: ["Java"],
       },
       {
         name: "Transaction Tracking",
         description: "My first Java program to track transactions.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/data-structure-implementations/tree/main/java-intro", type: "github" }],
+        tags: ["Java"],
       },
       {
         name: "Puzzle Game",
@@ -202,54 +222,56 @@ export const CATEGORIES: Category[] = [
         links: [
           { label: "Demo", href: "https://www.katie-chai.com/work/akari", type: "demo" },
         ],
+        tags: ["Java"],
       },
     ],
   },
   {
-    title: "Python",
+    title: "Data & Research",
     emoji: "🐍",
     projects: [
       {
         name: "CV Nailoong",
         description: "A computer vision, facial expression detection system that matches your expressions to images.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/computer-vision-nailoong", type: "github" }],
+        tags: ["Python"],
       },
       {
         name: "Wordle",
         description: "A replica of the popular Wordle guessing game.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/comp110-22s-workspace/blob/main/exercises/ex03_wordle.py", type: "github" }],
+        tags: ["Python"],
       },
       {
         name: "Turtle Art",
         description: "An experiment with Python's turtle library.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/comp110-22s-workspace/blob/main/exercises/ex04_turtle_art.py", type: "github" }],
+        tags: ["Python"],
       },
       {
         name: "CS Class Demographic Study",
         description: "A data science project on my UNC COMP 110 class.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/comp110-22s-workspace/tree/main/exercises/ex08", type: "github" }],
+        tags: ["Python"],
       },
       {
         name: "Durham Traffic Stops Study",
         description: "An introductory data science project on Durham traffic stops.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/comp110-22s-workspace/blob/main/exercises/ex07/data_wrangling.ipynb", type: "github" }],
+        tags: ["Python"],
       },
-    ],
-  },
-  {
-    title: "SAS / R",
-    emoji: "📈",
-    projects: [
       {
         name: "Darknet Research",
         description: "A computational sociology project on trust and behavior in anonymous digital markets.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/trust-in-illicit-markets", type: "github" }],
+        tags: ["R"],
       },
       {
         name: "EPID Research",
         description: "Epidemiology research project for Honors Carolina.",
         links: [],
         status: "in-progress",
+        tags: ["R", "SAS"],
       },
       {
         name: "Biostatistics",
@@ -258,11 +280,12 @@ export const CATEGORIES: Category[] = [
           { label: "Guide", href: "https://katiecha.github.io/new-media/accessibility-guide/", type: "docs" },
           { label: "GitHub", href: "https://github.com/katiecha/katiecha.github.io/tree/main/new-media/accessibility-guide", type: "github" },
         ],
+        tags: ["SAS"],
       },
     ],
   },
   {
-    title: "Unity / C#",
+    title: "Creative & XR",
     emoji: "🎮",
     projects: [
       {
@@ -270,17 +293,13 @@ export const CATEGORIES: Category[] = [
         description: "A VR maze game project made with UNC CARVR.",
         links: [{ label: "GitHub", href: "https://github.com/carolina-ar-vr/VR-Maze-Game", type: "github" }],
         status: "in-progress",
+        tags: ["Unity", "C#"],
       },
-    ],
-  },
-  {
-    title: "Swift",
-    emoji: "💨",
-    projects: [
       {
         name: "Card Game",
         description: "A few introductory Swift projects that culminate in a simple card game.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/apps", type: "github" }],
+        tags: ["Swift"],
       },
     ],
   },
