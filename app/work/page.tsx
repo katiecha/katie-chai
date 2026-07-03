@@ -76,7 +76,7 @@ export default function WorkPage() {
       </section>
 
       {/* Current Projects */}
-      <Section title="Current Projects" emoji="🕵️">
+      <Section title="Projects" emoji="">
         <div>
           {CURRENT_PROJECTS.map((project) => (
             <ProjectCard key={project.name} project={project} />
@@ -86,8 +86,7 @@ export default function WorkPage() {
 
       {/* CS Projects */}
       <div className="mt-14">
-        <h2 className="text-lg font-semibold mb-1">CS Projects</h2>
-        <p className="text-sm text-gray-400 mb-2">Organized by language / technology</p>
+        <h2 className="text-lg font-semibold mb-6">👩‍💻 CS</h2>
 
         {CATEGORIES.map((category) => (
           <Section key={category.title} title={category.title} emoji={category.emoji}>
@@ -103,6 +102,7 @@ export default function WorkPage() {
       {/* UI/UX Projects */}
       <div className="mt-14">
         <h2 className="text-lg font-semibold mb-6">🕵️ UI/UX Projects</h2>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {UIUX_PROJECTS.map((project) => {
             const card = (

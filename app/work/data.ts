@@ -54,8 +54,8 @@ export const CURRENT_PROJECTS: Project[] = [
 
 export const CATEGORIES: Category[] = [
   {
-    title: "TypeScript / React / JavaScript",
-    emoji: "👩‍💻",
+    title: "Typescript, Javascript, React, etc.",
+    emoji: "🕸️",
     projects: [
       {
         name: "jeancha.ai",
@@ -123,8 +123,8 @@ export const CATEGORIES: Category[] = [
     ],
   },
   {
-    title: "Embedded / C / MIPS / Logisim",
-    emoji: "🔌",
+    title: "C / MIPS / Logisim / Embedded",
+    emoji: "👾",
     projects: [
       {
         name: "Build Your Own Computer (C)",
@@ -165,7 +165,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     title: "Java",
-    emoji: "☕",
+    emoji: "☕️",
     projects: [
       {
         name: "Password Manager",
@@ -239,7 +239,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     title: "SAS / R",
-    emoji: "📊",
+    emoji: "📈",
     projects: [
       {
         name: "Darknet Research",
@@ -276,7 +276,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     title: "Swift",
-    emoji: "📱",
+    emoji: "💨",
     projects: [
       {
         name: "Card Game",
