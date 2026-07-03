@@ -11,6 +11,7 @@ export type Project = {
   description: string
   links: ProjectLink[]
   status?: "in-progress"
+  image?: string
 }
 
 export type Category = {
@@ -289,25 +290,29 @@ export const CATEGORIES: Category[] = [
 export const UIUX_PROJECTS: Project[] = [
   {
     name: "Carolina Adapts Toys for Children",
-    description: "Website design and redesign for CATCH.",
+    description: "Website design & redesign.",
     links: [],
     status: "in-progress",
+    image: "/images/uiux-catch.png",
   },
   {
     name: "Special Olympics",
-    description: "UX research and website redesign and rebuild.",
+    description: "UX research and website redesign + rebuild.",
     links: [{ label: "Project", href: "https://www.katie-chai.com/work/special-olympics", type: "site" }],
     status: "in-progress",
+    image: "/images/uiux-special-olympics.png",
   },
   {
     name: "App Team Carolina",
     description: "Various projects from the UI/UX Design Academy.",
     links: [{ label: "Project", href: "https://www.katie-chai.com/work/app-team-carolina", type: "site" }],
+    image: "/images/uiux-app-team.png",
   },
   {
     name: "Jeni's Ice Cream",
     description: "UI redesign of the Jeni's Ice Cream App.",
     links: [],
     status: "in-progress",
+    image: "/images/uiux-jenis.jpg",
   },
 ]

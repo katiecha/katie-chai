@@ -64,7 +64,7 @@ export default function WorkPage() {
         <div className="shrink-0">
           <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-gray-100 overflow-hidden">
             <Image
-              src="/headshot.jpg"
+              src="/images/headshot.jpg"
               alt="Katie Chai"
               width={128}
               height={128}
@@ -102,27 +102,45 @@ export default function WorkPage() {
 
       {/* UI/UX Projects */}
       <div className="mt-14">
-        <h2 className="text-lg font-semibold mb-6">UI/UX Projects</h2>
+        <h2 className="text-lg font-semibold mb-6">🕵️ UI/UX Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {UIUX_PROJECTS.map((project) => (
-            <div
-              key={project.name}
-              className="border border-gray-200 rounded-lg p-4 hover:border-gray-400 transition-colors"
-            >
-              <div className="bg-gray-50 rounded-md h-32 mb-3 flex items-center justify-center text-gray-300 text-xs">
-                preview
+          {UIUX_PROJECTS.map((project) => {
+            const card = (
+              <div className="border border-gray-200 rounded-lg overflow-hidden hover:border-gray-400 transition-colors cursor-pointer">
+                <div className="relative h-40 bg-gray-50">
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-gray-300 text-xs">preview</div>
+                  )}
+                </div>
+                <div className="p-4">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-medium text-sm">{project.name}</span>
+                    {project.status === "in-progress" && (
+                      <span className="text-xs text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full border border-gray-200">
+                        in progress
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-gray-500 mt-0.5">{project.description}</p>
+                </div>
               </div>
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="font-medium text-sm">{project.name}</span>
-                {project.status === "in-progress" && (
-                  <span className="text-xs text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full border border-gray-200">
-                    in progress
-                  </span>
-                )}
-              </div>
-              <p className="text-sm text-gray-500 mt-0.5">{project.description}</p>
-            </div>
-          ))}
+            )
+            const href = project.links[0]?.href
+            return href ? (
+              <a key={project.name} href={href} target="_blank" rel="noopener noreferrer">
+                {card}
+              </a>
+            ) : (
+              <div key={project.name}>{card}</div>
+            )
+          })}
         </div>
       </div>
     </main>
