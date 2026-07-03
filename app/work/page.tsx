@@ -3,7 +3,7 @@ import Image from "next/image"
 import { GitHubIcon, LinkedInIcon, XIcon, ResumeIcon } from "@/app/components/icons"
 import { ProjectCard } from "@/app/components/project-card"
 import { Section } from "@/app/components/section"
-import { CURRENT_PROJECTS, CATEGORIES, UIUX_PROJECTS } from "@/app/work/data"
+import { CURRENT_PROJECTS, CATEGORIES, UIUX_PROJECTS, SOCIAL_LINKS } from "@/app/work/data"
 
 export const metadata: Metadata = {
   title: "Work — Katie Chai",
@@ -23,7 +23,7 @@ export default function WorkPage() {
 
           <div className="flex items-center gap-4 mt-5">
             <a
-              href="https://github.com/katiecha"
+              href={SOCIAL_LINKS.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -32,7 +32,7 @@ export default function WorkPage() {
               <GitHubIcon size={20} />
             </a>
             <a
-              href="https://linkedin.com/in/katiecha"
+              href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -41,7 +41,7 @@ export default function WorkPage() {
               <LinkedInIcon size={20} />
             </a>
             <a
-              href="https://x.com/katie_chai"
+              href={SOCIAL_LINKS.x}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X"
@@ -50,7 +50,7 @@ export default function WorkPage() {
               <XIcon size={20} />
             </a>
             <a
-              href="/resume.pdf"
+              href={SOCIAL_LINKS.resume}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Resume"

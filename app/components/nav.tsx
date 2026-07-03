@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { GitHubIcon, LinkedInIcon, XIcon, ResumeIcon } from "@/app/components/icons"
+import { SOCIAL_LINKS } from "@/app/work/data"
 
 export function Nav() {
   return (
@@ -22,40 +23,16 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <a
-            href="https://github.com/katiecha"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-gray-600 hover:text-black transition-colors"
-          >
+          <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-gray-600 hover:text-black transition-colors">
             <GitHubIcon size={18} />
           </a>
-          <a
-            href="https://linkedin.com/in/katiecha"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-gray-600 hover:text-black transition-colors"
-          >
+          <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-600 hover:text-black transition-colors">
             <LinkedInIcon size={18} />
           </a>
-          <a
-            href="https://x.com/katie_chai"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="X"
-            className="text-gray-600 hover:text-black transition-colors"
-          >
+          <a href={SOCIAL_LINKS.x} target="_blank" rel="noopener noreferrer" aria-label="X" className="text-gray-600 hover:text-black transition-colors">
             <XIcon size={18} />
           </a>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Resume"
-            className="text-gray-600 hover:text-black transition-colors"
-          >
+          <a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener noreferrer" aria-label="Resume" className="text-gray-600 hover:text-black transition-colors">
             <ResumeIcon size={18} />
           </a>
         </div>
