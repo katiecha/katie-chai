@@ -73,13 +73,18 @@ export function Row({ project }: { project: Project }) {
             <p className="text-sm text-text-muted leading-relaxed mb-3">{project.description}</p>
           )}
 
-          {/* Language dot + other tags */}
-          {project.tags && project.tags.length > 0 && (
+          {/* Language dot + other language tags + frameworks */}
+          {((project.tags && project.tags.length > 0) || project.frameworks?.length) && (
             <div className="flex items-center gap-3 flex-wrap">
               {primaryTag && <LanguageDot tag={primaryTag} />}
               {otherTags.map((tag) => (
                 <Tag key={tag}>{tag}</Tag>
               ))}
+              {project.frameworks && project.frameworks.length > 0 && (
+                <span className="text-xs text-text-subtle">
+                  {project.frameworks.join(" · ")}
+                </span>
+              )}
             </div>
           )}
         </div>

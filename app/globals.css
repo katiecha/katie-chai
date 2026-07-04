@@ -19,6 +19,9 @@
 
   --color-surface:       #f9fafb; /* gray-50   — image backgrounds        */
   --color-surface-hover: #f3f4f6; /* gray-100  — hover backgrounds        */
+
+  /* ─── Border radius ─────────────────────────────────────── */
+  --radius-fillet: 2px; /* very slight rounding on cards / containers */
 }
 
 /*
