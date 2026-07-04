@@ -2,7 +2,42 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* ─── Z-index scale ─────────────────────────────────────── */
+  --z-nav:     50;  /* sticky header                          */
+  --z-tooltip: 60;  /* tooltips + dropdown panels             */
+  --z-modal:  100;  /* full-screen overlays (story viewer)    */
+
+  /* ─── Semantic color tokens ─────────────────────────────── */
+  --color-border:        #e5e7eb; /* gray-200  — default borders          */
+  --color-border-hover:  #9ca3af; /* gray-400  — hover / active borders   */
+
+  --color-text-primary:  #111827; /* gray-900  — headings, item names     */
+  --color-text-muted:    #6b7280; /* gray-500  — body copy, descriptions  */
+  --color-text-subtle:   #9ca3af; /* gray-400  — dates, metadata, icons   */
+  --color-text-disabled: #d1d5db; /* gray-300  — placeholder text         */
+
+  --color-surface:       #f9fafb; /* gray-50   — image backgrounds        */
+  --color-surface-hover: #f3f4f6; /* gray-100  — hover backgrounds        */
 }
+
+/*
+ * ─── Typography scale ────────────────────────────────────────
+ *
+ *  Page title    text-3xl  font-semibold  text-black (h1)
+ *  Page subtitle text-sm                 text-text-muted
+ *
+ *  Section h2    text-base font-semibold  text-black  (Section size="lg")
+ *  Section h3    text-sm   font-semibold  text-black  (Section size="md")
+ *  Section h4    text-sm   font-medium    text-text-muted (Section size="sm")
+ *
+ *  Item title    text-sm   font-semibold  text-black
+ *  Body copy     text-sm                 text-text-muted  leading-relaxed
+ *  Metadata      text-xs                 text-text-subtle
+ *  Tag label     text-xs                 (see tag.tsx)
+ *  Footer        text-xs                 text-text-subtle  text-center
+ * ────────────────────────────────────────────────────────────
+ */
 
 * {
   box-sizing: border-box;

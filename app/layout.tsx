@@ -16,8 +16,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-white text-black antialiased">
         <Nav />
         {children}
-        <footer className="max-w-4xl mx-auto px-6 py-10 mt-16 border-t border-gray-100">
-          <p className="text-xs text-gray-400 text-center">Made with ❤️ by Katie Chai</p>
+        <footer className="max-w-4xl mx-auto px-6 py-10 mt-16 border-t border-border">
+          <p className="text-xs text-text-subtle text-center">Made with ❤️ by Katie Chai</p>
         </footer>
       </body>
     </html>

@@ -22,7 +22,7 @@ const HEADING_CONFIG: Record<SectionSize, { tag: "h2" | "h3" | "h4"; className: 
   },
   sm: {
     tag: "h4",
-    className: "text-sm font-medium text-gray-500 mb-3 flex items-center gap-1.5",
+    className: "text-sm font-medium text-text-muted mb-3 flex items-center gap-1.5",
     wrapperClass: "mt-5",
   },
 }

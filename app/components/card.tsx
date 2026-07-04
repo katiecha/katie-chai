@@ -1,52 +1,59 @@
 import Image from "next/image"
-import { GitHubIcon, XIcon, LinkIcon } from "@/app/components/icons"
+import { Tooltip } from "@/app/components/tooltip"
+import { IconLink } from "@/app/components/icon-link"
 import { Tag } from "@/app/components/tag"
-import type { Project, LinkType } from "@/app/work/data"
-
-
-function CardLinkIcon({ type }: { type: LinkType }) {
-  if (type === "github") return <GitHubIcon size={14} />
-  if (type === "x") return <XIcon size={14} />
-  return <LinkIcon size={14} />
-}
+import type { Project } from "@/app/work/data"
 
 export function Card({ project }: { project: Project }) {
   return (
-    <div className="py-3 border-b border-gray-100 last:border-0">
-      {project.image && (
+    // No overflow-hidden here — that would clip the tooltip.
+    // overflow-hidden is applied only to the image container below.
+    <div className="border border-border rounded-fillet hover:border-border-hover transition-all duration-150">
+      {project.videoEmbed ? (
+        <div className="relative w-full bg-black overflow-hidden rounded-t-fillet" style={{ aspectRatio: "16/9" }}>
+          <iframe
+            src={project.videoEmbed}
+            title={project.name}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+          />
+        </div>
+      ) : project.image ? (
         <div
-          className="relative w-full rounded-lg overflow-hidden bg-gray-100 mb-3"
+          className="relative w-full bg-surface overflow-hidden rounded-t-fillet"
           style={{ aspectRatio: "16/9" }}
         >
-          <Image src={project.image} alt={project.name} fill className="object-cover" />
+          <Image src={project.image} alt={project.name} fill className={`object-cover ${project.imagePosition ?? "object-center"}`} />
         </div>
-      )}
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex-1 min-w-0">
+      ) : null}
+
+      <div className="p-4 flex flex-col gap-2">
+        <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="font-medium text-sm">{project.name}</span>
+            <span className="font-semibold text-sm">{project.name}</span>
             {project.status === "in-progress" && (
-              <span title="in progress" className="text-sm leading-none select-none">⚠️</span>
+              <Tooltip label="in progress">
+                <span className="text-sm leading-none select-none">⚠️</span>
+              </Tooltip>
             )}
-            {project.tags?.map((tag) => <Tag key={tag}>{tag}</Tag>)}
           </div>
-          <p className="text-sm text-gray-500 mt-0.5 leading-relaxed">{project.description}</p>
+          {project.links.length > 0 && (
+            <div className="flex items-center gap-2.5 shrink-0">
+              {project.links.map((link) => (
+                <IconLink key={link.href} href={link.href} label={link.label} type={link.type} />
+              ))}
+            </div>
+          )}
         </div>
 
-        {project.links.length > 0 && (
-          <div className="flex items-center gap-3 shrink-0 mt-0.5">
-            {project.links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.label}
-                className="text-gray-400 hover:text-black transition-colors"
-              >
-                <CardLinkIcon type={link.type} />
-              </a>
-            ))}
+        {project.description && (
+          <p className="text-sm text-text-muted leading-relaxed">{project.description}</p>
+        )}
+
+        {project.tags && project.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mt-auto pt-1">
+            {project.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
           </div>
         )}
       </div>

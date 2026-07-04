@@ -12,6 +12,8 @@ export type Project = {
   links: ProjectLink[]
   status?: "in-progress"
   image?: string
+  imagePosition?: string
+  videoEmbed?: string
   tags?: string[]
 }
 
@@ -23,9 +25,8 @@ export type Category = {
 
 export const SOCIAL_LINKS = {
   github: "https://github.com/katiecha",
-  linkedin: "http://www.linkedin.com/in/katie-chai",
+  linkedin: "https://www.linkedin.com/in/katie-chai",
   x: "https://x.com/katiechaii",
-  resume: "https://www.katiech.ai/",
 }
 
 export const CURRENT_PROJECTS: Project[] = [
@@ -69,6 +70,14 @@ export const CATEGORIES: Category[] = [
     title: "Web & Full-Stack",
     emoji: "🕸️",
     projects: [
+      {
+        name: "Paywall Remover",
+        description: "A Chrome extension that removes CSS-based paywalls by targeting overlay elements, removing fixed-position obstructions, and optionally opening archive.today.",
+        links: [
+          { label: "GitHub", href: "https://github.com/katiecha/paywall-remover", type: "github" },
+        ],
+        tags: ["JavaScript", "Chrome Extension"],
+      },
       {
         name: "LinkedIn Queens Solver",
         description: "A DOM bot I use to solve LinkedIn Queens.",
@@ -134,6 +143,28 @@ export const CATEGORIES: Category[] = [
     ],
   },
   {
+    title: "AI Infrastructure",
+    emoji: "⚙️",
+    projects: [
+      {
+        name: "Research Skills & Rules",
+        description: "A set of Claude Code skills for reading and analyzing research papers, implementing Keshav's three-pass method, evidence verification, and literature survey mode.",
+        links: [
+          { label: "GitHub", href: "https://github.com/katiecha/research-skills-and-rules", type: "github" },
+        ],
+        tags: ["Claude Code", "AI"],
+      },
+      {
+        name: "Coding Skills & Rules",
+        description: "A private collection of Claude Code skills and rules for software engineering workflows.",
+        links: [
+          { label: "GitHub", href: "https://github.com/katiecha/coding-skills-and-rules", type: "github" },
+        ],
+        tags: ["Claude Code", "AI"],
+      },
+    ],
+  },
+  {
     title: "Systems & Embedded",
     emoji: "👾",
     projects: [
@@ -167,7 +198,7 @@ export const CATEGORIES: Category[] = [
         links: [
           { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week16/", type: "docs" },
         ],
-        tags: ["C", "Embedded"],
+        tags: ["C"],
       },
       {
         name: "ATtiny LED Blink",
@@ -175,7 +206,7 @@ export const CATEGORIES: Category[] = [
         links: [
           { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week09/", type: "docs" },
         ],
-        tags: ["C", "Embedded"],
+        tags: ["C"],
       },
     ],
   },
@@ -280,8 +311,7 @@ export const CATEGORIES: Category[] = [
         name: "Biostatistics",
         description: "A few projects from my statistical programming class.",
         links: [
-          { label: "Guide", href: "https://katiecha.github.io/new-media/accessibility-guide/", type: "docs" },
-          { label: "GitHub", href: "https://github.com/katiecha/katiecha.github.io/tree/main/new-media/accessibility-guide", type: "github" },
+          { label: "GitHub", href: "https://github.com/katiecha/biostats", type: "github" },
         ],
         tags: ["SAS"],
       },
@@ -304,6 +334,12 @@ export const CATEGORIES: Category[] = [
         links: [{ label: "GitHub", href: "https://github.com/katiecha/apps", type: "github" }],
         tags: ["Swift"],
       },
+      {
+        name: "Pomodoro Timer",
+        description: "My first Swift project - a pomodoro timer app.",
+        links: [{ label: "GitHub", href: "https://github.com/katiecha/pomodoro-timer", type: "github" }],
+        tags: ["Swift"],
+      },
     ],
   },
 ]
@@ -319,14 +355,14 @@ export const UIUX_PROJECTS: Project[] = [
   {
     name: "Special Olympics",
     description: "UX research and website redesign + rebuild.",
-    links: [{ label: "Project", href: "https://www.katie-chai.com/work/special-olympics", type: "site" }],
+    links: [{ label: "Project", href: "/work/special-olympics", type: "site" }],
     status: "in-progress",
     image: "/images/uiux-special-olympics.png",
   },
   {
     name: "App Team Carolina",
     description: "Various projects from the UI/UX Design Academy.",
-    links: [{ label: "Project", href: "https://www.katie-chai.com/work/app-team-carolina", type: "site" }],
+    links: [{ label: "Project", href: "/work/app-team-carolina", type: "site" }],
     image: "/images/uiux-app-team.png",
   },
   {

@@ -1,40 +1,31 @@
 import Link from "next/link"
-import { GitHubIcon, LinkedInIcon, XIcon, LinkIcon } from "@/app/components/icons"
+import { IconLink } from "@/app/components/icon-link"
 import { SOCIAL_LINKS } from "@/app/work/data"
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
+    <header className="sticky top-0 z-nav bg-white border-b border-border [transform:translateZ(0)]">
       <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/work" className="font-semibold tracking-widest text-sm uppercase">
           Katie Chai
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/work" className="text-sm hover:text-gray-500 transition-colors">
+          <Link href="/work" className="text-sm hover:text-text-muted transition-colors">
             Work
           </Link>
-          <Link href="/play" className="text-sm hover:text-gray-500 transition-colors">
+          <Link href="/play" className="text-sm hover:text-text-muted transition-colors">
             Play
           </Link>
-          <Link href="/about" className="text-sm hover:text-gray-500 transition-colors">
+          <Link href="/about" className="text-sm hover:text-text-muted transition-colors">
             About
           </Link>
         </nav>
 
         <div className="flex items-center gap-4">
-          <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-gray-600 hover:text-black transition-colors">
-            <GitHubIcon size={18} />
-          </a>
-          <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-600 hover:text-black transition-colors">
-            <LinkedInIcon size={18} />
-          </a>
-          <a href={SOCIAL_LINKS.x} target="_blank" rel="noopener noreferrer" aria-label="X" className="text-gray-600 hover:text-black transition-colors">
-            <XIcon size={18} />
-          </a>
-          <a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener noreferrer" aria-label="Resume" className="text-gray-600 hover:text-black transition-colors">
-            <LinkIcon size={18} />
-          </a>
+          <IconLink href={SOCIAL_LINKS.github} label="GitHub" className="text-text-muted hover:text-black transition-colors" />
+          <IconLink href={SOCIAL_LINKS.linkedin} label="LinkedIn" className="text-text-muted hover:text-black transition-colors" />
+          <IconLink href={SOCIAL_LINKS.x} label="X" className="text-text-muted hover:text-black transition-colors" />
         </div>
       </div>
     </header>
