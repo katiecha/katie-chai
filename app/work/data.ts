@@ -14,13 +14,16 @@ export type Project = {
   image?: string
   imagePosition?: string
   videoEmbed?: string
-  tags?: string[]
+  tags?: string[]        // languages only (TypeScript, Python, C#, …)
+  frameworks?: string[]  // libraries/engines/platforms (React, Unity, …)
 }
 
 export type Category = {
   title: string
   emoji: string
   projects: Project[]
+  note?: string        // if set, renders as prose instead of rows
+  noteLinks?: ProjectLink[]
 }
 
 export const SOCIAL_LINKS = {
@@ -45,7 +48,8 @@ export const CURRENT_PROJECTS: Project[] = [
       { label: "Site", href: "https://jeanch.ai/happy-fathers-day", type: "site" },
       { label: "GitHub", href: "https://github.com/katiecha/jeanch.ai", type: "github" },
     ],
-    tags: ["TypeScript", "React", "Three.js"],
+    tags: ["TypeScript"],
+    frameworks: ["React", "Three.js"],
   },
   {
     name: "Resy Bot",
@@ -61,7 +65,8 @@ export const CURRENT_PROJECTS: Project[] = [
     links: [
       { label: "GitHub", href: "https://github.com/katiecha/NC-ASK", type: "github" },
     ],
-    tags: ["TypeScript", "React", "Python"],
+    tags: ["TypeScript", "Python"],
+    frameworks: ["React"],
   },
 ]
 
@@ -76,7 +81,8 @@ export const CATEGORIES: Category[] = [
         links: [
           { label: "GitHub", href: "https://github.com/katiecha/paywall-remover", type: "github" },
         ],
-        tags: ["JavaScript", "Chrome Extension"],
+        tags: ["JavaScript"],
+        frameworks: ["Chrome Extension"],
       },
       {
         name: "LinkedIn Queens Solver",
@@ -102,7 +108,8 @@ export const CATEGORIES: Category[] = [
           { label: "Site", href: "https://www.catch-inc.com/", type: "site" },
           { label: "GitHub", href: "https://github.com/cssgunc/catch", type: "github" },
         ],
-        tags: ["TypeScript", "React"],
+        tags: ["TypeScript"],
+        frameworks: ["React"],
       },
       {
         name: "ReSearch",
@@ -111,7 +118,8 @@ export const CATEGORIES: Category[] = [
           { label: "YouTube", href: "https://www.youtube.com/watch?v=qGP18CfBojs", type: "youtube" },
           { label: "GitHub", href: "https://github.com/researph/ReSearch", type: "github" },
         ],
-        tags: ["TypeScript", "React", "Python"],
+        tags: ["TypeScript", "Python"],
+        frameworks: ["React"],
       },
       {
         name: "Allergy Forecaster",
@@ -120,7 +128,8 @@ export const CATEGORIES: Category[] = [
           { label: "YouTube", href: "https://youtu.be/btPoCuaHIxs?si=-YUrUHb5ikpzJXdC", type: "youtube" },
           { label: "GitHub", href: "https://github.com/426finalproject/finalproject", type: "github" },
         ],
-        tags: ["TypeScript", "React"],
+        tags: ["TypeScript"],
+        frameworks: ["React"],
       },
       {
         name: "A Cookbook Website",
@@ -145,23 +154,10 @@ export const CATEGORIES: Category[] = [
   {
     title: "AI Infrastructure",
     emoji: "⚙️",
-    projects: [
-      {
-        name: "Research Skills & Rules",
-        description: "A set of Claude Code skills for reading and analyzing research papers, implementing Keshav's three-pass method, evidence verification, and literature survey mode.",
-        links: [
-          { label: "GitHub", href: "https://github.com/katiecha/research-skills-and-rules", type: "github" },
-        ],
-        tags: ["Claude Code", "AI"],
-      },
-      {
-        name: "Coding Skills & Rules",
-        description: "A private collection of Claude Code skills and rules for software engineering workflows.",
-        links: [
-          { label: "GitHub", href: "https://github.com/katiecha/coding-skills-and-rules", type: "github" },
-        ],
-        tags: ["Claude Code", "AI"],
-      },
+    projects: [],
+    note: "I maintain personal collections of skills, prompts, and workflows for AI-assisted software engineering and research — including implementations of Keshav's three-pass method, evidence verification, and literature survey pipelines. I have a public research toolkit and a private engineering toolkit.",
+    noteLinks: [
+      { label: "Research toolkit", href: "https://github.com/katiecha/research-skills-and-rules", type: "github" },
     ],
   },
   {
@@ -326,7 +322,8 @@ export const CATEGORIES: Category[] = [
         description: "A VR maze game project made with UNC CARVR.",
         links: [{ label: "GitHub", href: "https://github.com/carolina-ar-vr/VR-Maze-Game", type: "github" }],
         status: "in-progress",
-        tags: ["Unity", "C#"],
+        tags: ["C#"],
+        frameworks: ["Unity"],
       },
       {
         name: "Card Game",

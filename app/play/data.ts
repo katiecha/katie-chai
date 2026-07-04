@@ -134,8 +134,8 @@ export const IG_STORIES: string[] = [
 ]
 
 export const MERCH: MediaItem[] = [
-  { label: "Student Union Cube Painting", image: "/images/play/merch-1.jpg" },
-  { label: "Toy Tally Poster", image: "/images/play/merch-2.jpg" },
-  { label: "", image: "/images/play/merch-3.jpg" },
-  { label: "", image: "/images/play/merch-4.jpg" },
+  { label: "CATCH T-Shirt", image: "/images/play/merch-1.jpg" },
+  { label: "CATCH Hat", image: "/images/play/merch-2.jpg" },
+  { label: "Student Union Cube Painting", image: "/images/play/merch-3.jpg" },
+  { label: "Toy Tally Poster", image: "/images/play/merch-4.jpg" },
 ]

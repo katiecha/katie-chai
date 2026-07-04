@@ -5,41 +5,61 @@ import { Row } from "@/app/components/row"
 import { Section } from "@/app/components/section"
 import { SearchInput } from "@/app/components/search-input"
 import { DropdownFilter } from "@/app/components/dropdown-filter"
+import { IconLink } from "@/app/components/icon-link"
 import type { Category } from "@/app/work/data"
 
-// Ordered by domain: Web → AI → Systems → Data → Creative
-const TAG_ORDER = [
-  "TypeScript", "React", "Three.js", "JavaScript", "HTML", "CSS",
-  "Claude Code", "AI",
+const LANGUAGE_ORDER = [
+  "TypeScript", "JavaScript", "HTML", "CSS",
   "C", "MIPS", "Logisim",
   "Python", "R", "SAS",
   "Java",
-  "Unity", "C#", "Swift",
+  "C#", "Swift",
+]
+
+const FRAMEWORK_ORDER = [
+  "React", "Three.js", "Unity", "Chrome Extension",
 ]
 
 export function FilterableCSProjects({ categories }: { categories: Category[] }) {
   const [search, setSearch] = useState("")
-  const [activeTag, setActiveTag] = useState<string | null>(null)
+  const [activeLanguage, setActiveLanguage] = useState<string | null>(null)
+  const [activeFramework, setActiveFramework] = useState<string | null>(null)
 
-  const presentTags = new Set(
+  const presentLanguages = new Set(
     categories.flatMap((cat) => cat.projects.flatMap((p) => p.tags ?? []))
   )
-  const orderedTags = TAG_ORDER.filter((t) => presentTags.has(t))
+  const presentFrameworks = new Set(
+    categories.flatMap((cat) => cat.projects.flatMap((p) => p.frameworks ?? []))
+  )
+
+  const orderedLanguages = LANGUAGE_ORDER.filter((t) => presentLanguages.has(t))
+  const orderedFrameworks = FRAMEWORK_ORDER.filter((f) => presentFrameworks.has(f))
 
   const query = search.trim().toLowerCase()
+  const hasFilter = Boolean(activeLanguage || activeFramework || query)
 
   const visibleCategories = categories
-    .map((cat) => ({
-      ...cat,
-      projects: cat.projects.filter((p) => {
-        const matchesTag = activeTag ? p.tags?.includes(activeTag) : true
-        const matchesSearch = query
-          ? p.name.toLowerCase().includes(query) || p.description.toLowerCase().includes(query)
-          : true
-        return matchesTag && matchesSearch
-      }),
-    }))
-    .filter((cat) => cat.projects.length > 0)
+    .map((cat) => {
+      // Note-only categories hide when any filter is active
+      if (cat.note) return hasFilter ? null : cat
+
+      return {
+        ...cat,
+        projects: cat.projects.filter((p) => {
+          const matchesLanguage = activeLanguage ? p.tags?.includes(activeLanguage) : true
+          const matchesFramework = activeFramework ? p.frameworks?.includes(activeFramework) : true
+          const matchesSearch = query
+            ? p.name.toLowerCase().includes(query) || p.description.toLowerCase().includes(query)
+            : true
+          return matchesLanguage && matchesFramework && matchesSearch
+        }),
+      }
+    })
+    .filter((cat): cat is NonNullable<typeof cat> => {
+      if (!cat) return false
+      if (cat.note) return true
+      return cat.projects.length > 0
+    })
 
   return (
     <div>
@@ -48,9 +68,15 @@ export function FilterableCSProjects({ categories }: { categories: Category[] })
         <SearchInput value={search} onChange={setSearch} />
         <DropdownFilter
           label="Language"
-          options={orderedTags}
-          value={activeTag}
-          onChange={setActiveTag}
+          options={orderedLanguages}
+          value={activeLanguage}
+          onChange={setActiveLanguage}
+        />
+        <DropdownFilter
+          label="Framework"
+          options={orderedFrameworks}
+          value={activeFramework}
+          onChange={setActiveFramework}
         />
       </div>
 
@@ -59,11 +85,24 @@ export function FilterableCSProjects({ categories }: { categories: Category[] })
       ) : (
         visibleCategories.map((cat) => (
           <Section key={cat.title} title={cat.title} emoji={cat.emoji}>
-            <div>
-              {cat.projects.map((project) => (
-                <Row key={project.name} project={project} />
-              ))}
-            </div>
+            {cat.note ? (
+              <div>
+                <p className="text-sm text-text-muted leading-relaxed">{cat.note}</p>
+                {cat.noteLinks && cat.noteLinks.length > 0 && (
+                  <div className="flex items-center gap-3 mt-3">
+                    {cat.noteLinks.map((link) => (
+                      <IconLink key={link.href} href={link.href} label={link.label} type={link.type} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div>
+                {cat.projects.map((project) => (
+                  <Row key={project.name} project={project} />
+                ))}
+              </div>
+            )}
           </Section>
         ))
       )}

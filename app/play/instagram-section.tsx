@@ -61,59 +61,69 @@ export function InstagramSection() {
 
   return (
     <>
-      {/* Mini Instagram */}
+      {/* Mini Instagram — uses card shell styling for consistency */}
       <div className="border border-border rounded-fillet overflow-hidden bg-white">
 
-        {/* Profile header */}
-        <div className="px-4 py-3 flex items-center gap-3 border-b border-gray-100">
-          <div className="p-[2px] rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 shrink-0">
-            <div className="p-[2px] rounded-full bg-white">
-              <div className="relative w-10 h-10 rounded-full overflow-hidden">
-                <Image src="/images/play/catch-collection.jpg" alt="CATCH" fill className="object-cover" />
+        {/* Profile header — mirrors real IG layout */}
+        <div className="px-6 py-5 flex items-start gap-6 border-b border-border">
+
+          {/* Avatar */}
+          <div className="p-[3px] rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 shrink-0">
+            <div className="p-[3px] rounded-full bg-white">
+              <div className="relative w-20 h-20 rounded-full overflow-hidden">
+                <Image src="/images/play/catch-logo.png" alt="CATCH" fill className="object-contain" />
               </div>
             </div>
           </div>
-          <div className="min-w-0">
-            <p className="text-sm font-semibold leading-tight">carolinaadaptstoys</p>
-            <p className="text-xs text-text-subtle mt-0.5">PR Chair 2022–2023</p>
+
+          {/* Info */}
+          <div className="flex flex-col gap-2 min-w-0 pt-1">
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-base font-semibold">carolinaadaptstoys</span>
+              <a
+                href="https://www.catch-inc.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-semibold text-blue-500 hover:text-blue-700 transition-colors"
+              >
+                Visit ↗
+              </a>
+            </div>
+
+            {/* Stats row */}
+            <div className="flex items-center gap-5 text-sm">
+              <span><span className="font-semibold">5</span> <span className="text-text-muted">posts</span></span>
+              <span><span className="font-semibold">947</span> <span className="text-text-muted">followers</span></span>
+              <span><span className="font-semibold">1,002</span> <span className="text-text-muted">following</span></span>
+            </div>
+
+            {/* Bio */}
+            <div className="text-sm leading-relaxed text-text-muted max-w-sm">
+              <span className="font-semibold text-text-primary block">CATCH</span>
+              <span className="text-text-subtle text-xs block mb-0.5">PR Chair 2022–2023</span>
+              I created branding materials and managed Instagram, Facebook, LinkedIn, and email communications.
+            </div>
           </div>
-          <a
-            href="https://www.catch-inc.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-auto text-xs font-semibold text-blue-500 hover:text-blue-700 transition-colors shrink-0"
-          >
-            Visit ↗
-          </a>
         </div>
 
-        {/* Bio */}
-        <div className="px-4 py-2 border-b border-gray-100">
-          <p className="text-xs text-text-muted leading-relaxed">
-            I served as the 2022–2023 PR Chair for CATCH, Inc. I created branding materials including
-            Instagram posts, posters, paintings, and product shots, and managed the website, Instagram,
-            Facebook, LinkedIn, and email communications.
-          </p>
-        </div>
-
-        {/* Stories row */}
-        <div className="px-3 py-3 border-b border-gray-100 overflow-x-auto scrollbar-hide">
-          <div className="flex gap-3">
+        {/* Stories row — larger circles matching real IG style */}
+        <div className="px-4 py-4 border-b border-border overflow-x-auto scrollbar-hide">
+          <div className="flex gap-4">
             {IG_STORIES.map((src, i) => (
               <button
                 key={src}
                 onClick={() => setActiveStory(i)}
-                className="flex flex-col items-center gap-1 shrink-0 group"
+                className="flex flex-col items-center gap-1.5 shrink-0 group"
               >
-                <div className="p-[2px] rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 group-hover:opacity-80 transition-opacity">
-                  <div className="p-[2px] rounded-full bg-white">
-                    <div className="relative w-14 h-14 rounded-full overflow-hidden">
+                <div className="p-[2.5px] rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 group-hover:opacity-80 transition-opacity">
+                  <div className="p-[2.5px] rounded-full bg-white">
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden">
                       <Image src={src} alt={`Story ${i + 1}`} fill className="object-cover" />
                     </div>
                   </div>
                 </div>
-                <span className="text-[10px] text-text-muted w-14 text-center truncate">
-                  {i + 1}
+                <span className="text-[10px] text-text-muted w-16 text-center truncate leading-tight">
+                  story {i + 1}
                 </span>
               </button>
             ))}
@@ -121,7 +131,7 @@ export function InstagramSection() {
         </div>
 
         {/* Posts grid */}
-        <div className="grid grid-cols-3 gap-px bg-gray-100">
+        <div className="grid grid-cols-3 gap-px bg-border">
           {IG_POSTS.map((post) => (
             <div key={post.image} className="group relative aspect-square bg-white">
               <Image src={post.image} alt={post.label || ""} fill className="object-cover" />
@@ -137,18 +147,25 @@ export function InstagramSection() {
         </div>
       </div>
 
-      {/* Merch & Other */}
+      {/* Merch & Other — uses core card shell styling */}
       <div className="mt-5">
         <h4 className="text-sm font-medium text-text-muted mb-3">Merch & Other</h4>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {MERCH.map((item, i) => (
-            <div key={item.image} className="group relative aspect-square rounded-fillet overflow-hidden bg-surface-hover">
-              <Image src={item.image} alt={item.label || `Merch ${i + 1}`} fill className="object-cover" />
+            <div
+              key={item.image}
+              className="border border-border rounded-fillet hover:border-border-hover transition-all duration-150 bg-white flex flex-col overflow-hidden"
+            >
+              {/* Image area — matches card.tsx bg-surface + rounded-t-fillet */}
+              <div className="relative bg-surface overflow-hidden rounded-t-fillet" style={{ aspectRatio: "1" }}>
+                <div className="absolute inset-3">
+                  <Image src={item.image} alt={item.label || `Merch ${i + 1}`} fill className="object-contain" />
+                </div>
+              </div>
+              {/* Label area — matches card.tsx p-4 content area */}
               {item.label && (
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-end p-2">
-                  <span className="text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity leading-tight">
-                    {item.label}
-                  </span>
+                <div className="px-4 py-3 border-t border-border">
+                  <p className="text-sm font-semibold text-center leading-tight">{item.label}</p>
                 </div>
               )}
             </div>
@@ -156,83 +173,94 @@ export function InstagramSection() {
         </div>
       </div>
 
-      {/* Story viewer modal */}
+      {/* Story viewer modal — Instagram-style centered portrait card */}
       {activeStory !== null && (
-        <div
-          className="fixed inset-0 z-modal bg-black/95 flex items-center justify-center"
-          onClick={() => setActiveStory(null)}
-        >
+        <div className="fixed inset-0 z-modal bg-[#1a1a1a] flex items-center justify-between">
+
+          {/* Left click zone — previous story */}
+          <button
+            className="flex-1 h-full"
+            onClick={() => setActiveStory(prev => (prev === null ? null : Math.max(0, prev - 1)))}
+            aria-label="Previous story"
+          />
+
+          {/* Story card */}
           <div
-            className="relative w-full h-full max-w-sm flex flex-col"
-            onClick={e => e.stopPropagation()}
+            className="relative h-[90vh] rounded-2xl overflow-hidden bg-black shrink-0"
+            style={{ aspectRatio: "9/16" }}
           >
+            {/* Story image */}
+            <Image
+              src={IG_STORIES[activeStory]}
+              alt={`Story ${activeStory + 1}`}
+              fill
+              className="object-cover"
+              priority
+            />
+
             {/* Progress bars */}
-            <div className="absolute top-0 left-0 right-0 z-20 flex gap-1 p-3 pt-safe">
+            <div className="absolute top-3 left-3 right-3 z-10 flex gap-1">
               {IG_STORIES.map((_, i) => (
                 <div key={i} className="flex-1 h-0.5 rounded-full bg-white/30 overflow-hidden">
                   <div
                     className="h-full bg-white rounded-full"
                     style={{
                       width:
-                        i < activeStory
-                          ? "100%"
-                          : i === activeStory
-                          ? `${progress}%`
-                          : "0%",
+                        i < activeStory ? "100%"
+                        : i === activeStory ? `${progress}%`
+                        : "0%",
                     }}
                   />
                 </div>
               ))}
             </div>
 
-            {/* Close */}
-            <button
-              onClick={() => setActiveStory(null)}
-              className="absolute top-8 right-3 z-20 text-white/80 hover:text-white text-lg p-2 leading-none"
-              aria-label="Close"
-            >
-              ✕
-            </button>
-
-            {/* Story image */}
-            <div className="relative w-full h-full">
-              <Image
-                src={IG_STORIES[activeStory]}
-                alt={`Story ${activeStory + 1}`}
-                fill
-                className="object-contain"
-                priority
-              />
+            {/* Profile info — top-left inside card */}
+            <div className="absolute top-7 left-3 z-10 flex items-center gap-2">
+              <div className="p-[1.5px] rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600">
+                <div className="p-[1.5px] rounded-full bg-black">
+                  <div className="relative w-8 h-8 rounded-full overflow-hidden">
+                    <Image src="/images/play/catch-logo.png" alt="CATCH" fill className="object-contain" />
+                  </div>
+                </div>
+              </div>
+              <span className="text-white text-xs font-semibold drop-shadow">carolinaadaptstoys</span>
             </div>
 
-            {/* Story counter */}
-            <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center">
-              <span className="text-white/60 text-xs">
-                {activeStory + 1} / {IG_STORIES.length}
-              </span>
-            </div>
-
-            {/* Tap to go back (left 1/3) */}
+            {/* Tap zones inside card — back left 1/3, forward right 2/3 */}
             <button
-              className="absolute left-0 top-12 bottom-0 w-1/3 z-10"
-              onClick={e => {
-                e.stopPropagation()
-                setActiveStory(prev => (prev === null ? null : Math.max(0, prev - 1)))
-              }}
+              className="absolute left-0 top-0 bottom-0 w-1/3 z-20"
+              onClick={() => setActiveStory(prev => (prev === null ? null : Math.max(0, prev - 1)))}
               aria-label="Previous story"
             />
-            {/* Tap to advance (right 2/3) */}
             <button
-              className="absolute right-0 top-12 bottom-0 w-2/3 z-10"
-              onClick={e => {
-                e.stopPropagation()
-                setActiveStory(prev =>
-                  prev === null || prev + 1 >= IG_STORIES.length ? null : prev + 1
-                )
-              }}
+              className="absolute right-0 top-0 bottom-0 w-2/3 z-20"
+              onClick={() => setActiveStory(prev =>
+                prev === null || prev + 1 >= IG_STORIES.length ? null : prev + 1
+              )}
               aria-label="Next story"
             />
           </div>
+
+          {/* Right click zone — next story */}
+          <button
+            className="flex-1 h-full"
+            onClick={() => setActiveStory(prev =>
+              prev === null || prev + 1 >= IG_STORIES.length ? null : prev + 1
+            )}
+            aria-label="Next story"
+          />
+
+          {/* Close button — top-right of screen, outside the card */}
+          <button
+            onClick={() => setActiveStory(null)}
+            className="absolute top-5 right-5 z-10 text-white/80 hover:text-white transition-colors p-2"
+            aria-label="Close"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+            </svg>
+          </button>
         </div>
       )}
     </>
