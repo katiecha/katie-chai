@@ -81,28 +81,10 @@ export default function AboutPage() {
 
       <Section title="What do you do for fun?" emoji="🎉" size="lg">
         <p className="text-sm text-gray-500 leading-relaxed">
-          I enjoy food studies — my favorite class in college was{" "}
-          <a href="https://abby-reimer.com/2015/03/18/eats-101-exemplary-or-unattainable/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-black transition-colors">
-            EATS 101
-          </a>
-          ! I also enjoy baking. Fun fact: my 🏐 sand and indoor volleyball teams won the UNC intramural championship!
+          I enjoy food studies — my favorite class in college was EATS 101! I also enjoy baking. Fun fact: my 🏐 sand and indoor volleyball teams won the UNC intramural championship!
         </p>
       </Section>
 
-      <div className="mt-12 pt-8 border-t border-gray-100">
-        <p className="text-sm text-gray-500">
-          Feel free to check out my{" "}
-          <a
-            href="https://www.katiech.ai/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-2 hover:text-black transition-colors"
-          >
-            resume
-          </a>
-          !
-        </p>
-      </div>
     </main>
   )
 }

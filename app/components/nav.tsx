@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { GitHubIcon, LinkedInIcon, XIcon, LinkIcon } from "@/app/components/icons"
+import { GitHubIcon, LinkedInIcon, XIcon } from "@/app/components/icons"
 import { SOCIAL_LINKS } from "@/app/work/data"
 
 export function Nav() {
@@ -31,9 +31,6 @@ export function Nav() {
           </a>
           <a href={SOCIAL_LINKS.x} target="_blank" rel="noopener noreferrer" aria-label="X" className="text-gray-600 hover:text-black transition-colors">
             <XIcon size={18} />
-          </a>
-          <a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener noreferrer" aria-label="Resume" className="text-gray-600 hover:text-black transition-colors">
-            <LinkIcon size={18} />
           </a>
         </div>
       </div>

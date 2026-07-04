@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import Image from "next/image"
-import { GitHubIcon, LinkedInIcon, XIcon, LinkIcon } from "@/app/components/icons"
+import { GitHubIcon, LinkedInIcon, XIcon } from "@/app/components/icons"
 import { Card } from "@/app/components/card"
 import { Section } from "@/app/components/section"
 import { FilterableCSProjects } from "@/app/work/filterable-projects"
@@ -31,9 +32,6 @@ export default function WorkPage() {
             </a>
             <a href={SOCIAL_LINKS.x} target="_blank" rel="noopener noreferrer" aria-label="X" className="text-gray-500 hover:text-black transition-colors">
               <XIcon size={20} />
-            </a>
-            <a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener noreferrer" aria-label="Resume" className="text-gray-500 hover:text-black transition-colors">
-              <LinkIcon size={20} />
             </a>
           </div>
         </div>
@@ -91,10 +89,17 @@ export default function WorkPage() {
               </div>
             )
             const href = project.links[0]?.href
+            const isInternal = href?.startsWith("/")
             return href ? (
-              <a key={project.name} href={href} target="_blank" rel="noopener noreferrer">
-                {card}
-              </a>
+              isInternal ? (
+                <Link key={project.name} href={href}>
+                  {card}
+                </Link>
+              ) : (
+                <a key={project.name} href={href} target="_blank" rel="noopener noreferrer">
+                  {card}
+                </a>
+              )
             ) : (
               <div key={project.name}>{card}</div>
             )

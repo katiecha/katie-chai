@@ -23,9 +23,8 @@ export type Category = {
 
 export const SOCIAL_LINKS = {
   github: "https://github.com/katiecha",
-  linkedin: "http://www.linkedin.com/in/katie-chai",
+  linkedin: "https://www.linkedin.com/in/katie-chai",
   x: "https://x.com/katiechaii",
-  resume: "https://www.katiech.ai/",
 }
 
 export const CURRENT_PROJECTS: Project[] = [
@@ -167,7 +166,7 @@ export const CATEGORIES: Category[] = [
         links: [
           { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week16/", type: "docs" },
         ],
-        tags: ["C", "Embedded"],
+        tags: ["C"],
       },
       {
         name: "ATtiny LED Blink",
@@ -175,7 +174,7 @@ export const CATEGORIES: Category[] = [
         links: [
           { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week09/", type: "docs" },
         ],
-        tags: ["C", "Embedded"],
+        tags: ["C"],
       },
     ],
   },
@@ -319,14 +318,14 @@ export const UIUX_PROJECTS: Project[] = [
   {
     name: "Special Olympics",
     description: "UX research and website redesign + rebuild.",
-    links: [{ label: "Project", href: "https://www.katie-chai.com/work/special-olympics", type: "site" }],
+    links: [{ label: "Project", href: "/work/special-olympics", type: "site" }],
     status: "in-progress",
     image: "/images/uiux-special-olympics.png",
   },
   {
     name: "App Team Carolina",
     description: "Various projects from the UI/UX Design Academy.",
-    links: [{ label: "Project", href: "https://www.katie-chai.com/work/app-team-carolina", type: "site" }],
+    links: [{ label: "Project", href: "/work/app-team-carolina", type: "site" }],
     image: "/images/uiux-app-team.png",
   },
   {

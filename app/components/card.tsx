@@ -26,7 +26,12 @@ export function Card({ project }: { project: Project }) {
           <div className="flex items-center gap-2 flex-wrap">
             <span className="font-medium text-sm">{project.name}</span>
             {project.status === "in-progress" && (
-              <span title="in progress" className="text-sm leading-none select-none">⚠️</span>
+              <span className="relative group cursor-default">
+                <span className="text-sm leading-none select-none">⚠️</span>
+                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover:block text-xs bg-black text-white px-2 py-1 rounded whitespace-nowrap pointer-events-none">
+                  in progress
+                </span>
+              </span>
             )}
             {project.tags?.map((tag) => <Tag key={tag}>{tag}</Tag>)}
           </div>

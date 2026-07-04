@@ -9,7 +9,7 @@ import type { Category } from "@/app/work/data"
 // Ordered by domain to match category grouping: Web → Systems → Data → Creative
 const TAG_ORDER = [
   "TypeScript", "React", "JavaScript", "HTML", "CSS",
-  "C", "Embedded", "MIPS", "Logisim",
+  "C", "MIPS", "Logisim",
   "Python", "R", "SAS",
   "Unity", "C#", "Swift",
 ]
@@ -35,11 +35,9 @@ export function FilterableCSProjects({ categories }: { categories: Category[] })
     <div>
       {orderedTags.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-2">
-          {activeTag && (
-            <Tag active={false} onClick={() => setActiveTag(null)}>
-              All
-            </Tag>
-          )}
+          <Tag active={activeTag === null} onClick={() => setActiveTag(null)}>
+            All
+          </Tag>
           {orderedTags.map((tag) => (
             <Tag
               key={tag}
