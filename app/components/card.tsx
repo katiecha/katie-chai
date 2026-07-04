@@ -8,9 +8,9 @@ export function Card({ project }: { project: Project }) {
   return (
     // No overflow-hidden here — that would clip the tooltip.
     // overflow-hidden is applied only to the image container below.
-    <div className="border border-border rounded-xl hover:border-border-hover hover:shadow-sm transition-all duration-150">
+    <div className="border border-border rounded-fillet hover:border-border-hover transition-all duration-150">
       {project.videoEmbed ? (
-        <div className="relative w-full bg-black overflow-hidden rounded-t-xl" style={{ aspectRatio: "16/9" }}>
+        <div className="relative w-full bg-black overflow-hidden rounded-t-fillet" style={{ aspectRatio: "16/9" }}>
           <iframe
             src={project.videoEmbed}
             title={project.name}
@@ -21,7 +21,7 @@ export function Card({ project }: { project: Project }) {
         </div>
       ) : project.image ? (
         <div
-          className="relative w-full bg-surface overflow-hidden rounded-t-xl"
+          className="relative w-full bg-surface overflow-hidden rounded-t-fillet"
           style={{ aspectRatio: "16/9" }}
         >
           <Image src={project.image} alt={project.name} fill className={`object-cover ${project.imagePosition ?? "object-center"}`} />

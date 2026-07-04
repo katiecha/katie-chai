@@ -336,7 +336,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         name: "Pomodoro Timer",
-        description: "My first Swift project — a pomodoro timer app.",
+        description: "My first Swift project - a pomodoro timer app.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/pomodoro-timer", type: "github" }],
         tags: ["Swift"],
       },
