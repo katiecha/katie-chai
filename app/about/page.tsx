@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Section } from "@/app/components/section"
+import { PageHeader } from "@/app/components/page-header"
 
 export const metadata: Metadata = {
   title: "About — Katie Chai",
@@ -9,8 +10,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-12">
-      <h1 className="text-3xl font-semibold mb-2">👋 Hi again!</h1>
-      <p className="text-sm text-gray-500 mb-10">Here&apos;s some more information about me!</p>
+      <PageHeader title="👋 Hi again!" subtitle="Here's some more information about me!" />
 
       <Section title="Where do I work?" emoji="✅" size="lg">
         <p className="text-sm text-gray-500 leading-relaxed">

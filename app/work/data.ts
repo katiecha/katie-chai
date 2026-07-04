@@ -12,6 +12,8 @@ export type Project = {
   links: ProjectLink[]
   status?: "in-progress"
   image?: string
+  imagePosition?: string
+  videoEmbed?: string
   tags?: string[]
 }
 
@@ -68,6 +70,14 @@ export const CATEGORIES: Category[] = [
     title: "Web & Full-Stack",
     emoji: "🕸️",
     projects: [
+      {
+        name: "Paywall Remover",
+        description: "A Chrome extension that removes CSS-based paywalls by targeting overlay elements, removing fixed-position obstructions, and optionally opening archive.today.",
+        links: [
+          { label: "GitHub", href: "https://github.com/katiecha/paywall-remover", type: "github" },
+        ],
+        tags: ["JavaScript", "Chrome Extension"],
+      },
       {
         name: "LinkedIn Queens Solver",
         description: "A DOM bot I use to solve LinkedIn Queens.",
@@ -129,6 +139,28 @@ export const CATEGORIES: Category[] = [
           { label: "GitHub", href: "https://github.com/katiecha/molecular-biology-and-genetics", type: "github" },
         ],
         tags: ["HTML", "CSS"],
+      },
+    ],
+  },
+  {
+    title: "AI Infrastructure",
+    emoji: "⚙️",
+    projects: [
+      {
+        name: "Research Skills & Rules",
+        description: "A set of Claude Code skills for reading and analyzing research papers, implementing Keshav's three-pass method, evidence verification, and literature survey mode.",
+        links: [
+          { label: "GitHub", href: "https://github.com/katiecha/research-skills-and-rules", type: "github" },
+        ],
+        tags: ["Claude Code", "AI"],
+      },
+      {
+        name: "Coding Skills & Rules",
+        description: "A private collection of Claude Code skills and rules for software engineering workflows.",
+        links: [
+          { label: "GitHub", href: "https://github.com/katiecha/coding-skills-and-rules", type: "github" },
+        ],
+        tags: ["Claude Code", "AI"],
       },
     ],
   },
@@ -300,6 +332,12 @@ export const CATEGORIES: Category[] = [
         name: "Card Game",
         description: "A few introductory Swift projects that culminate in a simple card game.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/apps", type: "github" }],
+        tags: ["Swift"],
+      },
+      {
+        name: "Pomodoro Timer",
+        description: "My first Swift project — a pomodoro timer app.",
+        links: [{ label: "GitHub", href: "https://github.com/katiecha/pomodoro-timer", type: "github" }],
         tags: ["Swift"],
       },
     ],

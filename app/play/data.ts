@@ -32,6 +32,7 @@ export const ENGINEERING_PROJECTS: Project[] = [
     description:
       "A digitized CPR dummy that I designed from scratch using Fusion 360, Autodesk Eagle, 3D printing, molding/casting, and more!",
     image: "/images/play/cpr-dummy.jpg",
+    imagePosition: "object-top",
     links: [
       { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/projects/final-project/", type: "docs" },
     ],
@@ -49,15 +50,16 @@ export const ENGINEERING_PROJECTS: Project[] = [
     name: "Light Painting Machine",
     description:
       "A light painting machine I manufactured with classmates that used long exposure photography to capture these images.",
-    image: "/images/play/light-painting.jpg",
+    videoEmbed: "https://www.youtube.com/embed/xmMpi_Dm4RQ",
     links: [
+      { label: "YouTube", href: "https://www.youtube.com/watch?v=xmMpi_Dm4RQ", type: "youtube" },
       { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week15/", type: "docs" },
     ],
   },
   {
     name: "Input Circuit Board",
     description: "An input circuit board I designed on Autodesk Eagle and surface mount soldered.",
-    image: "/images/play/input-board.jpg",
+    image: "/images/play/light-painting.jpg",
     links: [
       { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week11/", type: "docs" },
     ],
@@ -65,7 +67,7 @@ export const ENGINEERING_PROJECTS: Project[] = [
   {
     name: "Output Circuit Board",
     description: "An output circuit board I designed on Autodesk Eagle and surface mount soldered.",
-    image: "/images/play/output-board.jpg",
+    image: "/images/play/input-board.jpg",
     links: [
       { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week17/", type: "docs" },
     ],
@@ -73,7 +75,7 @@ export const ENGINEERING_PROJECTS: Project[] = [
   {
     name: "Networking Experiment",
     description: "A networking experiment I developed on Autodesk Eagle and soldered / breadboarded.",
-    image: "/images/play/networking.jpg",
+    image: "/images/play/output-board.jpg",
     links: [
       { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week12/", type: "docs" },
     ],
@@ -81,7 +83,7 @@ export const ENGINEERING_PROJECTS: Project[] = [
   {
     name: "DIY Oscilloscope",
     description: "A DIY oscilloscope I soldered together and used to test various circuitry projects.",
-    image: "/images/play/oscilloscope.jpg",
+    image: "/images/play/networking.jpg",
     links: [
       { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week14/", type: "docs" },
     ],
@@ -89,7 +91,7 @@ export const ENGINEERING_PROJECTS: Project[] = [
   {
     name: "Living Hinge",
     description: "A laser cut living hinge as well as some other laser cutting projects.",
-    image: "/images/play/living-hinge.jpg",
+    image: "/images/play/oscilloscope.jpg",
     links: [
       { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week04/", type: "docs" },
     ],
@@ -97,7 +99,7 @@ export const ENGINEERING_PROJECTS: Project[] = [
   {
     name: "Coffee Table",
     description: "A CNC (computer controlled machining) coffee table for my dad.",
-    image: "/images/play/coffee-table.jpg",
+    image: "/images/play/living-hinge.jpg",
     links: [
       { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week08/", type: "docs" },
     ],
@@ -105,7 +107,7 @@ export const ENGINEERING_PROJECTS: Project[] = [
   {
     name: "Soap & Mold",
     description: "CNC soap mold & bar of soap created for my mom.",
-    image: "/images/play/soap-mold.png",
+    image: "/images/play/coffee-table.jpg",
     links: [
       { label: "Docs", href: "https://fabacademy.org/2019/labs/charlotte/students/katie-chai/assignments/week10/", type: "docs" },
     ],

@@ -1,57 +1,54 @@
 import Image from "next/image"
-import { GitHubIcon, XIcon, LinkIcon, YouTubeIcon } from "@/app/components/icons"
+import { Tooltip } from "@/app/components/tooltip"
+import { IconLink } from "@/app/components/icon-link"
 import { Tag } from "@/app/components/tag"
-import type { Project, LinkType } from "@/app/work/data"
-
-function CardLinkIcon({ type }: { type: LinkType }) {
-  if (type === "github") return <GitHubIcon size={14} />
-  if (type === "x") return <XIcon size={14} />
-  if (type === "youtube") return <YouTubeIcon size={14} />
-  return <LinkIcon size={14} />
-}
+import type { Project } from "@/app/work/data"
 
 export function Card({ project }: { project: Project }) {
   return (
-    <div className="group border border-gray-200 rounded-xl overflow-hidden hover:border-gray-400 hover:shadow-sm transition-all duration-150">
-      {project.image && (
-        <div className="relative w-full bg-gray-100" style={{ aspectRatio: "16/9" }}>
-          <Image src={project.image} alt={project.name} fill className="object-cover" />
+    // No overflow-hidden here — that would clip the tooltip.
+    // overflow-hidden is applied only to the image container below.
+    <div className="border border-border rounded-xl hover:border-border-hover hover:shadow-sm transition-all duration-150">
+      {project.videoEmbed ? (
+        <div className="relative w-full bg-black overflow-hidden rounded-t-xl" style={{ aspectRatio: "16/9" }}>
+          <iframe
+            src={project.videoEmbed}
+            title={project.name}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+          />
         </div>
-      )}
+      ) : project.image ? (
+        <div
+          className="relative w-full bg-surface overflow-hidden rounded-t-xl"
+          style={{ aspectRatio: "16/9" }}
+        >
+          <Image src={project.image} alt={project.name} fill className={`object-cover ${project.imagePosition ?? "object-center"}`} />
+        </div>
+      ) : null}
 
-      <div className="p-4 flex flex-col gap-2 h-full">
+      <div className="p-4 flex flex-col gap-2">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="font-semibold text-sm">{project.name}</span>
             {project.status === "in-progress" && (
-              <span className="relative cursor-default">
-                <span className="text-sm leading-none select-none peer">⚠️</span>
-                <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 opacity-0 group-hover:opacity-100 text-xs bg-black text-white px-2 py-1 rounded whitespace-nowrap pointer-events-none transition-opacity">
-                  in progress
-                </span>
-              </span>
+              <Tooltip label="in progress">
+                <span className="text-sm leading-none select-none">⚠️</span>
+              </Tooltip>
             )}
           </div>
           {project.links.length > 0 && (
             <div className="flex items-center gap-2.5 shrink-0">
               {project.links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.label}
-                  className="text-gray-400 hover:text-black transition-colors"
-                >
-                  <CardLinkIcon type={link.type} />
-                </a>
+                <IconLink key={link.href} href={link.href} label={link.label} type={link.type} />
               ))}
             </div>
           )}
         </div>
 
         {project.description && (
-          <p className="text-sm text-gray-500 leading-relaxed">{project.description}</p>
+          <p className="text-sm text-text-muted leading-relaxed">{project.description}</p>
         )}
 
         {project.tags && project.tags.length > 0 && (

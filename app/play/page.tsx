@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { Card } from "@/app/components/card"
 import { Section } from "@/app/components/section"
+import { PageHeader } from "@/app/components/page-header"
 import { ENGINEERING_PROJECTS, IG_POSTS, IG_STORIES, MERCH, type MediaItem } from "@/app/play/data"
 
 export const metadata: Metadata = {
@@ -31,9 +32,7 @@ function MediaGrid({ items }: { items: MediaItem[] }) {
 export default function PlayPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-12">
-      <h1 className="text-3xl font-semibold mb-2">🎉 Welcome to my playground</h1>
-      <p className="text-sm text-gray-500 mb-10">Here you can find some of my hobbies.</p>
-
+      <PageHeader title="🎉 Welcome to my playground" subtitle="Here you can find some of my hobbies." />
 
       <Section title="Engineering" emoji="👩‍🔧" size="lg">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
