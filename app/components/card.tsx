@@ -1,11 +1,12 @@
 import Image from "next/image"
-import { GitHubIcon, XIcon, LinkIcon } from "@/app/components/icons"
+import { GitHubIcon, XIcon, LinkIcon, YouTubeIcon } from "@/app/components/icons"
 import { Tag } from "@/app/components/tag"
 import type { Project, LinkType } from "@/app/work/data"
 
 function CardLinkIcon({ type }: { type: LinkType }) {
   if (type === "github") return <GitHubIcon size={14} />
   if (type === "x") return <XIcon size={14} />
+  if (type === "youtube") return <YouTubeIcon size={14} />
   return <LinkIcon size={14} />
 }
 

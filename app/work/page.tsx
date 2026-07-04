@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/app/components/icons"
-import { Card } from "@/app/components/card"
+import { Row } from "@/app/components/row"
 import { Section } from "@/app/components/section"
 import { FilterableCSProjects } from "@/app/work/filterable-projects"
 import { CURRENT_PROJECTS, CATEGORIES, UIUX_PROJECTS, SOCIAL_LINKS } from "@/app/work/data"
@@ -52,9 +52,9 @@ export default function WorkPage() {
 
       {/* Current Projects */}
       <Section title="Current Projects" emoji="👩‍💻" size="lg">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div>
           {CURRENT_PROJECTS.map((project) => (
-            <Card key={project.name} project={project} />
+            <Row key={project.name} project={project} />
           ))}
         </div>
       </Section>

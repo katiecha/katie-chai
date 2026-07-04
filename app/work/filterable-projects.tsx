@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Card } from "@/app/components/card"
+import { Row } from "@/app/components/row"
 import { Tag } from "@/app/components/tag"
 import { Section } from "@/app/components/section"
 import type { Category } from "@/app/work/data"
@@ -52,9 +52,9 @@ export function FilterableCSProjects({ categories }: { categories: Category[] })
 
       {visibleCategories.map((cat) => (
         <Section key={cat.title} title={cat.title} emoji={cat.emoji}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div>
             {cat.projects.map((project) => (
-              <Card key={project.name} project={project} />
+              <Row key={project.name} project={project} />
             ))}
           </div>
         </Section>
