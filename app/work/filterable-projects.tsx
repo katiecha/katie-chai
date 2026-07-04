@@ -52,7 +52,7 @@ export function FilterableCSProjects({ categories }: { categories: Category[] })
 
       {visibleCategories.map((cat) => (
         <Section key={cat.title} title={cat.title} emoji={cat.emoji}>
-          <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {cat.projects.map((project) => (
               <Card key={project.name} project={project} />
             ))}

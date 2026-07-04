@@ -36,7 +36,7 @@ export default function PlayPage() {
 
 
       <Section title="Engineering" emoji="👩‍🔧" size="lg">
-        <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {ENGINEERING_PROJECTS.map((project) => (
             <Card key={project.name} project={project} />
           ))}
@@ -45,18 +45,20 @@ export default function PlayPage() {
 
       <Section title="Graphic Design" emoji="👩‍🎨" size="lg">
         <div className="space-y-2">
-          <div className="py-3 border-b border-gray-100">
-            <div className="relative w-full rounded-lg overflow-hidden bg-gray-100 mb-3" style={{ aspectRatio: "16/9" }}>
+          <div className="border border-gray-200 rounded-xl overflow-hidden hover:border-gray-400 hover:shadow-sm transition-all duration-150">
+            <div className="relative w-full bg-gray-100" style={{ aspectRatio: "16/9" }}>
               <Image src="/images/play/catch-collection.jpg" alt="CATCH graphic design" fill className="object-cover" />
             </div>
-            <p className="font-medium text-sm">CATCH</p>
-            <p className="text-sm text-gray-500 mt-0.5 leading-relaxed">
-              I served as the 2022–2023 PR Chair for{" "}
-              <a href="https://www.catch-inc.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-black transition-colors">
-                CATCH, Inc.
-              </a>{" "}
-              I created branding materials including Instagram posts, posters, paintings, and product shots, and managed the website, Instagram, Facebook, LinkedIn, and email communications.
-            </p>
+            <div className="p-4">
+              <p className="font-semibold text-sm mb-1">CATCH</p>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                I served as the 2022–2023 PR Chair for{" "}
+                <a href="https://www.catch-inc.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-black transition-colors">
+                  CATCH, Inc.
+                </a>{" "}
+                I created branding materials including Instagram posts, posters, paintings, and product shots, and managed the website, Instagram, Facebook, LinkedIn, and email communications.
+              </p>
+            </div>
           </div>
 
           <Section title="Instagram Posts" size="sm">

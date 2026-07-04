@@ -279,8 +279,7 @@ export const CATEGORIES: Category[] = [
         name: "Biostatistics",
         description: "A few projects from my statistical programming class.",
         links: [
-          { label: "Guide", href: "https://katiecha.github.io/new-media/accessibility-guide/", type: "docs" },
-          { label: "GitHub", href: "https://github.com/katiecha/katiecha.github.io/tree/main/new-media/accessibility-guide", type: "github" },
+          { label: "GitHub", href: "https://github.com/katiecha/biostats", type: "github" },
         ],
         tags: ["SAS"],
       },

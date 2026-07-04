@@ -52,7 +52,7 @@ export default function WorkPage() {
 
       {/* Current Projects */}
       <Section title="Current Projects" emoji="👩‍💻" size="lg">
-        <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {CURRENT_PROJECTS.map((project) => (
             <Card key={project.name} project={project} />
           ))}
@@ -66,10 +66,10 @@ export default function WorkPage() {
 
       {/* UI/UX Projects */}
       <Section title="UI/UX Projects" emoji="🕵️" size="lg">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {UIUX_PROJECTS.map((project) => {
             const card = (
-              <div className="border border-gray-200 rounded-lg overflow-hidden hover:border-gray-400 transition-colors cursor-pointer">
+              <div className="border border-gray-200 rounded-xl overflow-hidden hover:border-gray-400 hover:shadow-sm transition-all duration-150 cursor-pointer">
                 <div className="relative h-40 bg-gray-50">
                   {project.image ? (
                     <Image src={project.image} alt={project.name} fill className="object-cover" />
@@ -79,12 +79,12 @@ export default function WorkPage() {
                 </div>
                 <div className="p-4">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="font-medium text-sm">{project.name}</span>
+                    <span className="font-semibold text-sm">{project.name}</span>
                     {project.status === "in-progress" && (
                       <span title="in progress" className="text-sm leading-none select-none">⚠️</span>
                     )}
                   </div>
-                  <p className="text-sm text-gray-500 mt-0.5">{project.description}</p>
+                  <p className="text-sm text-gray-500 mt-1">{project.description}</p>
                 </div>
               </div>
             )
