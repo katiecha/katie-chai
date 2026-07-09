@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-12">
+    <main className="max-w-4xl mx-auto px-6 py-16">
       <PageHeader title="👋 Hi again!" subtitle="Here's some more information about me!" />
 
       <Section title="Where do I work?" emoji="✅" size="lg">
@@ -72,7 +72,8 @@ export default function AboutPage() {
         <p className="text-sm text-text-muted mt-6 mb-3">In the more distant past, I&apos;ve...</p>
         <ul className="space-y-1 text-sm text-text-muted">
           <li>Interned with 🥇 Special Olympics as a Software Engineering Intern</li>
-          <li>TA-ed 📚 COMP 380: Technology, Ethics, &amp; Culture for Professor Tessa Joseph Nicholas</li>
+          <li>TA-ed 📚 COMP 227: Effective Peer Teaching in CS with Professor Tessa Joseph Nicholas - a course on CS pedagogy, active learning, and mentorship for undergraduate learning assistants</li>
+          <li>TA-ed 📚 COMP 380: Technology, Ethics, &amp; Culture with Professor Tessa Joseph Nicholas - a discussion-based course on the sociocultural and ethical implications of computing</li>
           <li>Researched 🔎 Epidemiology with Professor Jessie K. Edwards and 🧮 Physical Mathematics with Pedro J Sáenz</li>
           <li>Worked with 🏕 Michael&apos;s Angels as a Summer Program Co-Director</li>
           <li>Interned with 🛠️ Honeywell as a Mechanical Engineering Intern</li>

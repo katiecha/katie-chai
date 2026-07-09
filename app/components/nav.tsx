@@ -4,7 +4,7 @@ import { SOCIAL_LINKS } from "@/app/work/data"
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-nav bg-white border-b border-border [transform:translateZ(0)]">
+    <header className="sticky top-0 border-b border-border" style={{ zIndex: 100, backgroundColor: '#ffffff' }}>
       <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/work" className="font-semibold tracking-widest text-sm uppercase">
           Katie Chai

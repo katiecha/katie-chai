@@ -12,18 +12,18 @@ type SectionProps = {
 const HEADING_CONFIG: Record<SectionSize, { tag: "h2" | "h3" | "h4"; className: string; wrapperClass: string }> = {
   lg: {
     tag: "h2",
-    className: "text-base font-semibold text-black mb-4 flex items-center gap-1.5",
-    wrapperClass: "mt-12",
+    className: "text-xl font-semibold text-black mb-5 flex items-center gap-1.5",
+    wrapperClass: "mt-16",
   },
   md: {
     tag: "h3",
-    className: "text-sm font-semibold text-black mb-3 flex items-center gap-1.5",
-    wrapperClass: "mt-8",
+    className: "text-base font-semibold text-black mb-4 flex items-center gap-1.5",
+    wrapperClass: "mt-12",
   },
   sm: {
     tag: "h4",
     className: "text-sm font-medium text-text-muted mb-3 flex items-center gap-1.5",
-    wrapperClass: "mt-5",
+    wrapperClass: "mt-8",
   },
 }
 

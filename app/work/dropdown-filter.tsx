@@ -1,13 +1,20 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { ChevronDown } from "lucide-react"
 
 type DropdownFilterProps = {
   label: string
   options: string[]
   value: string | null
   onChange: (value: string | null) => void
+}
+
+function FilledCaret() {
+  return (
+    <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <path d="M4.427 7.427l3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z" />
+    </svg>
+  )
 }
 
 export function DropdownFilter({ label, options, value, onChange }: DropdownFilterProps) {
@@ -30,21 +37,18 @@ export function DropdownFilter({ label, options, value, onChange }: DropdownFilt
     <div ref={ref} className="relative shrink-0">
       <button
         onClick={() => setOpen((o) => !o)}
-        className={`flex items-center gap-1.5 px-3 py-1.5 text-sm border rounded-fillet transition-colors whitespace-nowrap ${
+        className={`flex items-center gap-1.5 px-4 py-[5px] text-sm border rounded-md transition-colors whitespace-nowrap ${
           isActive
             ? "border-black bg-black text-white"
-            : "border-border hover:border-border-hover bg-white text-black"
+            : "border-border hover:border-border-hover bg-[#f6f8fa] text-black"
         }`}
       >
         {isActive ? `${label}: ${value}` : label}
-        <ChevronDown
-          size={13}
-          className={`transition-transform duration-150 ${open ? "rotate-180" : ""}`}
-        />
+        <FilledCaret />
       </button>
 
       {open && (
-        <div className="absolute top-full mt-1 left-0 z-tooltip bg-white border border-border rounded-fillet py-1 min-w-40 max-h-64 overflow-y-auto">
+        <div className="absolute top-full mt-1 left-0 z-tooltip bg-white border border-border rounded-md shadow-md py-1 min-w-40 max-h-64 overflow-y-auto">
           <button
             onClick={() => { onChange(null); setOpen(false) }}
             className={`w-full text-left px-3 py-1.5 text-sm hover:bg-surface transition-colors ${!value ? "font-medium" : "text-text-muted"}`}

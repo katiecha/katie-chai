@@ -46,8 +46,8 @@ export const CURRENT_PROJECTS: Project[] = [
     name: "jeancha.ai",
     description: "A sailing game built with React Three Fiber, custom GLSL shaders, and graph-based exploration",
     links: [
-      { label: "Site", href: "https://jeanch.ai/happy-fathers-day", type: "site" },
       { label: "GitHub", href: "https://github.com/katiecha/jeanch.ai", type: "github" },
+      { label: "Site", href: "https://jeanch.ai/", type: "site" },
     ],
     tags: ["TypeScript"],
     frameworks: ["React", "Three.js"],
@@ -76,6 +76,25 @@ export const CATEGORIES: Category[] = [
     title: "Web & Full-Stack",
     emoji: "🕸️",
     projects: [
+      {
+        name: "jeancha.ai",
+        description: "A sailing game built with React Three Fiber, custom GLSL shaders, and graph-based exploration",
+        links: [
+          { label: "GitHub", href: "https://github.com/katiecha/jeanch.ai", type: "github" },
+          { label: "Site", href: "https://jeanch.ai/", type: "site" },
+        ],
+        tags: ["TypeScript"],
+        frameworks: ["React", "Three.js"],
+      },
+      {
+        name: "NC ASK",
+        description: "An RAG educational platform (React, TypeScript, FastAPI, Supabase vector database, Gemini) that provides info about NC autism resources",
+        links: [
+          { label: "GitHub", href: "https://github.com/katiecha/NC-ASK", type: "github" },
+        ],
+        tags: ["TypeScript", "Python"],
+        frameworks: ["React"],
+      },
       {
         name: "Paywall Remover",
         description: "A Chrome extension that removes CSS-based paywalls by targeting overlay elements, removing fixed-position obstructions, and optionally opening archive.today.",
@@ -156,7 +175,7 @@ export const CATEGORIES: Category[] = [
     title: "AI Infrastructure",
     emoji: "⚙️",
     projects: [],
-    note: "I maintain personal collections of skills, prompts, and workflows for AI-assisted software engineering and research — including implementations of Keshav's three-pass method, evidence verification, and literature survey pipelines. I have a public research toolkit and a private engineering toolkit.",
+    note: "Personal collections of Claude Code skills and workflows for AI-assisted engineering and research. I have a public research toolkit and a private engineering toolkit.",
     noteLinks: [
       { label: "Research toolkit", href: "https://github.com/katiecha/research-skills-and-rules", type: "github" },
     ],
@@ -261,6 +280,14 @@ export const CATEGORIES: Category[] = [
     title: "Data & Research",
     emoji: "🐍",
     projects: [
+      {
+        name: "Resy Bot",
+        description: "A tool to help manage Resy reservations. The production version isn't public, but email me if you'd like to learn more.",
+        links: [
+          { label: "GitHub", href: "https://github.com/katiecha/resybot", type: "github" },
+        ],
+        tags: ["Python"],
+      },
       {
         name: "CV Nailoong",
         description: "A computer vision, facial expression detection system that matches your expressions to images.",

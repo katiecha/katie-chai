@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function AppTeamCarolinaPage() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-12">
+    <main className="max-w-4xl mx-auto px-6 py-16">
       <Link href="/work" className="text-sm text-text-subtle hover:text-black transition-colors inline-flex items-center gap-1 mb-8">
         ← Back to Work
       </Link>

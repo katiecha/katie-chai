@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={inter.className}>
       <body className="bg-white text-black antialiased">
         <Nav />
-        {children}
+        <div className="relative z-0 isolate">{children}</div>
         <footer className="max-w-4xl mx-auto px-6 py-10 mt-16 border-t border-border">
           <p className="text-xs text-text-subtle text-center">Made with ❤️ by Katie Chai</p>
         </footer>
