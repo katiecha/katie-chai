@@ -4,9 +4,9 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   /* ─── Z-index scale ─────────────────────────────────────── */
-  --z-nav:     50;  /* sticky header                          */
-  --z-tooltip: 60;  /* tooltips + dropdown panels             */
-  --z-modal:  100;  /* full-screen overlays (story viewer)    */
+  --z-nav:     100;  /* sticky header — above all page content */
+  --z-tooltip: 110;  /* tooltips + dropdown panels             */
+  --z-modal:   200;  /* full-screen overlays (story viewer)    */
 
   /* ─── Semantic color tokens ─────────────────────────────── */
   --color-border:        #e5e7eb; /* gray-200  — default borders          */
@@ -41,6 +41,20 @@
  *  Footer        text-xs                 text-text-subtle  text-center
  * ────────────────────────────────────────────────────────────
  */
+
+/* ─── Scrollbar utilities ───────────────────────────────────────
+   Tailwind v4 doesn't ship scrollbar-hide; define it here.
+   Used on any overflow-x-auto row that shouldn't show a scrollbar.
+ ──────────────────────────────────────────────────────────────── */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 * {
   box-sizing: border-box;

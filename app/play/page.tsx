@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Card } from "@/app/components/card"
+import { Card } from "@/app/play/card"
 import { Section } from "@/app/components/section"
 import { PageHeader } from "@/app/components/page-header"
 import { InstagramSection } from "@/app/play/instagram-section"

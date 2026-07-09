@@ -1,10 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { Row } from "@/app/components/row"
+import { Row } from "@/app/work/row"
 import { Section } from "@/app/components/section"
-import { SearchInput } from "@/app/components/search-input"
-import { DropdownFilter } from "@/app/components/dropdown-filter"
+import { SearchInput } from "@/app/work/search-input"
+import { DropdownFilter } from "@/app/work/dropdown-filter"
 import { IconLink } from "@/app/components/icon-link"
 import type { Category } from "@/app/work/data"
 

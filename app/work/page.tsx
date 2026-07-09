@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
-import { GitHubIcon, LinkedInIcon, XIcon } from "@/app/components/icons"
+import { GitHubIcon, LinkedInIcon, XIcon, DocsIcon } from "@/app/components/icons"
 import { Tooltip } from "@/app/components/tooltip"
-import { Row } from "@/app/components/row"
+import { Row } from "@/app/work/row"
 import { Section } from "@/app/components/section"
 import { FilterableCSProjects } from "@/app/work/filterable-projects"
 import { CURRENT_PROJECTS, CATEGORIES, UIUX_PROJECTS, SOCIAL_LINKS } from "@/app/work/data"
@@ -33,6 +33,9 @@ export default function WorkPage() {
             </a>
             <a href={SOCIAL_LINKS.x} target="_blank" rel="noopener noreferrer" aria-label="X" className="text-text-muted hover:text-black transition-colors">
               <XIcon size={20} />
+            </a>
+            <a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener noreferrer" aria-label="Resume" className="text-text-muted hover:text-black transition-colors">
+              <DocsIcon size={20} />
             </a>
           </div>
         </div>

@@ -30,6 +30,7 @@ export const SOCIAL_LINKS = {
   github: "https://github.com/katiecha",
   linkedin: "https://www.linkedin.com/in/katie-chai",
   x: "https://x.com/katiechaii",
+  resume: "https://docs.google.com/document/d/1dFJq7Y5QSiKG9yClFOjeBNlUsXZ42uupHCC59a9BNa4/edit?tab=t.0",
 }
 
 export const CURRENT_PROJECTS: Project[] = [

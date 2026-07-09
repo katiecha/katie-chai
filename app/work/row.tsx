@@ -89,10 +89,9 @@ export function Row({ project }: { project: Project }) {
           )}
         </div>
 
-        {/* Links — skip the first one since it's used for the name link */}
-        {project.links.length > 1 && (
+        {project.links.length > 0 && (
           <div className="flex items-center gap-2.5 shrink-0 mt-0.5">
-            {project.links.slice(1).map((link) => (
+            {project.links.map((link) => (
               <IconLink key={link.href} href={link.href} label={link.label} type={link.type} />
             ))}
           </div>
