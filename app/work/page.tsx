@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
-import { GitHubIcon, LinkedInIcon, XIcon, DocsIcon } from "@/app/components/icons"
+import { XIcon, GitHubIcon, LinkedInIcon } from "@/app/components/icons"
 import { Tooltip } from "@/app/components/tooltip"
 import { Row } from "@/app/work/row"
+import { Pin } from "@/app/components/pin"
 import { Section } from "@/app/components/section"
 import { FilterableCSProjects } from "@/app/work/filterable-projects"
 import { CURRENT_PROJECTS, CATEGORIES, UIUX_PROJECTS, SOCIAL_LINKS } from "@/app/work/data"
@@ -15,16 +16,16 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-12">
+    <main className="max-w-4xl mx-auto px-6 py-16">
       {/* Hero */}
       <section className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
         <div className="flex-1">
-          <h1 className="text-3xl font-semibold mb-2">👋 Hi, I&apos;m Katie</h1>
+          <h1 className="text-3xl font-semibold mb-4">👋 Hi, I&apos;m Katie</h1>
           <p className="text-sm text-text-muted leading-relaxed max-w-lg">
             I&apos;m interested in building systems that combine intelligence, infrastructure, and thoughtful design.
           </p>
 
-          <div className="flex items-center gap-4 mt-5">
+          <div className="flex items-center gap-4 mt-4">
             <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-text-muted hover:text-black transition-colors">
               <GitHubIcon size={20} />
             </a>
@@ -33,9 +34,6 @@ export default function WorkPage() {
             </a>
             <a href={SOCIAL_LINKS.x} target="_blank" rel="noopener noreferrer" aria-label="X" className="text-text-muted hover:text-black transition-colors">
               <XIcon size={20} />
-            </a>
-            <a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener noreferrer" aria-label="Resume" className="text-text-muted hover:text-black transition-colors">
-              <DocsIcon size={20} />
             </a>
           </div>
         </div>
@@ -56,9 +54,9 @@ export default function WorkPage() {
 
       {/* Current Projects */}
       <Section title="Current Projects" emoji="👩‍💻" size="lg">
-        <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {CURRENT_PROJECTS.map((project) => (
-            <Row key={project.name} project={project} />
+            <Pin key={project.name} project={project} />
           ))}
         </div>
       </Section>

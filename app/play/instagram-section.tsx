@@ -113,7 +113,7 @@ export function InstagramSection() {
               <button
                 key={src}
                 onClick={() => setActiveStory(i)}
-                className="flex flex-col items-center gap-1.5 shrink-0 group"
+                className="shrink-0 group"
               >
                 <div className="p-[2.5px] rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 group-hover:opacity-80 transition-opacity">
                   <div className="p-[2.5px] rounded-full bg-white">
@@ -122,9 +122,6 @@ export function InstagramSection() {
                     </div>
                   </div>
                 </div>
-                <span className="text-[10px] text-text-muted w-16 text-center truncate leading-tight">
-                  story {i + 1}
-                </span>
               </button>
             ))}
           </div>
@@ -175,7 +172,7 @@ export function InstagramSection() {
 
       {/* Story viewer modal — Instagram-style centered portrait card */}
       {activeStory !== null && (
-        <div className="fixed inset-0 z-modal bg-[#1a1a1a] flex items-center justify-between">
+        <div className="fixed inset-x-0 bottom-0 top-14 z-modal bg-[#1a1a1a] flex items-center justify-between">
 
           {/* Left click zone — previous story */}
           <button

@@ -1,33 +1,27 @@
-import {
-  GitHubIcon,
-  XIcon,
-  YouTubeIcon,
-  FigmaIcon,
-  LinkedInIcon,
-  LinkIcon,
-} from "@/app/components/icons"
+import { Link } from "lucide-react"
+import { XIcon, FigmaIcon, GitHubIcon, LinkedInIcon, YouTubeIcon } from "@/app/components/icons"
 import type { LinkType } from "@/app/work/data"
 
 const SIZE = 14
 
-function Icon({ type, href }: { type?: LinkType; href: string }) {
+function Icon({ type, href, size = SIZE }: { type?: LinkType; href: string; size?: number }) {
   const resolved = type ?? inferType(href)
   switch (resolved) {
-    case "github":   return <GitHubIcon size={SIZE} />
-    case "x":        return <XIcon size={SIZE} />
-    case "youtube":  return <YouTubeIcon size={SIZE} />
-    case "figma":    return <FigmaIcon size={SIZE} />
-    case "linkedin": return <LinkedInIcon size={SIZE} />
-    default:         return <LinkIcon size={SIZE} />
+    case "github":   return <GitHubIcon size={size} />
+    case "x":        return <XIcon size={size} />
+    case "youtube":  return <YouTubeIcon size={size} />
+    case "figma":    return <FigmaIcon size={size} />
+    case "linkedin": return <LinkedInIcon size={size} />
+    default:         return <Link size={size} />
   }
 }
 
 function inferType(href: string): LinkType {
-  if (href.includes("github.com"))                          return "github"
+  if (href.includes("github.com"))                              return "github"
   if (href.includes("youtube.com") || href.includes("youtu.be")) return "youtube"
-  if (href.includes("x.com") || href.includes("twitter.com"))    return "x"
-  if (href.includes("figma.com"))                           return "figma"
-  if (href.includes("linkedin.com"))                        return "linkedin"
+  if (href.includes("x.com") || href.includes("twitter.com"))  return "x"
+  if (href.includes("figma.com"))                              return "figma"
+  if (href.includes("linkedin.com"))                           return "linkedin"
   return "site"
 }
 
@@ -35,10 +29,11 @@ type IconLinkProps = {
   href: string
   label: string
   type?: LinkType
+  size?: number
   className?: string
 }
 
-export function IconLink({ href, label, type, className }: IconLinkProps) {
+export function IconLink({ href, label, type, size, className }: IconLinkProps) {
   return (
     <a
       href={href}
@@ -47,7 +42,7 @@ export function IconLink({ href, label, type, className }: IconLinkProps) {
       aria-label={label}
       className={className ?? "text-text-subtle hover:text-black transition-colors"}
     >
-      <Icon type={type} href={href} />
+      <Icon type={type} href={href} size={size} />
     </a>
   )
 }
