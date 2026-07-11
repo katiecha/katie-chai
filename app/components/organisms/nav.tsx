@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { IconLink } from "@/app/components/icon-link"
+import { IconLink } from "@/app/components/atoms/icon-link"
 import { SOCIAL_LINKS } from "@/app/work/data"
 
 export function Nav() {
@@ -17,8 +17,8 @@ export function Nav() {
           <Link href="/play" className="text-sm hover:text-text-muted transition-colors">
             Play
           </Link>
-          <Link href="/about" className="text-sm hover:text-text-muted transition-colors">
-            About
+          <Link href="/readme" className="text-sm hover:text-text-muted transition-colors">
+            README.md
           </Link>
         </nav>
 

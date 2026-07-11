@@ -122,15 +122,23 @@ export const IG_POSTS: MediaItem[] = [
   { label: "LDOC Recap", image: "/images/play/ig-post-5.jpg" },
 ]
 
-export const IG_STORIES: string[] = [
-  "/images/play/ig-story-1.jpg",
-  "/images/play/ig-story-2.jpg",
-  "/images/play/ig-story-3.png",
-  "/images/play/ig-story-4.png",
-  "/images/play/ig-story-5.png",
-  "/images/play/ig-story-6.png",
-  "/images/play/ig-story-7.png",
-  "/images/play/ig-story-8.png",
+export type Highlight = {
+  label: string
+  cover: string
+  frames: string[]
+}
+
+export const IG_HIGHLIGHTS: Highlight[] = [
+  { label: "Toys", cover: "/images/play/ig-story-3.png", frames: ["/images/play/ig-story-3.png"] },
+  {
+    label: "Fundraisers",
+    cover: "/images/play/ig-story-4.png",
+    frames: ["/images/play/ig-story-4.png", "/images/play/ig-story-1.jpg", "/images/play/ig-story-2.jpg"],
+  },
+  { label: "Collabs", cover: "/images/play/ig-story-5.png", frames: ["/images/play/ig-story-5.png"] },
+  { label: "FAQs", cover: "/images/play/ig-story-6.png", frames: ["/images/play/ig-story-6.png"] },
+  { label: "Spotlight", cover: "/images/play/ig-story-7.png", frames: ["/images/play/ig-story-7.png"] },
+  { label: "Press", cover: "/images/play/ig-story-8.png", frames: ["/images/play/ig-story-8.png"] },
 ]
 
 export const MERCH: MediaItem[] = [
