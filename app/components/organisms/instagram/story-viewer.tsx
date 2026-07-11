@@ -1,0 +1,61 @@
+import Image from "next/image"
+import { ProfilePicture } from "@/app/components/organisms/instagram/profile-picture"
+import type { Highlight } from "@/app/play/data"
+
+type StoryViewerProps = {
+  highlight: Highlight
+  activeFrame: number
+  progress: number
+  username: string
+  avatarSrc: string
+  onClose: () => void
+  onPrev: () => void
+  onNext: () => void
+}
+
+export function StoryViewer({ highlight, activeFrame, progress, username, avatarSrc, onClose, onPrev, onNext }: StoryViewerProps) {
+  const frameSrc = highlight.frames[activeFrame]
+
+  return (
+    <div className="fixed inset-x-0 bottom-0 top-14 z-modal bg-[#1a1a1a] flex items-center justify-between">
+      <button className="flex-1 h-full cursor-pointer" onClick={onPrev} aria-label="Previous story" />
+
+      <div className="relative h-[90vh] rounded-2xl overflow-hidden bg-black shrink-0" style={{ aspectRatio: "9/16" }}>
+        <Image src={frameSrc} alt={`${highlight.label} ${activeFrame + 1}`} fill className="object-cover" priority />
+
+        <div className="absolute top-3 left-3 right-3 z-10 flex gap-1">
+          {highlight.frames.map((_, i) => (
+            <div key={i} className="flex-1 h-0.5 rounded-full bg-white/30 overflow-hidden">
+              <div
+                className="h-full bg-white rounded-full"
+                style={{
+                  width:
+                    i < activeFrame ? "100%"
+                    : i === activeFrame ? `${progress}%`
+                    : "0%",
+                }}
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="absolute top-7 left-3 z-10 flex items-center gap-2">
+          <ProfilePicture src={avatarSrc} alt={username} size="sm" ring="plain" fit="contain" />
+          <span className="text-white text-xs font-semibold drop-shadow">{username}</span>
+          <span className="text-white/70 text-xs drop-shadow">· {highlight.label}</span>
+        </div>
+
+        <button className="absolute left-0 top-0 bottom-0 w-1/3 z-20 cursor-pointer" onClick={onPrev} aria-label="Previous story" />
+        <button className="absolute right-0 top-0 bottom-0 w-2/3 z-20 cursor-pointer" onClick={onNext} aria-label="Next story" />
+      </div>
+
+      <button className="flex-1 h-full cursor-pointer" onClick={onNext} aria-label="Next story" />
+
+      <button onClick={onClose} className="absolute top-5 right-5 z-10 text-white/80 hover:text-white transition-colors p-2 cursor-pointer" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        </svg>
+      </button>
+    </div>
+  )
+}

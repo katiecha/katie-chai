@@ -1,12 +1,11 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
-import { XIcon, GitHubIcon, LinkedInIcon } from "@/app/components/icons"
-import { Tooltip } from "@/app/components/tooltip"
-import { Row } from "@/app/work/row"
-import { Pin } from "@/app/components/pin"
-import { Section } from "@/app/components/section"
-import { FilterableCSProjects } from "@/app/work/filterable-projects"
+import { XIcon, GitHubIcon, LinkedInIcon } from "@/app/components/atoms/icons"
+import { Tooltip } from "@/app/components/atoms/tooltip"
+import { Card } from "@/app/components/molecules/card"
+import { Section } from "@/app/components/molecules/section"
+import { FilterableCSProjects } from "@/app/components/organisms/filterable-projects"
 import { CURRENT_PROJECTS, CATEGORIES, UIUX_PROJECTS, SOCIAL_LINKS } from "@/app/work/data"
 
 export const metadata: Metadata = {
@@ -20,12 +19,12 @@ export default function WorkPage() {
       {/* Hero */}
       <section className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
         <div className="flex-1">
-          <h1 className="text-3xl font-semibold mb-4">👋 Hi, I&apos;m Katie</h1>
+          <h1 className="text-3xl font-semibold mb-3">👋 Hi, I&apos;m Katie</h1>
           <p className="text-sm text-text-muted leading-relaxed max-w-lg">
-            I&apos;m interested in building systems that combine intelligence, infrastructure, and thoughtful design.
+            I&apos;m interested in building systems that combine<br />intelligence, infrastructure, and thoughtful design.
           </p>
 
-          <div className="flex items-center gap-4 mt-4">
+          <div className="flex items-center gap-4 mt-7">
             <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-text-muted hover:text-black transition-colors">
               <GitHubIcon size={20} />
             </a>
@@ -53,10 +52,10 @@ export default function WorkPage() {
       </section>
 
       {/* Current Projects */}
-      <Section title="Current Projects" emoji="👩‍💻" size="lg">
+      <Section title="Current Projects" emoji="👩‍🔬" size="lg">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {CURRENT_PROJECTS.map((project) => (
-            <Pin key={project.name} project={project} />
+            <Card key={project.name} project={project} variant="text" />
           ))}
         </div>
       </Section>

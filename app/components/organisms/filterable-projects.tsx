@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { Row } from "@/app/work/row"
-import { Section } from "@/app/components/section"
-import { SearchInput } from "@/app/work/search-input"
-import { DropdownFilter } from "@/app/work/dropdown-filter"
-import { IconLink } from "@/app/components/icon-link"
+import { Row } from "@/app/components/molecules/row"
+import { Section } from "@/app/components/molecules/section"
+import { SearchInput } from "@/app/components/atoms/search-input"
+import { DropdownFilter } from "@/app/components/molecules/dropdown-filter"
+import { IconLink } from "@/app/components/atoms/icon-link"
 import type { Category } from "@/app/work/data"
 
 const LANGUAGE_ORDER = [
@@ -40,7 +40,6 @@ export function FilterableCSProjects({ categories }: { categories: Category[] })
 
   const visibleCategories = categories
     .map((cat) => {
-      // Note-only categories hide when any filter is active
       if (cat.note) return hasFilter ? null : cat
 
       return {
@@ -63,7 +62,6 @@ export function FilterableCSProjects({ categories }: { categories: Category[] })
 
   return (
     <div>
-      {/* Search + filter bar */}
       <div className="flex items-center gap-2 mb-4 flex-wrap">
         <SearchInput value={search} onChange={setSearch} />
         <DropdownFilter

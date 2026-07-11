@@ -1,5 +1,5 @@
 import { Link } from "lucide-react"
-import { XIcon, FigmaIcon, GitHubIcon, LinkedInIcon, YouTubeIcon } from "@/app/components/icons"
+import { XIcon, FigmaIcon, GitHubIcon, LinkedInIcon, YouTubeIcon } from "@/app/components/atoms/icons"
 import type { LinkType } from "@/app/work/data"
 
 const SIZE = 14
@@ -17,11 +17,11 @@ function Icon({ type, href, size = SIZE }: { type?: LinkType; href: string; size
 }
 
 function inferType(href: string): LinkType {
-  if (href.includes("github.com"))                              return "github"
+  if (href.includes("github.com"))                               return "github"
   if (href.includes("youtube.com") || href.includes("youtu.be")) return "youtube"
-  if (href.includes("x.com") || href.includes("twitter.com"))  return "x"
-  if (href.includes("figma.com"))                              return "figma"
-  if (href.includes("linkedin.com"))                           return "linkedin"
+  if (href.includes("x.com") || href.includes("twitter.com"))   return "x"
+  if (href.includes("figma.com"))                                return "figma"
+  if (href.includes("linkedin.com"))                             return "linkedin"
   return "site"
 }
 
