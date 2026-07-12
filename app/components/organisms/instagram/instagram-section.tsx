@@ -1,8 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
+import { Grid3x3, UserSquare } from "lucide-react"
+import { HorizontalScroller } from "@/app/components/molecules/horizontal-scroller"
+import { Section } from "@/app/components/molecules/section"
 import { IG_POSTS, IG_HIGHLIGHTS, MERCH } from "@/app/play/data"
+import { Card } from "@/app/components/molecules/card"
 import { ProfileHeader } from "@/app/components/organisms/instagram/profile-header"
 import { Story } from "@/app/components/organisms/instagram/story"
 import { Post } from "@/app/components/organisms/instagram/post"
@@ -98,7 +101,7 @@ export function InstagramSection() {
           messageEmail="katie.h.chai@gmail.com"
         />
 
-        <div className="px-6 pb-8 overflow-x-auto scrollbar-hide">
+        <HorizontalScroller className="px-6 pb-8">
           <div className="flex gap-7">
             {IG_HIGHLIGHTS.map((highlight, i) => (
               <Story
@@ -113,6 +116,15 @@ export function InstagramSection() {
               />
             ))}
           </div>
+        </HorizontalScroller>
+
+        <div className="flex items-center justify-center gap-24 border-t border-border">
+          <div className="px-4 py-3 border-t border-text-primary -mt-px">
+            <Grid3x3 size={16} className="text-text-primary" />
+          </div>
+          <div className="px-4 py-3 text-text-subtle">
+            <UserSquare size={16} />
+          </div>
         </div>
 
         <div className="grid grid-cols-3 gap-px bg-white">
@@ -122,28 +134,17 @@ export function InstagramSection() {
         </div>
       </div>
 
-      <div className="mt-5">
-        <h4 className="text-sm font-medium text-text-muted mb-3">Merch & Other</h4>
+      <Section title="Merch & Other" size="sm">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {MERCH.map((item, i) => (
-            <div
+          {MERCH.map((item) => (
+            <Card
               key={item.image}
-              className="border border-border rounded-fillet hover:border-border-hover transition-all duration-150 bg-white flex flex-col overflow-hidden"
-            >
-              <div className="relative bg-surface overflow-hidden rounded-t-fillet" style={{ aspectRatio: "1" }}>
-                <div className="absolute inset-3">
-                  <Image src={item.image} alt={item.label || `Merch ${i + 1}`} fill className="object-contain" />
-                </div>
-              </div>
-              {item.label && (
-                <div className="px-4 py-3 border-t border-border">
-                  <p className="text-sm font-semibold text-center leading-tight">{item.label}</p>
-                </div>
-              )}
-            </div>
+              variant="photo"
+              project={{ name: item.label ?? "", description: "", image: item.image, links: [], tags: [] }}
+            />
           ))}
         </div>
-      </div>
+      </Section>
 
       {activeHighlight !== null && (
         <StoryViewer

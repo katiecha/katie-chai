@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Card } from "@/app/components/molecules/card"
 import { Section } from "@/app/components/molecules/section"
 import { PageHeader } from "@/app/components/molecules/page-header"
+import { PageShell } from "@/app/components/molecules/page-shell"
 import { InstagramSection } from "@/app/components/organisms/instagram/instagram-section"
 import { ENGINEERING_PROJECTS } from "@/app/play/data"
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function PlayPage() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-16">
+    <PageShell>
       <PageHeader title="🎉 Welcome to my playground" subtitle="Here you can find some of my hobbies." />
 
       <Section title="Engineering" emoji="👩‍🔧" size="lg">
@@ -27,6 +28,6 @@ export default function PlayPage() {
       <Section title="Graphic Design" emoji="👩‍🎨" size="lg">
         <InstagramSection />
       </Section>
-    </main>
+    </PageShell>
   )
 }

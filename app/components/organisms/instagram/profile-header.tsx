@@ -31,23 +31,23 @@ export function ProfileHeader({
   return (
     <div className="px-6 py-8">
       <div className="flex items-start gap-12">
-        <ProfilePicture src={avatarSrc} alt={displayName} size="lg" ring="plain" fit="contain" />
+        <ProfilePicture src={avatarSrc} alt={displayName} size="xl" ring="plain" fit="contain" />
 
         <div className="flex flex-col min-w-0 pt-1">
           <div className="flex items-center gap-2">
-            <span className="text-base font-semibold">{username}</span>
-            <MoreHorizontal size={16} className="text-text-primary" />
+            <span className="text-xl font-semibold">{username}</span>
+            <MoreHorizontal size={20} className="text-text-primary" />
           </div>
 
           <span className="text-sm text-text-primary mt-1.5">{displayName}</span>
 
           <div className="flex items-center gap-6 text-sm mt-4">
-            <span><span className="font-semibold">{postsCount}</span> <span className="text-text-muted">posts</span></span>
-            <span><span className="font-semibold">{followersCount}</span> <span className="text-text-muted">followers</span></span>
-            <span><span className="font-semibold">{followingCount}</span> <span className="text-text-muted">following</span></span>
+            <span><span className="font-semibold">{postsCount.toLocaleString("en-US")}</span> <span className="text-text-muted">posts</span></span>
+            <span><span className="font-semibold">{followersCount.toLocaleString("en-US")}</span> <span className="text-text-muted">followers</span></span>
+            <span><span className="font-semibold">{followingCount.toLocaleString("en-US")}</span> <span className="text-text-muted">following</span></span>
           </div>
 
-          <div className="text-sm leading-relaxed max-w-sm mt-4">
+          <div className="text-sm leading-relaxed max-w-md mt-4">
             <span className="text-text-muted block">{category}</span>
             <span className="text-text-primary block">{bioTitle}</span>
             <span className="text-text-primary block">{description}</span>
@@ -58,19 +58,19 @@ export function ProfileHeader({
               href={followHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-1.5 rounded-md bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center gap-1 transition-colors"
+              className="h-9 min-w-[150px] px-4 rounded-lg bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center gap-1 transition-colors"
             >
               Following <ChevronDown size={14} />
             </a>
             <a
               href={`mailto:${messageEmail}`}
-              className="px-4 py-1.5 rounded-md bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary transition-colors"
+              className="h-9 min-w-[150px] px-4 rounded-lg bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center transition-colors"
             >
               Message
             </a>
             <button
               aria-label="Add person"
-              className="w-8 h-8 rounded-md bg-surface hover:bg-surface-hover flex items-center justify-center transition-colors"
+              className="w-9 h-9 rounded-lg bg-surface hover:bg-surface-hover flex items-center justify-center transition-colors shrink-0"
             >
               <UserPlus size={16} className="text-text-primary" />
             </button>

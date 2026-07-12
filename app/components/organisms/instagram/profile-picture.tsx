@@ -1,12 +1,13 @@
 import Image from "next/image"
 
-type ProfilePictureSize = "sm" | "md" | "lg"
+type ProfilePictureSize = "sm" | "md" | "lg" | "xl"
 type ProfilePictureRing = "none" | "plain" | "gradient"
 
 const SIZE_CLASSES: Record<ProfilePictureSize, string> = {
   sm: "w-8 h-8",
   md: "w-16 h-16",
   lg: "w-24 h-24",
+  xl: "w-36 h-36",
 }
 
 type ProfilePictureProps = {
@@ -36,7 +37,7 @@ export function ProfilePicture({
 
   if (ring === "plain") {
     return (
-      <div className="p-[2px] rounded-full border border-border shrink-0">
+      <div className="p-px rounded-full border border-border/70 shrink-0">
         {avatar}
       </div>
     )
