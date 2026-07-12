@@ -151,3 +151,12 @@ export const MERCH: MediaItem[] = [
   { label: "Student Union Cube Painting", image: "/images/play/merch-3.jpg" },
   { label: "Toy Tally Poster", image: "/images/play/merch-4.jpg" },
 ]
+
+export const POSTERS: MediaItem[] = [
+  { label: "CATCH is Calling", image: "/images/play/poster-1.jpg" },
+  { label: "Searching for Fun?", image: "/images/play/poster-2.jpg" },
+  { label: "Carolina Adapts Toys for Children", image: "/images/play/poster-3.png" },
+  { label: "Join CATCH", image: "/images/play/poster-4.jpg" },
+  { label: "Before & After CATCH", image: "/images/play/poster-5.jpg" },
+  { label: "Hungry for Fun?", image: "/images/play/poster-6.jpg" },
+]

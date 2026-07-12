@@ -385,6 +385,13 @@ export const UIUX_PROJECTS: Project[] = [
     image: "/images/uiux-special-olympics.png",
   },
   {
+    name: "Special Olympics App",
+    description: "Mobile app IA redesign and user flow for the Special Olympics PA volunteer app.",
+    links: [{ label: "Project", href: "/work/special-olympics-app", type: "site" }],
+    status: "in-progress",
+    image: "/images/so-app-ia.png",
+  },
+  {
     name: "App Team Carolina",
     description: "Various projects from the UI/UX Design Academy.",
     links: [{ label: "Project", href: "/work/app-team-carolina", type: "site" }],
