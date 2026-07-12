@@ -1,4 +1,4 @@
-import { ProfilePicture } from "@/app/components/organisms/instagram/profile-picture"
+import { ProfilePicture } from "@/app/components/molecules/instagram/profile-picture"
 
 type StoryProps = {
   cover: string

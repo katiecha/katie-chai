@@ -2,16 +2,31 @@
 
 import { useState, useEffect } from "react"
 import { Grid3x3, UserSquare } from "lucide-react"
+import { ICON_SIZE } from "@/app/components/atoms/icon-link"
 import { HorizontalScroller } from "@/app/components/molecules/horizontal-scroller"
 import { Section } from "@/app/components/molecules/section"
 import { IG_POSTS, IG_HIGHLIGHTS, MERCH, POSTERS } from "@/app/play/data"
 import { Card } from "@/app/components/molecules/card"
-import { ProfileHeader } from "@/app/components/organisms/instagram/profile-header"
-import { Story } from "@/app/components/organisms/instagram/story"
-import { Post } from "@/app/components/organisms/instagram/post"
-import { StoryViewer } from "@/app/components/organisms/instagram/story-viewer"
+import { ProfileHeader } from "@/app/components/molecules/instagram/profile-header"
+import { Story } from "@/app/components/molecules/instagram/story"
+import { Post } from "@/app/components/molecules/instagram/post"
+import { StoryViewer } from "@/app/components/molecules/instagram/story-viewer"
 
 const STORY_DURATION = 5000
+
+// Real pixel dimensions per merch image, so the masonry layout sizes each
+// card to its actual proportions instead of forcing a uniform aspect ratio.
+const MERCH_ASPECT: Record<string, string> = {
+  "/images/play/merch-1.jpg": "1080/1799",
+  "/images/play/merch-2.jpg": "1080/953",
+  "/images/play/merch-3.jpg": "805/1280",
+  "/images/play/merch-4.jpg": "850/1056",
+}
+
+const POSTER_MERCH_ITEMS = [
+  ...POSTERS.map((item) => ({ ...item, aspect: "2/3" })),
+  ...MERCH.map((item) => ({ ...item, aspect: MERCH_ASPECT[item.image] ?? "1" })),
+]
 
 export function InstagramSection() {
   const [activeHighlight, setActiveHighlight] = useState<number | null>(null)
@@ -120,10 +135,10 @@ export function InstagramSection() {
 
         <div className="flex items-center justify-center gap-24 border-t border-border">
           <div className="px-4 py-3 border-t border-text-primary -mt-px">
-            <Grid3x3 size={16} className="text-text-primary" />
+            <Grid3x3 size={ICON_SIZE.md} className="text-text-primary" />
           </div>
           <div className="px-4 py-3 text-text-subtle">
-            <UserSquare size={16} />
+            <UserSquare size={ICON_SIZE.md} />
           </div>
         </div>
 
@@ -134,30 +149,17 @@ export function InstagramSection() {
         </div>
       </div>
 
-      <Section title="Recruitment Posters" size="sm">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {POSTERS.map((item) => (
-            <Card
-              key={item.image}
-              variant="photo"
-              imageFit="contain"
-              imageAspectRatio="2/3"
-              project={{ name: item.label ?? "", description: "", image: item.image, links: [], tags: [] }}
-            />
-          ))}
-        </div>
-      </Section>
-
-      <Section title="Merch & Other" size="sm">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {MERCH.map((item) => (
-            <Card
-              key={item.image}
-              variant="photo"
-              imageFit="contain"
-              imageAspectRatio="1"
-              project={{ name: item.label ?? "", description: "", image: item.image, links: [], tags: [] }}
-            />
+      <Section title="Posters, Merch & Other" size="sm">
+        <div className="columns-2 sm:columns-3 md:columns-4 gap-3">
+          {POSTER_MERCH_ITEMS.map((item) => (
+            <div key={item.image} className="mb-3 break-inside-avoid">
+              <Card
+                variant="photo"
+                imageFit="contain"
+                imageAspectRatio={item.aspect}
+                project={{ name: item.label ?? "", description: "", image: item.image, links: [], tags: [] }}
+              />
+            </div>
           ))}
         </div>
       </Section>

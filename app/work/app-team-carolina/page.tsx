@@ -1,16 +1,12 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
+import { SectionHeading } from "@/app/components/atoms/section-heading"
+import { DefinitionGrid } from "@/app/components/molecules/definition-grid"
 
 export const metadata: Metadata = {
   title: "App Team Carolina - Katie Chai",
   description: "UI/UX projects from the App Team Carolina Design Academy.",
-}
-
-function SectionHeading({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="text-xs font-semibold tracking-widest uppercase text-text-subtle mb-4">{children}</h2>
-  )
 }
 
 function ProjectHeading({ children }: { children: React.ReactNode }) {
@@ -32,19 +28,6 @@ function FeatureList({ items }: { items: string[] }) {
         <li key={item} className="list-disc">{item}</li>
       ))}
     </ul>
-  )
-}
-
-function PrincipleGrid({ items }: { items: { name: string; definition: string }[] }) {
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-      {items.map(({ name, definition }) => (
-        <div key={name} className="border border-border rounded-lg p-3">
-          <p className="text-xs font-semibold mb-1">{name}</p>
-          <p className="text-xs text-text-muted leading-relaxed">{definition}</p>
-        </div>
-      ))}
-    </div>
   )
 }
 
@@ -121,7 +104,7 @@ export default function AppTeamCarolinaPage() {
               <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-4" style={{ aspectRatio: "16/9" }}>
                 <Image src="/images/app-team-carolina/alpines-bagels.jpg" alt="Alpine's Bagels app mockup" fill className="object-contain" />
               </div>
-              <PrincipleGrid items={DESIGN_PRINCIPLES} />
+              <DefinitionGrid items={DESIGN_PRINCIPLES} />
             </div>
 
             {/* Send The Flowers */}

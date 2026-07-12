@@ -1,6 +1,8 @@
 import Image from "next/image"
-import { IconLink } from "@/app/components/atoms/icon-link"
-import { XIcon, GitHubIcon, LinkedInIcon } from "@/app/components/atoms/icons"
+import { ICON_SIZE } from "@/app/components/atoms/icon-link"
+import { XIcon } from "@/app/components/atoms/x-icon"
+import { GitHubIcon } from "@/app/components/atoms/github-icon"
+import { LinkedInIcon } from "@/app/components/atoms/linkedin-icon"
 import { SOCIAL_LINKS } from "@/app/work/data"
 
 export function HeroHeader() {
@@ -13,13 +15,13 @@ export function HeroHeader() {
         </p>
         <div className="flex items-center gap-4 mt-7">
           <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-text-muted hover:text-black transition-colors">
-            <GitHubIcon size={20} />
+            <GitHubIcon size={ICON_SIZE.lg} />
           </a>
           <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-text-muted hover:text-black transition-colors">
-            <LinkedInIcon size={20} />
+            <LinkedInIcon size={ICON_SIZE.lg} />
           </a>
           <a href={SOCIAL_LINKS.x} target="_blank" rel="noopener noreferrer" aria-label="X" className="text-text-muted hover:text-black transition-colors">
-            <XIcon size={20} />
+            <XIcon size={ICON_SIZE.lg} />
           </a>
         </div>
       </div>

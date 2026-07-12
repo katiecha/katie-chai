@@ -1,5 +1,9 @@
 import { Link } from "lucide-react"
-import { XIcon, FigmaIcon, GitHubIcon, LinkedInIcon, YouTubeIcon } from "@/app/components/atoms/icons"
+import { XIcon } from "@/app/components/atoms/x-icon"
+import { FigmaIcon } from "@/app/components/atoms/figma-icon"
+import { GitHubIcon } from "@/app/components/atoms/github-icon"
+import { LinkedInIcon } from "@/app/components/atoms/linkedin-icon"
+import { YouTubeIcon } from "@/app/components/atoms/youtube-icon"
 import type { LinkType } from "@/app/work/data"
 
 export const ICON_SIZE = {
@@ -8,9 +12,7 @@ export const ICON_SIZE = {
   lg: 20,  // hero, large UI
 } as const
 
-const SIZE = ICON_SIZE.md
-
-function Icon({ type, href, size = SIZE }: { type?: LinkType; href: string; size?: number }) {
+function Icon({ type, href, size = ICON_SIZE.md }: { type?: LinkType; href: string; size?: number }) {
   const resolved = type ?? inferType(href)
   switch (resolved) {
     case "github":   return <GitHubIcon size={size} />
@@ -39,14 +41,14 @@ type IconLinkProps = {
   className?: string
 }
 
-export function IconLink({ href, label, type, size = ICON_SIZE.sm, className }: IconLinkProps) {
+export function IconLink({ href, label, type, size = ICON_SIZE.md, className }: IconLinkProps) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className={className ?? "p-1 -m-1 text-text-subtle hover:text-black transition-colors rounded-sm"}
+      className={className ?? "p-1 -m-1 text-text-subtle hover:text-black transition-colors rounded-md"}
     >
       <Icon type={type} href={href} size={size} />
     </a>

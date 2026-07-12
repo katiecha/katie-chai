@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Tooltip } from "@/app/components/atoms/tooltip"
+import { previewHref } from "@/app/lib/links"
 import type { Project } from "@/app/work/data"
 
 export function UIUXCard({ project }: { project: Project }) {
@@ -27,8 +28,8 @@ export function UIUXCard({ project }: { project: Project }) {
     </div>
   )
 
-  const href = project.links[0]?.href
+  const href = previewHref(project.links)
   if (!href) return shell
   if (href.startsWith("/")) return <Link href={href}>{shell}</Link>
-  return <a href={href} target="_blank" rel="noopener noreferrer">{shell}</a>
+  return <a href={href} target="_blank" rel="noopener noreferrer" aria-label={project.name}>{shell}</a>
 }

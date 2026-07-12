@@ -111,8 +111,13 @@ export default function SpecialOlympicsPage() {
               <p className="text-sm text-text-muted leading-relaxed mb-4">
                 The redesigned flow consolidated duplicate pages, simplified the navbar structure, and created a clear path from landing to volunteer sign-up. The donation page was also elevated in the hierarchy based on analytics data.
               </p>
-              <div className="relative w-full rounded-fillet overflow-hidden bg-surface border border-border">
-                <Image src="/images/so-website-ia.png" alt="Special Olympics website information architecture" width={1600} height={400} className="w-full h-auto" />
+              <div className="flex flex-col gap-3">
+                <div className="rounded-fillet border border-border bg-surface overflow-hidden flex items-center justify-center" style={{ height: 220 }}>
+                  <Image src="/images/so-website-ia-top.png" alt="Website IA iterations" width={5589} height={676} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
+                <div className="rounded-fillet border border-border bg-surface overflow-hidden flex items-center justify-center" style={{ height: 220 }}>
+                  <Image src="/images/so-website-ia-bottom.png" alt="Website IA detail and before/after" width={5589} height={822} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
               </div>
             </div>
 
@@ -123,6 +128,19 @@ export default function SpecialOlympicsPage() {
               </p>
             </div>
 
+          </div>
+        </section>
+
+        {/* Supplementary */}
+        <section>
+          <SectionHeading>Supplementary — App IA</SectionHeading>
+          <p className="text-sm text-text-muted leading-relaxed mb-6">
+            Alongside the website, I also mapped the original app information architecture and designed a new user flow for the Special Olympics PA mobile app.
+          </p>
+          <div className="flex flex-col gap-3">
+            <Image src="/images/so-app-ia-1.png" alt="Original app information architecture" width={1667} height={1499} style={{ width: '100%', height: 'auto' }} className="rounded-fillet border border-border" />
+            <Image src="/images/so-app-ia-2.png" alt="New app flow chart" width={1751} height={1499} style={{ width: '100%', height: 'auto' }} className="rounded-fillet border border-border" />
+            <Image src="/images/so-app-ia-3.png" alt="New app user flow" width={2391} height={1499} style={{ width: '100%', height: 'auto' }} className="rounded-fillet border border-border" />
           </div>
         </section>
 

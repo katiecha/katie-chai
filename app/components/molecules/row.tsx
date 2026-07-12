@@ -18,6 +18,7 @@ export function Row({ project }: { project: Project }) {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={project.name}
                 className="font-semibold text-sm text-link hover:underline underline-offset-2"
               >
                 {project.name}

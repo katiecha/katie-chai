@@ -385,13 +385,6 @@ export const UIUX_PROJECTS: Project[] = [
     image: "/images/uiux-special-olympics.png",
   },
   {
-    name: "Special Olympics App",
-    description: "Mobile app IA redesign and user flow for the Special Olympics PA volunteer app.",
-    links: [{ label: "Project", href: "/work/special-olympics-app", type: "site" }],
-    status: "in-progress",
-    image: "/images/so-app-ia.png",
-  },
-  {
     name: "App Team Carolina",
     description: "Various projects from the UI/UX Design Academy.",
     links: [{ label: "Project", href: "/work/app-team-carolina", type: "site" }],
@@ -399,8 +392,8 @@ export const UIUX_PROJECTS: Project[] = [
   },
   {
     name: "Jeni's Ice Cream",
-    description: "UI redesign of the Jeni's Ice Cream App.",
-    links: [],
+    description: "A self-directed concept redesign of the Jeni's Splendid Ice Creams app.",
+    links: [{ label: "Project", href: "/work/jenis", type: "site" }],
     status: "in-progress",
     image: "/images/uiux-jenis.jpg",
   },

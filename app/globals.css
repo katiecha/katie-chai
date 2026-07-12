@@ -20,6 +20,8 @@
 
   --color-surface:       #f9fafb; /* gray-50   — image backgrounds        */
   --color-surface-hover: #f3f4f6; /* gray-100  — hover backgrounds        */
+  --color-surface-muted: #f6f8fa; /* GitHub grey — filter/dropdown buttons */
+  --color-overlay-dark:  #1a1a1a; /* near-black — story viewer backdrop   */
 
   /* ─── Border radius ─────────────────────────────────────── */
   --radius-fillet: 2px; /* very slight rounding on cards / containers */

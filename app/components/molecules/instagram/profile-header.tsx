@@ -1,5 +1,6 @@
 import { ChevronDown, MoreHorizontal, UserPlus } from "lucide-react"
-import { ProfilePicture } from "@/app/components/organisms/instagram/profile-picture"
+import { ICON_SIZE } from "@/app/components/atoms/icon-link"
+import { ProfilePicture } from "@/app/components/molecules/instagram/profile-picture"
 
 type ProfileHeaderProps = {
   username: string
@@ -36,7 +37,7 @@ export function ProfileHeader({
         <div className="flex flex-col min-w-0 pt-1">
           <div className="flex items-center gap-2">
             <span className="text-xl font-semibold">{username}</span>
-            <MoreHorizontal size={20} className="text-text-primary" />
+            <MoreHorizontal size={ICON_SIZE.lg} className="text-text-primary" />
           </div>
 
           <span className="text-sm text-text-primary mt-1.5">{displayName}</span>
@@ -58,21 +59,22 @@ export function ProfileHeader({
               href={followHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-10 min-w-[150px] px-4 rounded-lg bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center gap-1 transition-colors"
+              aria-label="Following"
+              className="h-10 min-w-[150px] px-4 rounded-md bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center gap-1 transition-colors"
             >
-              Following <ChevronDown size={14} />
+              Following <ChevronDown size={ICON_SIZE.sm} />
             </a>
             <a
               href={`mailto:${messageEmail}`}
-              className="h-10 min-w-[150px] px-4 rounded-lg bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center transition-colors"
+              className="h-10 min-w-[150px] px-4 rounded-md bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center transition-colors"
             >
               Message
             </a>
             <button
               aria-label="Add person"
-              className="w-9 h-10 rounded-lg bg-surface hover:bg-surface-hover flex items-center justify-center transition-colors shrink-0"
+              className="w-9 h-10 rounded-md bg-surface hover:bg-surface-hover flex items-center justify-center transition-colors shrink-0"
             >
-              <UserPlus size={16} className="text-text-primary" />
+              <UserPlus size={ICON_SIZE.md} className="text-text-primary" />
             </button>
           </div>
         </div>

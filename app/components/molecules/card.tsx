@@ -1,8 +1,9 @@
 import Image from "next/image"
 import { BookMarked } from "lucide-react"
-import { IconLink } from "@/app/components/atoms/icon-link"
+import { IconLink, ICON_SIZE } from "@/app/components/atoms/icon-link"
 import { LanguageDot } from "@/app/components/atoms/language-dot"
-import type { Project, ProjectLink } from "@/app/work/data"
+import { previewHref } from "@/app/lib/links"
+import type { Project } from "@/app/work/data"
 
 type CardProps = {
   project: Project
@@ -11,17 +12,10 @@ type CardProps = {
   imageAspectRatio?: string
 }
 
-function primaryHref(links: ProjectLink[]): string | undefined {
-  return (
-    links.find(l => l.type !== "github" && !l.href.includes("github.com"))?.href ??
-    links[0]?.href
-  )
-}
-
-const shell = "relative border border-border rounded-lg hover:border-border-hover transition-all duration-150 cursor-pointer"
+const shell = "relative border border-border rounded-fillet hover:border-border-hover transition-all duration-150 cursor-pointer"
 
 export function Card({ project, variant, imageFit = "cover", imageAspectRatio = "16/9" }: CardProps) {
-  const href = primaryHref(project.links)
+  const href = previewHref(project.links)
 
   if (variant === "text") {
     const [primaryTag] = project.tags ?? []
@@ -33,19 +27,19 @@ export function Card({ project, variant, imageFit = "cover", imageAspectRatio = 
             target="_blank"
             rel="noopener noreferrer"
             aria-label={project.name}
-            className="absolute inset-0 rounded-lg"
+            className="absolute inset-0 rounded-fillet"
           />
         )}
 
         <div className="flex items-start justify-between gap-2">
           <div className="flex items-center gap-2 min-w-0">
-            <BookMarked className="text-text-subtle shrink-0" />
+            <BookMarked size={ICON_SIZE.sm} className="text-text-subtle shrink-0" />
             <h3 className="text-sm font-semibold text-link truncate">{project.name}</h3>
           </div>
           {project.links.length > 0 && (
             <div className="relative z-10 flex items-center gap-2 shrink-0">
               {project.links.map((link) => (
-                <IconLink key={link.href} href={link.href} label={link.label} type={link.type} />
+                <IconLink key={link.href} href={link.href} label={link.label} type={link.type} size={ICON_SIZE.sm} />
               ))}
             </div>
           )}
@@ -104,7 +98,7 @@ export function Card({ project, variant, imageFit = "cover", imageAspectRatio = 
           {project.links.length > 0 && (
             <div className="relative z-10 flex items-center gap-2 shrink-0">
               {project.links.map((link) => (
-                <IconLink key={link.href} href={link.href} label={link.label} type={link.type} />
+                <IconLink key={link.href} href={link.href} label={link.label} type={link.type} size={ICON_SIZE.sm} />
               ))}
             </div>
           )}

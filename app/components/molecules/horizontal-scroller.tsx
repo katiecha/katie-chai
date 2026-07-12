@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, type ReactNode } from "react"
 import { ChevronRight } from "lucide-react"
+import { ICON_SIZE } from "@/app/components/atoms/icon-link"
 
 type HorizontalScrollerProps = {
   children: ReactNode
@@ -38,7 +39,7 @@ export function HorizontalScroller({ children, className }: HorizontalScrollerPr
           className="absolute right-3 top-0 bottom-0 flex items-center cursor-pointer"
         >
           <span className="w-10 h-10 rounded-full bg-text-primary/70 flex items-center justify-center shadow-sm">
-            <ChevronRight size={18} className="text-white" />
+            <ChevronRight size={ICON_SIZE.md} className="text-white" />
           </span>
         </button>
       )}

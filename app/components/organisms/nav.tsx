@@ -4,7 +4,7 @@ import { SOCIAL_LINKS } from "@/app/work/data"
 
 export function Nav() {
   return (
-    <header className="sticky top-0 border-b border-border" style={{ zIndex: 100, backgroundColor: '#ffffff' }}>
+    <header className="sticky top-0 z-nav bg-white border-b border-border">
       <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/work" className="font-semibold tracking-widest text-sm uppercase">
           Katie Chai
@@ -23,9 +23,9 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <IconLink href={SOCIAL_LINKS.github} label="GitHub" className="p-1 -m-1 text-text-muted hover:text-black transition-colors rounded-sm" />
-          <IconLink href={SOCIAL_LINKS.linkedin} label="LinkedIn" className="p-1 -m-1 text-text-muted hover:text-black transition-colors rounded-sm" />
-          <IconLink href={SOCIAL_LINKS.x} label="X" className="p-1 -m-1 text-text-muted hover:text-black transition-colors rounded-sm" />
+          <IconLink href={SOCIAL_LINKS.github} label="GitHub" className="p-1 -m-1 text-text-muted hover:text-black transition-colors rounded-md" />
+          <IconLink href={SOCIAL_LINKS.linkedin} label="LinkedIn" className="p-1 -m-1 text-text-muted hover:text-black transition-colors rounded-md" />
+          <IconLink href={SOCIAL_LINKS.x} label="X" className="p-1 -m-1 text-text-muted hover:text-black transition-colors rounded-md" />
         </div>
       </div>
     </header>

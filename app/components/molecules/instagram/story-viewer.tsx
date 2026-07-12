@@ -1,5 +1,7 @@
 import Image from "next/image"
-import { ProfilePicture } from "@/app/components/organisms/instagram/profile-picture"
+import { X } from "lucide-react"
+import { ICON_SIZE } from "@/app/components/atoms/icon-link"
+import { ProfilePicture } from "@/app/components/molecules/instagram/profile-picture"
 import type { Highlight } from "@/app/play/data"
 
 type StoryViewerProps = {
@@ -17,15 +19,15 @@ export function StoryViewer({ highlight, activeFrame, progress, username, avatar
   const frameSrc = highlight.frames[activeFrame]
 
   return (
-    <div className="fixed inset-x-0 bottom-0 top-14 z-modal bg-[#1a1a1a] flex items-center justify-between">
+    <div className="fixed inset-x-0 bottom-0 top-14 z-modal bg-overlay-dark flex items-center justify-between">
       <button className="flex-1 h-full cursor-pointer" onClick={onPrev} aria-label="Previous story" />
 
       <div className="relative h-[90vh] rounded-2xl overflow-hidden bg-black shrink-0" style={{ aspectRatio: "9/16" }}>
         <Image src={frameSrc} alt={`${highlight.label} ${activeFrame + 1}`} fill className="object-cover" priority />
 
         <div className="absolute top-3 left-3 right-3 z-10 flex gap-1">
-          {highlight.frames.map((_, i) => (
-            <div key={i} className="flex-1 h-0.5 rounded-full bg-white/30 overflow-hidden">
+          {highlight.frames.map((frame, i) => (
+            <div key={frame} className="flex-1 h-0.5 rounded-full bg-white/30 overflow-hidden">
               <div
                 className="h-full bg-white rounded-full"
                 style={{
@@ -51,9 +53,7 @@ export function StoryViewer({ highlight, activeFrame, progress, username, avatar
       <button className="flex-1 h-full cursor-pointer" onClick={onNext} aria-label="Next story" />
 
       <button onClick={onClose} className="absolute top-5 right-5 z-10 text-white/80 hover:text-white transition-colors p-2 cursor-pointer" aria-label="Close">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-        </svg>
+        <X size={ICON_SIZE.lg} strokeWidth={2.5} />
       </button>
     </div>
   )

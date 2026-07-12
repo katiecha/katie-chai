@@ -22,7 +22,7 @@ type LanguageDotProps = {
 }
 
 export function LanguageDot({ tag, size = "md" }: LanguageDotProps) {
-  const color = TAG_COLORS[tag] ?? "#9ca3af"
+  const color = TAG_COLORS[tag] ?? "var(--color-text-subtle)"
   const dotClass = size === "sm" ? "w-2.5 h-2.5" : "w-3 h-3"
   return (
     <span className="flex items-center gap-1.5 text-xs text-text-muted shrink-0">
