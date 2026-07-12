@@ -2,7 +2,7 @@ import { Link } from "lucide-react"
 import { XIcon, FigmaIcon, GitHubIcon, LinkedInIcon, YouTubeIcon } from "@/app/components/atoms/icons"
 import type { LinkType } from "@/app/work/data"
 
-const SIZE = 14
+const SIZE = 18
 
 function Icon({ type, href, size = SIZE }: { type?: LinkType; href: string; size?: number }) {
   const resolved = type ?? inferType(href)

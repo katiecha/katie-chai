@@ -12,13 +12,13 @@ export function HeroHeader() {
           I&apos;m interested in building systems that combine<br />intelligence, infrastructure, and thoughtful design.
         </p>
         <div className="flex items-center gap-4 mt-7">
-          <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-text-muted hover:text-black transition-colors">
+          <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="inline-flex items-center justify-center min-w-10 min-h-10 text-text-muted hover:text-black transition-colors">
             <GitHubIcon size={20} />
           </a>
-          <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-text-muted hover:text-black transition-colors">
+          <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex items-center justify-center min-w-10 min-h-10 text-text-muted hover:text-black transition-colors">
             <LinkedInIcon size={20} />
           </a>
-          <a href={SOCIAL_LINKS.x} target="_blank" rel="noopener noreferrer" aria-label="X" className="text-text-muted hover:text-black transition-colors">
+          <a href={SOCIAL_LINKS.x} target="_blank" rel="noopener noreferrer" aria-label="X" className="inline-flex items-center justify-center min-w-10 min-h-10 text-text-muted hover:text-black transition-colors">
             <XIcon size={20} />
           </a>
         </div>

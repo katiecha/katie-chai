@@ -9,21 +9,22 @@ export function Row({ project }: { project: Project }) {
   const href = previewHref(project.links)
 
   return (
-    <div className="relative py-5 border-b border-border last:border-0 cursor-pointer hover:bg-surface transition-colors -mx-2 px-2 rounded-sm">
-      {href && (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={project.name}
-          className="absolute inset-0"
-        />
-      )}
-
+    <div className="py-5 border-b border-border last:border-0">
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap mb-1.5">
-            <span className="font-semibold text-sm text-link">{project.name}</span>
+            {href ? (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-sm text-link hover:underline underline-offset-2"
+              >
+                {project.name}
+              </a>
+            ) : (
+              <span className="font-semibold text-sm text-link">{project.name}</span>
+            )}
             {project.status === "in-progress" && (
               <Tooltip label="in progress">
                 <span className="text-sm leading-none select-none">⚠️</span>
@@ -39,7 +40,7 @@ export function Row({ project }: { project: Project }) {
         </div>
 
         {project.links.length > 0 && (
-          <div className="relative z-10 flex items-center gap-2.5 shrink-0 mt-0.5">
+          <div className="flex items-center gap-2.5 shrink-0 mt-0.5">
             {project.links.map((link) => (
               <IconLink key={link.href} href={link.href} label={link.label} type={link.type} />
             ))}

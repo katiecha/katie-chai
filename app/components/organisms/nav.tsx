@@ -11,13 +11,13 @@ export function Nav() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/work" className="text-sm hover:text-text-muted transition-colors">
+          <Link href="/work" className="text-sm hover:text-text-muted transition-colors py-2 -my-2">
             Work
           </Link>
-          <Link href="/play" className="text-sm hover:text-text-muted transition-colors">
+          <Link href="/play" className="text-sm hover:text-text-muted transition-colors py-2 -my-2">
             Play
           </Link>
-          <Link href="/readme" className="text-sm hover:text-text-muted transition-colors">
+          <Link href="/readme" className="text-sm hover:text-text-muted transition-colors py-2 -my-2">
             README.md
           </Link>
         </nav>

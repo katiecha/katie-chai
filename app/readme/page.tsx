@@ -94,7 +94,8 @@ export default function ReadmePage() {
               <ul className="space-y-1.5 text-sm text-text-muted">
                 <li className="flex items-baseline gap-2"><span className="shrink-0">🥇</span><span>Interned with Special Olympics as a Software Engineering Intern</span></li>
                 <li className="flex items-baseline gap-2"><span className="shrink-0">📚</span><span>TA-ed COMP 227 (Effective Peer Teaching in CS) and COMP 380 (Technology, Ethics, &amp; Culture) with Professor Tessa Joseph Nicholas</span></li>
-                <li className="flex items-baseline gap-2"><span className="shrink-0">🔎</span><span>Researched Epidemiology with Professor Jessie K. Edwards and 🧮 Physical Mathematics with Pedro J Sáenz</span></li>
+                <li className="flex items-baseline gap-2"><span className="shrink-0">🔎</span><span>Researched Epidemiology with Professor Jessie K. Edwards</span></li>
+                <li className="flex items-baseline gap-2"><span className="shrink-0">🧮</span><span>Researched Physical Mathematics with Pedro J Sáenz</span></li>
                 <li className="flex items-baseline gap-2"><span className="shrink-0">🏕</span><span>Worked with Michael&apos;s Angels as a Summer Program Co-Director</span></li>
                 <li className="flex items-baseline gap-2"><span className="shrink-0">🛠️</span><span>Interned with Honeywell as a Mechanical Engineering Intern</span></li>
               </ul>
@@ -112,8 +113,8 @@ export default function ReadmePage() {
                   </span>
                 </li>
                 <li className="flex items-baseline gap-2">
-                  <span className="shrink-0">•</span>
-                  <span>Fun fact: My 🏐 sand and indoor volleyball teams won the UNC intramural championship!</span>
+                  <span className="shrink-0">🏐</span>
+                  <span>Fun fact: My sand and indoor volleyball teams won the UNC intramural championship!</span>
                 </li>
                 <li className="flex items-baseline gap-2">
                   <span className="shrink-0">•</span>

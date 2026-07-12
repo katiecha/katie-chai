@@ -119,7 +119,11 @@ export const IG_POSTS: MediaItem[] = [
   { label: "Donuts with CATCH Promotion", image: "/images/play/ig-post-2.jpg" },
   { label: "BMES Collab Event", image: "/images/play/ig-post-3.jpg" },
   { label: "GBM Schedule 2023", image: "/images/play/ig-post-4.jpg" },
-  { label: "LDOC Recap", image: "/images/play/ig-post-5.jpg" },
+  { label: "LDOC Recap", image: "/images/play/ig-post-5.png" },
+  { label: "Donuts with CATCH", image: "/images/play/ig-post-6.png" },
+  { label: "BMES x CATCH Crossover Event", image: "/images/play/ig-post-7.png" },
+  { label: "GBM Schedule", image: "/images/play/ig-post-8.png" },
+  { label: "Merch Reveal (Firetruck Edition)", image: "/images/play/ig-post-9.png" },
 ]
 
 export type Highlight = {

@@ -58,19 +58,19 @@ export function ProfileHeader({
               href={followHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-9 min-w-[150px] px-4 rounded-lg bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center gap-1 transition-colors"
+              className="h-10 min-w-[150px] px-4 rounded-lg bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center gap-1 transition-colors"
             >
               Following <ChevronDown size={14} />
             </a>
             <a
               href={`mailto:${messageEmail}`}
-              className="h-9 min-w-[150px] px-4 rounded-lg bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center transition-colors"
+              className="h-10 min-w-[150px] px-4 rounded-lg bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center transition-colors"
             >
               Message
             </a>
             <button
               aria-label="Add person"
-              className="w-9 h-9 rounded-lg bg-surface hover:bg-surface-hover flex items-center justify-center transition-colors shrink-0"
+              className="w-9 h-10 rounded-lg bg-surface hover:bg-surface-hover flex items-center justify-center transition-colors shrink-0"
             >
               <UserPlus size={16} className="text-text-primary" />
             </button>

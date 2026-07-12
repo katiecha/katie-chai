@@ -91,12 +91,12 @@ export function InstagramSection() {
           username="carolinaadaptstoys"
           avatarSrc="/images/play/catch-logo.png"
           displayName="CATCH"
-          postsCount={5}
+          postsCount={IG_POSTS.length}
           followersCount={947}
           followingCount={1002}
           category="Community Service"
           bioTitle="Carolina Adapts Toys for Children 🤖"
-          description="PR Chair 2022–2023 — I created branding materials and managed Instagram, Facebook, LinkedIn, and email communications."
+          description="I created branding materials + managed social media / email communications."
           followHref="https://www.instagram.com/catch_unc"
           messageEmail="katie.h.chai@gmail.com"
         />

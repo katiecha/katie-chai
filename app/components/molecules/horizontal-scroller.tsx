@@ -37,7 +37,7 @@ export function HorizontalScroller({ children, className }: HorizontalScrollerPr
           onClick={() => ref.current?.scrollBy({ left: 200, behavior: "smooth" })}
           className="absolute right-3 top-0 bottom-0 flex items-center cursor-pointer"
         >
-          <span className="w-8 h-8 rounded-full bg-text-primary/70 flex items-center justify-center shadow-sm">
+          <span className="w-10 h-10 rounded-full bg-text-primary/70 flex items-center justify-center shadow-sm">
             <ChevronRight size={18} className="text-white" />
           </span>
         </button>

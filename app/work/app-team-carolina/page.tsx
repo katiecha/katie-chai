@@ -100,6 +100,9 @@ export default function AppTeamCarolinaPage() {
               <ProjectDescription>
                 A local brunch restaurant app. The Brunchery had established brand colors to work with, while typography was up to me. It&apos;s egg-themed!
               </ProjectDescription>
+              <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-4" style={{ aspectRatio: "16/9" }}>
+                <Image src="/images/app-team-carolina/brunchery.jpg" alt="The Brunchery app mockup" fill className="object-contain" />
+              </div>
               <p className="text-xs font-medium text-text-subtle uppercase tracking-wide mb-2">Feature requirements</p>
               <FeatureList items={[
                 "Logo / branding",
@@ -115,6 +118,9 @@ export default function AppTeamCarolinaPage() {
               <ProjectDescription>
                 An app for Alpine&apos;s Bagels, a popular spot at UNC-Chapel Hill. This week&apos;s focus was on design fundamentals — each principle was applied throughout the interface.
               </ProjectDescription>
+              <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-4" style={{ aspectRatio: "16/9" }}>
+                <Image src="/images/app-team-carolina/alpines-bagels.jpg" alt="Alpine's Bagels app mockup" fill className="object-contain" />
+              </div>
               <PrincipleGrid items={DESIGN_PRINCIPLES} />
             </div>
 
@@ -136,7 +142,7 @@ export default function AppTeamCarolinaPage() {
               <p className="text-xs font-medium text-text-subtle uppercase tracking-wide mb-2">Features</p>
               <FeatureList items={["Messaging", "Flower sending", "User profile section"]} />
               <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mt-4" style={{ aspectRatio: "16/9" }}>
-                <Image src="/images/app-team-carolina/send-the-flowers.jpg" alt="Send The Flowers app mockup" fill className="object-cover" />
+                <Image src="/images/app-team-carolina/send-the-flowers.jpg" alt="Send The Flowers app mockup" fill className="object-contain" />
               </div>
             </div>
 
@@ -146,6 +152,9 @@ export default function AppTeamCarolinaPage() {
               <ProjectDescription>
                 A sleek and secure app for tracking menstrual cycles. The goal was a simple design that prioritizes user data privacy.
               </ProjectDescription>
+              <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-4" style={{ aspectRatio: "16/9" }}>
+                <Image src="/images/app-team-carolina/period-tracking.jpg" alt="Period tracking app mockup" fill className="object-contain" />
+              </div>
               <p className="text-xs font-medium text-text-subtle uppercase tracking-wide mb-2">Features</p>
               <FeatureList items={[
                 "Start and stop buttons",
@@ -171,7 +180,7 @@ export default function AppTeamCarolinaPage() {
                 "Favorite button",
               ]} />
               <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mt-4" style={{ aspectRatio: "16/9" }}>
-                <Image src="/images/app-team-carolina/parking-app.jpg" alt="Parking app redesign mockup" fill className="object-cover" />
+                <Image src="/images/app-team-carolina/parking-app.jpg" alt="Parking app redesign mockup" fill className="object-contain" />
               </div>
             </div>
 
@@ -182,7 +191,7 @@ export default function AppTeamCarolinaPage() {
                 A redesign of TikTok completed during a UI/UX design workshop led by Morgan Roberts at UNC-Chapel Hill. Starting from a provided starter file, I designed the TikTok screen, built a prototype, and created a mockup.
               </ProjectDescription>
               <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mt-4" style={{ aspectRatio: "16/9" }}>
-                <Image src="/images/app-team-carolina/tiktok.jpg" alt="TikTok recreation mockup" fill className="object-cover" />
+                <Image src="/images/app-team-carolina/tiktok.jpg" alt="TikTok recreation mockup" fill className="object-contain" />
               </div>
             </div>
 
