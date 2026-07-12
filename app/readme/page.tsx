@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { PageShell } from "@/app/components/molecules/page-shell"
 import { SOCIAL_LINKS } from "@/app/work/data"
 
 export const metadata: Metadata = {
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ReadmePage() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-16">
+    <PageShell>
       <div className="border border-border rounded-lg overflow-hidden">
 
         {/* File header */}
@@ -26,11 +27,11 @@ export default function ReadmePage() {
         <div className="px-10 py-8 flex flex-col gap-6">
 
           {/* Title */}
-          <h1 className="text-2xl font-bold text-center">👋 hi, i&apos;m katie!</h1>
+          <h1 className="text-2xl font-bold">👋 hi, i&apos;m katie!</h1>
           <hr className="border-border" />
 
           {/* Subtitle */}
-          <p className="text-base font-semibold text-center">swe @ greenboard</p>
+          <p className="text-base font-semibold">swe @ greenboard</p>
 
           {/* Sections */}
           <div className="flex flex-col gap-8">
@@ -129,7 +130,7 @@ export default function ReadmePage() {
           <hr className="border-border" />
 
           {/* Contact */}
-          <p className="text-sm text-text-muted text-center">
+          <p className="text-sm text-text-muted">
             📚 reach me at katie.h.chai [at] gmail.com or on{" "}
             <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline underline-offset-2">
               LinkedIn
@@ -138,6 +139,6 @@ export default function ReadmePage() {
 
         </div>
       </div>
-    </main>
+    </PageShell>
   )
 }

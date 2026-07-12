@@ -42,7 +42,6 @@ export function StoryViewer({ highlight, activeFrame, progress, username, avatar
         <div className="absolute top-7 left-3 z-10 flex items-center gap-2">
           <ProfilePicture src={avatarSrc} alt={username} size="sm" ring="plain" fit="contain" />
           <span className="text-white text-xs font-semibold drop-shadow">{username}</span>
-          <span className="text-white/70 text-xs drop-shadow">· {highlight.label}</span>
         </div>
 
         <button className="absolute left-0 top-0 bottom-0 w-1/3 z-20 cursor-pointer" onClick={onPrev} aria-label="Previous story" />
