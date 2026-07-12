@@ -2,7 +2,13 @@ import { Link } from "lucide-react"
 import { XIcon, FigmaIcon, GitHubIcon, LinkedInIcon, YouTubeIcon } from "@/app/components/atoms/icons"
 import type { LinkType } from "@/app/work/data"
 
-const SIZE = 18
+export const ICON_SIZE = {
+  sm: 14,  // compact contexts: cards, tags
+  md: 18,  // default: rows, nav, standalone links
+  lg: 20,  // hero, large UI
+} as const
+
+const SIZE = ICON_SIZE.md
 
 function Icon({ type, href, size = SIZE }: { type?: LinkType; href: string; size?: number }) {
   const resolved = type ?? inferType(href)
@@ -33,14 +39,14 @@ type IconLinkProps = {
   className?: string
 }
 
-export function IconLink({ href, label, type, size, className }: IconLinkProps) {
+export function IconLink({ href, label, type, size = ICON_SIZE.sm, className }: IconLinkProps) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className={className ?? "text-text-subtle hover:text-black transition-colors"}
+      className={className ?? "p-1 -m-1 text-text-subtle hover:text-black transition-colors rounded-sm"}
     >
       <Icon type={type} href={href} size={size} />
     </a>

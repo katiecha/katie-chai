@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { Grid3x3, UserSquare } from "lucide-react"
 import { HorizontalScroller } from "@/app/components/molecules/horizontal-scroller"
 import { Section } from "@/app/components/molecules/section"
-import { IG_POSTS, IG_HIGHLIGHTS, MERCH } from "@/app/play/data"
+import { IG_POSTS, IG_HIGHLIGHTS, MERCH, POSTERS } from "@/app/play/data"
 import { Card } from "@/app/components/molecules/card"
 import { ProfileHeader } from "@/app/components/organisms/instagram/profile-header"
 import { Story } from "@/app/components/organisms/instagram/story"
@@ -134,12 +134,28 @@ export function InstagramSection() {
         </div>
       </div>
 
+      <Section title="Recruitment Posters" size="sm">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {POSTERS.map((item) => (
+            <Card
+              key={item.image}
+              variant="photo"
+              imageFit="contain"
+              imageAspectRatio="2/3"
+              project={{ name: item.label ?? "", description: "", image: item.image, links: [], tags: [] }}
+            />
+          ))}
+        </div>
+      </Section>
+
       <Section title="Merch & Other" size="sm">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {MERCH.map((item) => (
             <Card
               key={item.image}
               variant="photo"
+              imageFit="contain"
+              imageAspectRatio="1"
               project={{ name: item.label ?? "", description: "", image: item.image, links: [], tags: [] }}
             />
           ))}

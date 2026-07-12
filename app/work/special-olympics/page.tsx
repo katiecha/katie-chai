@@ -108,9 +108,12 @@ export default function SpecialOlympicsPage() {
 
             <div>
               <h3 className="text-sm font-semibold mb-2">User Flow</h3>
-              <p className="text-sm text-text-muted leading-relaxed">
+              <p className="text-sm text-text-muted leading-relaxed mb-4">
                 The redesigned flow consolidated duplicate pages, simplified the navbar structure, and created a clear path from landing to volunteer sign-up. The donation page was also elevated in the hierarchy based on analytics data.
               </p>
+              <div className="relative w-full rounded-fillet overflow-hidden bg-surface border border-border">
+                <Image src="/images/so-website-ia.png" alt="Special Olympics website information architecture" width={1600} height={400} className="w-full h-auto" />
+              </div>
             </div>
 
             <div>
