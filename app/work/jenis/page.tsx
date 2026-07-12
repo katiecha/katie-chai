@@ -24,7 +24,7 @@ const PROBLEMS = [
   {
     name: "Choice overload in flavor selection",
     definition:
-      "Jeni's rotates dozens of seasonal and regional flavors — Brambleberry Crisp, Salty Caramel, Brown Butter Almond Brittle, a revolving cast of sorbets — and that variety is the whole appeal. But the catalog shows them as one long, unsorted list with no way to filter or compare. Faced with forty options and no guided way in, people tend to fall back on a flavor they already know, which quietly works against the discovery the brand is built on.",
+      "Jeni's rotates dozens of seasonal and regional flavors — Brambleberry Crisp, Salty Caramel, Brown Butter Almond Brittle, a revolving cast of sorbets — and that variety is the whole appeal. But the catalog shows them as one long, unsorted list with no way to filter or compare. Faced with forty options and no clear way in, I'd expect people to fall back on a flavor they already know — which quietly works against the discovery the brand is built on.",
   },
   {
     name: "Gift configuration friction",
@@ -41,13 +41,18 @@ const PROBLEMS = [
     definition:
       "Scoop shop flavor boards change daily and vary by location, and the app isn't synced to what's actually in the case. A flavor discovered at the counter often can't be found, saved, or reordered online later — so the strongest moment of discovery leaves no trail.",
   },
+  {
+    name: "No line for limited releases",
+    definition:
+      "Jeni's limited and seasonal flavors sell out fast, but the app offers no way to follow what's coming or get told when something drops. The fans who care most about novelty — the whole reason to keep checking back — often find out too late, so the brand's natural release rhythm never becomes a reason to reopen the app.",
+  },
 ]
 
 const PRINCIPLES = [
   {
     name: "Guide discovery without flattening the brand",
     definition:
-      "Add filtering and comparison, but keep the editorial, story-driven flavor names that make browsing Jeni's feel like a specialty shop rather than a spreadsheet. The goal is a guided way in, not a spec sheet.",
+      "Add filtering and comparison, but keep the editorial, story-driven flavor names that make browsing Jeni's feel like a specialty shop rather than a spreadsheet. It should be an easy way in, not a spec sheet.",
   },
   {
     name: "Make flavors comparable",
@@ -70,17 +75,22 @@ const PERSONAS = [
   {
     name: "The Explorer",
     definition:
-      "Comes for novelty and limited runs; wants to try the flavor they've never heard of. Primary need: fast, low-friction discovery and comparison of what's new.",
+      "Treats the flavor list like a menu and comes for the limited drops and the strangest names. Primary need: fast discovery and easy comparison, so trying something unfamiliar feels low-risk.",
   },
   {
     name: "The Gift Buyer",
     definition:
-      "High intent, low confidence, buying for someone else. Primary need: curation, pairing guidance, and reassurance the box will arrive intact.",
+      "Buying for someone else, often shipping across the country, with high intent but low confidence in what to pick. Primary need: curation, pairing help, and reassurance the box arrives intact.",
   },
   {
     name: "The Repeat Buyer",
     definition:
-      "Loyal and high-frequency, with a few standbys. Primary need: less effort to reorder, and a reason to keep exploring.",
+      "Has three or four standbys and reorders often, but rarely branches out. Primary need: less effort to reorder — and a nudge to keep exploring.",
+  },
+  {
+    name: "The Dairy-Free Shopper",
+    definition:
+      "Eats dairy-free or vegan and has been let down by thin, icy alternatives elsewhere. Primary need: to filter straight to what they can eat and trust the texture before buying — Jeni's dairy-free line is a real draw.",
   },
 ]
 
@@ -118,7 +128,7 @@ export default function JenisPage() {
         <section>
           <SectionHeading>Problem Definition</SectionHeading>
           <p className="text-sm text-text-muted leading-relaxed mb-6">
-            Working from the live app and site, I walked the core purchase paths — flavor browsing, gift-box building, and the handoff between scoop shop and app — against standard usability heuristics. Four recurring friction points stood out, each noted below with the effect I&apos;d expect it to have.
+            Working from the live app and site, I walked the core purchase paths — flavor browsing, gift-box building, and the handoff between scoop shop and app — noting where flavors were hard to compare, where constraints stayed hidden until checkout, and where context dropped between visits. Five recurring friction points stood out, each noted below with the effect I&apos;d expect it to have.
           </p>
           <DefinitionGrid items={PROBLEMS} />
         </section>
@@ -140,7 +150,7 @@ export default function JenisPage() {
             <div>
               <h3 className="text-sm font-semibold mb-4">Working personas</h3>
               <p className="text-sm text-text-muted leading-relaxed mb-6">
-                Without access to Jeni&apos;s own customer research, I sketched three personas from patterns common to premium DTC food shopping. They&apos;re working assumptions to keep the design grounded, not validated findings — revisited in Limitations.
+                Without access to Jeni&apos;s own customer research, I sketched four personas from patterns common to premium DTC food shopping. They&apos;re working assumptions to keep the design grounded, not validated findings — revisited in Limitations.
               </p>
               <DefinitionGrid items={PERSONAS} />
             </div>
@@ -198,7 +208,7 @@ export default function JenisPage() {
             <div>
               <h3 className="text-sm font-semibold mb-2">Scoop shop ↔ app sync</h3>
               <p className="text-sm text-text-muted leading-relaxed mb-4">
-                An in-store QR code opens the exact flavor in the app and saves it to the account, and availability reflects what&apos;s live in nearby shops — closing the loop between the counter and a later order.
+                An in-store QR code opens the exact flavor in the app and saves it to the account, and availability reflects what&apos;s live in nearby shops — so a flavor spotted at the counter turns up again in the app, ready to reorder.
               </p>
               <ImagePlaceholder label="Cross-channel — in-store QR → flavor detail → saved, live shop availability" aspect="9/16" />
             </div>
@@ -206,7 +216,7 @@ export default function JenisPage() {
             <div>
               <h3 className="text-sm font-semibold mb-2">Flavor-drop waitlist</h3>
               <p className="text-sm text-text-muted leading-relaxed mb-4">
-                Rather than a replenishment subscription — ice cream isn&apos;t really something you run out of on a schedule — a membership-style waitlist gives loyal customers early access and a heads-up when limited seasonal flavors drop, which better matches how people behave with a novelty-driven treat.
+                Rather than a replenishment subscription — ice cream isn&apos;t really something you run out of on a schedule — a membership-style waitlist gives loyal customers early access and a heads-up when limited seasonal flavors drop.
               </p>
               <ImagePlaceholder label="Flavor-drop waitlist — early access and alerts for limited releases" aspect="9/16" />
             </div>
@@ -219,7 +229,7 @@ export default function JenisPage() {
           <SectionHeading>Limitations &amp; Next Steps</SectionHeading>
           <div className="flex flex-col gap-4 text-sm text-text-muted leading-relaxed">
             <p>
-              This is a conceptual, self-directed study without primary research or a shipped product, so its conclusions are hypotheses rather than validated outcomes — the personas are assumptions and the competitive read is qualitative. It also leaves one real tension open: guided filtering has to help without diluting the editorial, browse-for-fun quality that&apos;s core to how people enjoy Jeni&apos;s, and only testing would show where that line sits.
+              This is a conceptual, self-directed study without primary research or a shipped product, so its conclusions are hypotheses rather than validated outcomes — the personas are assumptions and the competitive read is qualitative. It also leaves one real tension open: filtering has to help without diluting the editorial, browse-for-fun quality that&apos;s core to how people enjoy Jeni&apos;s, and only testing would show where that line sits.
             </p>
             <p>
               If this were built, I&apos;d validate it with moderated usability tests on the flavor-selection and gift-box flows — watching task success, time on task, and a post-task confidence rating (<span className="font-medium text-black">&ldquo;I felt good about what I chose&rdquo;</span>) — and, with real instrumentation, track gift-flow completion rate, average order value, and repeat-purchase rate against the current experience.
