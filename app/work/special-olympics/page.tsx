@@ -131,19 +131,6 @@ export default function SpecialOlympicsPage() {
           </div>
         </section>
 
-        {/* Supplementary */}
-        <section>
-          <SectionHeading>Supplementary — App IA</SectionHeading>
-          <p className="text-sm text-text-muted leading-relaxed mb-6">
-            Alongside the website, I also mapped the original app information architecture and designed a new user flow for the Special Olympics PA mobile app.
-          </p>
-          <div className="flex flex-col gap-3">
-            <Image src="/images/so-app-ia-1.png" alt="Original app information architecture" width={1667} height={1499} style={{ width: '100%', height: 'auto' }} className="rounded-fillet border border-border" />
-            <Image src="/images/so-app-ia-2.png" alt="New app flow chart" width={1751} height={1499} style={{ width: '100%', height: 'auto' }} className="rounded-fillet border border-border" />
-            <Image src="/images/so-app-ia-3.png" alt="New app user flow" width={2391} height={1499} style={{ width: '100%', height: 'auto' }} className="rounded-fillet border border-border" />
-          </div>
-        </section>
-
       </div>
     </main>
   )

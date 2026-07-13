@@ -12,7 +12,7 @@ export const ICON_SIZE = {
   lg: 20,  // hero, large UI
 } as const
 
-function Icon({ type, href, size = ICON_SIZE.md }: { type?: LinkType; href: string; size?: number }) {
+function Icon({ type, href, size = ICON_SIZE.sm }: { type?: LinkType; href: string; size?: number }) {
   const resolved = type ?? inferType(href)
   switch (resolved) {
     case "github":   return <GitHubIcon size={size} />
@@ -41,14 +41,14 @@ type IconLinkProps = {
   className?: string
 }
 
-export function IconLink({ href, label, type, size = ICON_SIZE.md, className }: IconLinkProps) {
+export function IconLink({ href, label, type, size = ICON_SIZE.sm, className }: IconLinkProps) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className={className ?? "p-1 -m-1 text-text-subtle hover:text-black transition-colors rounded-md"}
+      className={className ?? "p-1 -m-1 text-text-subtle hover:text-black transition-colors rounded-sm"}
     >
       <Icon type={type} href={href} size={size} />
     </a>
