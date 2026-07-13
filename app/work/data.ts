@@ -10,7 +10,7 @@ export type Project = {
   name: string
   description: string
   links: ProjectLink[]
-  status?: "in-progress"
+  status?: "in-progress" | "private"
   image?: string
   imagePosition?: string
   videoEmbed?: string
@@ -328,7 +328,7 @@ export const CATEGORIES: Category[] = [
         name: "EPID Research",
         description: "Epidemiology research project for Honors Carolina.",
         links: [],
-        status: "in-progress",
+        status: "private",
         tags: ["R", "SAS"],
       },
       {
@@ -373,7 +373,7 @@ export const UIUX_PROJECTS: Project[] = [
   {
     name: "Carolina Adapts Toys for Children",
     description: "Website design & redesign.",
-    links: [],
+    links: [{ label: "Project", href: "/work/catch", type: "site" }],
     status: "in-progress",
     image: "/images/uiux-catch.png",
   },

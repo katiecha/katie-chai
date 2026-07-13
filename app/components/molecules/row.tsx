@@ -31,6 +31,11 @@ export function Row({ project }: { project: Project }) {
                 <span className="text-sm leading-none select-none">⚠️</span>
               </Tooltip>
             )}
+            {project.status === "private" && (
+              <Tooltip label="private — available on request">
+                <span className="text-sm leading-none select-none">🔒</span>
+              </Tooltip>
+            )}
           </div>
 
           {project.description && (
