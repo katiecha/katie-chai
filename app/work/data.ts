@@ -61,6 +61,14 @@ export const CURRENT_PROJECTS: Project[] = [
     tags: ["Python"],
   },
   {
+    name: "PO Agent",
+    description: "An event-driven agent pipeline (Google ADK, FastAPI) that applies deterministic compliance rules plus LLM judgment to decide which pending pharmacy orders can be safely combined, with a React dashboard for live results. The repo is private, but email me if you'd like to learn more.",
+    links: [],
+    status: "private",
+    tags: ["Python", "TypeScript"],
+    frameworks: ["React"],
+  },
+  {
     name: "NC ASK",
     description: "An RAG educational platform (React, TypeScript, FastAPI, Supabase vector database, Gemini) that provides info about NC autism resources",
     links: [
@@ -342,7 +350,7 @@ export const CATEGORIES: Category[] = [
     ],
   },
   {
-    title: "Creative & XR",
+    title: "Unity / C#",
     emoji: "🎮",
     projects: [
       {
@@ -353,6 +361,12 @@ export const CATEGORIES: Category[] = [
         tags: ["C#"],
         frameworks: ["Unity"],
       },
+    ],
+  },
+  {
+    title: "Swift",
+    emoji: "💨",
+    projects: [
       {
         name: "Card Game",
         description: "A few introductory Swift projects that culminate in a simple card game.",
