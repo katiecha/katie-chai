@@ -23,7 +23,7 @@ export function StoryViewer({ highlight, activeFrame, progress, username, avatar
       <button className="flex-1 h-full cursor-pointer" onClick={onPrev} aria-label="Previous story" />
 
       <div className="relative h-[90vh] rounded-2xl overflow-hidden bg-black shrink-0" style={{ aspectRatio: "9/16" }}>
-        <Image src={frameSrc} alt={`${highlight.label} ${activeFrame + 1}`} fill className="object-cover" priority />
+        <Image src={frameSrc} alt={`${highlight.label} ${activeFrame + 1}`} fill sizes="(min-width: 768px) 500px, 100vw" className="object-cover" priority />
 
         <div className="absolute top-3 left-3 right-3 z-10 flex gap-1">
           {highlight.frames.map((frame, i) => (

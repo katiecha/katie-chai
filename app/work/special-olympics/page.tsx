@@ -32,7 +32,7 @@ export default function SpecialOlympicsPage() {
       <p className="text-sm text-text-muted mb-10">UX research and website redesign + rebuild.</p>
 
       <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-16" style={{ aspectRatio: "16/9" }}>
-        <Image src="/images/uiux-special-olympics.png" alt="Special Olympics project" fill className="object-cover" />
+        <Image src="/images/uiux-special-olympics.png" alt="Special Olympics project" fill sizes="(min-width: 896px) 896px, 100vw" className="object-cover" />
       </div>
 
       <div className="flex flex-col gap-14">

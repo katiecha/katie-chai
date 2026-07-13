@@ -8,7 +8,7 @@ type PostProps = {
 export function Post({ image, label }: PostProps) {
   return (
     <div className="relative aspect-square bg-white">
-      <Image src={image} alt={label || ""} fill className="object-cover" />
+      <Image src={image} alt={label || ""} fill sizes="(min-width: 896px) 299px, 33vw" className="object-cover" />
     </div>
   )
 }

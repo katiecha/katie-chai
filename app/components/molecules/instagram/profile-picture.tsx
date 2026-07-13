@@ -10,6 +10,13 @@ const SIZE_CLASSES: Record<ProfilePictureSize, string> = {
   xl: "w-36 h-36",
 }
 
+const SIZE_PX: Record<ProfilePictureSize, number> = {
+  sm: 32,
+  md: 64,
+  lg: 96,
+  xl: 144,
+}
+
 type ProfilePictureProps = {
   src: string
   alt: string
@@ -31,7 +38,7 @@ export function ProfilePicture({
 }: ProfilePictureProps) {
   const avatar = (
     <div className={`relative rounded-full overflow-hidden ${SIZE_CLASSES[size]} ${className ?? ""}`}>
-      <Image src={src} alt={alt} fill className={fit === "cover" ? "object-cover" : "object-contain"} priority={priority} />
+      <Image src={src} alt={alt} fill sizes={`${SIZE_PX[size]}px`} className={fit === "cover" ? "object-cover" : "object-contain"} priority={priority} />
     </div>
   )
 

@@ -106,7 +106,7 @@ export default function JenisPage() {
       <p className="text-xs text-text-subtle mb-10">Self-directed study · Mobile app · UX research + UI</p>
 
       <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-16" style={{ aspectRatio: "16/9" }}>
-        <Image src="/images/uiux-jenis.jpg" alt="Jeni's Splendid Ice Creams case study" fill className="object-cover" />
+        <Image src="/images/uiux-jenis.jpg" alt="Jeni's Splendid Ice Creams case study" fill sizes="(min-width: 896px) 896px, 100vw" className="object-cover" />
       </div>
 
       <div className="flex flex-col gap-14">

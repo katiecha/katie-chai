@@ -10,11 +10,12 @@ type CardProps = {
   variant: "text" | "photo"
   imageFit?: "cover" | "contain"
   imageAspectRatio?: string
+  imageSizes?: string
 }
 
 const shell = "relative border border-border rounded-fillet hover:border-border-hover transition-all duration-150 cursor-pointer"
 
-export function Card({ project, variant, imageFit = "cover", imageAspectRatio = "16/9" }: CardProps) {
+export function Card({ project, variant, imageFit = "cover", imageAspectRatio = "16/9", imageSizes = "(min-width: 768px) 50vw, 100vw" }: CardProps) {
   const href = previewHref(project.links)
 
   if (variant === "text") {
@@ -87,6 +88,7 @@ export function Card({ project, variant, imageFit = "cover", imageAspectRatio = 
             src={project.image}
             alt={project.name}
             fill
+            sizes={imageSizes}
             className={`${imageFit === "contain" ? "object-contain" : "object-cover"} ${project.imagePosition ?? "object-center"}`}
           />
         </div>

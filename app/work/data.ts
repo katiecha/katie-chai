@@ -388,6 +388,7 @@ export const UIUX_PROJECTS: Project[] = [
     name: "App Team Carolina",
     description: "Various projects from the UI/UX Design Academy.",
     links: [{ label: "Project", href: "/work/app-team-carolina", type: "site" }],
+    status: "in-progress",
     image: "/images/uiux-app-team.png",
   },
   {

@@ -157,6 +157,7 @@ export function InstagramSection() {
                 variant="photo"
                 imageFit="contain"
                 imageAspectRatio={item.aspect}
+                imageSizes="(min-width: 768px) 25vw, (min-width: 640px) 33vw, 50vw"
                 project={{ name: item.label ?? "", description: "", image: item.image, links: [], tags: [] }}
               />
             </div>

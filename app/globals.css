@@ -18,6 +18,7 @@
   --color-text-subtle:   #9ca3af; /* gray-400  — dates, metadata, icons   */
   --color-text-disabled: #d1d5db; /* gray-300  — placeholder text         */
 
+  --color-background:    #ffffff; /* white     — page + nav background    */
   --color-surface:       #f9fafb; /* gray-50   — image backgrounds        */
   --color-surface-hover: #f3f4f6; /* gray-100  — hover backgrounds        */
   --color-surface-muted: #f6f8fa; /* GitHub grey — filter/dropdown buttons */

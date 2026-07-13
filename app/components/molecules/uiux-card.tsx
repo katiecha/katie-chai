@@ -9,7 +9,13 @@ export function UIUXCard({ project }: { project: Project }) {
     <div className="border border-border rounded-fillet hover:border-border-hover transition-all duration-150 cursor-pointer">
       <div className="relative h-40 bg-surface overflow-hidden rounded-t-fillet">
         {project.image ? (
-          <Image src={project.image} alt={project.name} fill className="object-cover" />
+          <Image
+            src={project.image}
+            alt={project.name}
+            fill
+            sizes="(min-width: 768px) 440px, 100vw"
+            className="object-cover"
+          />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-text-disabled text-xs">preview</div>
         )}
@@ -17,6 +23,9 @@ export function UIUXCard({ project }: { project: Project }) {
       <div className="p-4">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="font-semibold text-sm">{project.name}</span>
+          <Tooltip wide label="🔒 Password-protected — email katie.h.chai@gmail.com for the password.">
+            <span className="text-sm leading-none select-none">🔒</span>
+          </Tooltip>
           {project.status === "in-progress" && (
             <Tooltip label="in progress">
               <span className="text-sm leading-none select-none">⚠️</span>
