@@ -31,10 +31,10 @@ export function ProfileHeader({
 }: ProfileHeaderProps) {
   return (
     <div className="px-6 py-8">
-      <div className="flex items-start gap-12">
+      <div className="flex flex-col items-center gap-4 text-center md:flex-row md:items-start md:gap-12 md:text-left">
         <ProfilePicture src={avatarSrc} alt={displayName} size="xl" ring="plain" fit="contain" />
 
-        <div className="flex flex-col min-w-0 pt-1">
+        <div className="flex flex-col items-center min-w-0 pt-1 md:items-start">
           <div className="flex items-center gap-2">
             <span className="text-xl font-semibold">{username}</span>
             <MoreHorizontal size={ICON_SIZE.lg} className="text-text-primary" />
@@ -42,7 +42,7 @@ export function ProfileHeader({
 
           <span className="text-sm text-text-primary mt-1.5">{displayName}</span>
 
-          <div className="flex items-center gap-6 text-sm mt-4">
+          <div className="flex items-center justify-center gap-6 text-sm mt-4 md:justify-start">
             <span><span className="font-semibold">{postsCount.toLocaleString("en-US")}</span> <span className="text-text-muted">posts</span></span>
             <span><span className="font-semibold">{followersCount.toLocaleString("en-US")}</span> <span className="text-text-muted">followers</span></span>
             <span><span className="font-semibold">{followingCount.toLocaleString("en-US")}</span> <span className="text-text-muted">following</span></span>
@@ -54,19 +54,19 @@ export function ProfileHeader({
             <span className="text-text-primary block">{description}</span>
           </div>
 
-          <div className="flex items-center gap-2 mt-4">
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-4 md:justify-start">
             <a
               href={followHref}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Following"
-              className="h-10 min-w-[150px] px-4 rounded-md bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center gap-1 transition-colors"
+              className="h-10 min-w-0 flex-1 px-4 rounded-md bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center gap-1 transition-colors md:min-w-[150px] md:flex-none"
             >
               Following <ChevronDown size={ICON_SIZE.sm} />
             </a>
             <a
               href={`mailto:${messageEmail}`}
-              className="h-10 min-w-[150px] px-4 rounded-md bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center transition-colors"
+              className="h-10 min-w-0 flex-1 px-4 rounded-md bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center transition-colors md:min-w-[150px] md:flex-none"
             >
               Message
             </a>

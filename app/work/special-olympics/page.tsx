@@ -21,6 +21,17 @@ function Quote({ children }: { children: React.ReactNode }) {
   )
 }
 
+function ImagePlaceholder({ label, aspect = "16/9" }: { label: string; aspect?: string }) {
+  return (
+    <div
+      className="w-full rounded-fillet border border-dashed border-border bg-surface-hover flex items-center justify-center px-6 text-center"
+      style={{ aspectRatio: aspect }}
+    >
+      <span className="text-xs text-text-subtle leading-relaxed">{label}</span>
+    </div>
+  )
+}
+
 export default function SpecialOlympicsPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-16">
@@ -112,12 +123,8 @@ export default function SpecialOlympicsPage() {
                 The redesigned flow consolidated duplicate pages, simplified the navbar structure, and created a clear path from landing to volunteer sign-up. The donation page was also elevated in the hierarchy based on analytics data.
               </p>
               <div className="flex flex-col gap-3">
-                <div className="rounded-fillet border border-border bg-surface overflow-hidden flex items-center justify-center" style={{ height: 220 }}>
-                  <Image src="/images/so-website-ia-top.png" alt="Website IA iterations" width={5589} height={676} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                </div>
-                <div className="rounded-fillet border border-border bg-surface overflow-hidden flex items-center justify-center" style={{ height: 220 }}>
-                  <Image src="/images/so-website-ia-bottom.png" alt="Website IA detail and before/after" width={5589} height={822} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                </div>
+                <ImagePlaceholder label="Website information architecture — restructured navigation (final crop coming soon)" />
+                <ImagePlaceholder label="Website IA — before / after comparison (final crop coming soon)" />
               </div>
             </div>
 
