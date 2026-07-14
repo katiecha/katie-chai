@@ -58,15 +58,8 @@ export const CURRENT_PROJECTS: Project[] = [
     links: [
       { label: "GitHub", href: "https://github.com/katiecha/resybot", type: "github" },
     ],
-    tags: ["Python"],
-  },
-  {
-    name: "PO Agent",
-    description: "An event-driven agent pipeline (Google ADK, FastAPI) that applies deterministic compliance rules plus LLM judgment to decide which pending pharmacy orders can be safely combined, with a React dashboard for live results. The repo is private, but email me if you'd like to learn more.",
-    links: [],
     status: "private",
-    tags: ["Python", "TypeScript"],
-    frameworks: ["React"],
+    tags: ["Python"],
   },
   {
     name: "NC ASK",
@@ -81,7 +74,7 @@ export const CURRENT_PROJECTS: Project[] = [
 
 export const CATEGORIES: Category[] = [
   {
-    title: "Web & Full-Stack",
+    title: "Web Development (TypeScript, JavaScript, HTML/CSS)",
     emoji: "🕸️",
     projects: [
       {
@@ -101,6 +94,16 @@ export const CATEGORIES: Category[] = [
           { label: "GitHub", href: "https://github.com/katiecha/NC-ASK", type: "github" },
         ],
         tags: ["TypeScript", "Python"],
+        frameworks: ["React"],
+      },
+      {
+        name: "PO Agent",
+        description: "An agent pipeline for pharmacy order batching, with a React dashboard for live results. Private repo — email me to learn more.",
+        links: [
+          { label: "GitHub", href: "https://github.com/katiecha/po-agent", type: "github" },
+        ],
+        status: "private",
+        tags: ["Python", "TypeScript"],
         frameworks: ["React"],
       },
       {
@@ -189,7 +192,7 @@ export const CATEGORIES: Category[] = [
     ],
   },
   {
-    title: "Systems & Embedded",
+    title: "Embedded Systems (C, MIPS, Logisim)",
     emoji: "👾",
     projects: [
       {
@@ -285,7 +288,7 @@ export const CATEGORIES: Category[] = [
     ],
   },
   {
-    title: "Data & Research",
+    title: "Python",
     emoji: "🐍",
     projects: [
       {
@@ -294,6 +297,7 @@ export const CATEGORIES: Category[] = [
         links: [
           { label: "GitHub", href: "https://github.com/katiecha/resybot", type: "github" },
         ],
+        status: "private",
         tags: ["Python"],
       },
       {
@@ -326,6 +330,12 @@ export const CATEGORIES: Category[] = [
         links: [{ label: "GitHub", href: "https://github.com/katiecha/comp110-22s-workspace/blob/main/exercises/ex07/data_wrangling.ipynb", type: "github" }],
         tags: ["Python"],
       },
+    ],
+  },
+  {
+    title: "SAS / R",
+    emoji: "📈",
+    projects: [
       {
         name: "Darknet Research",
         description: "A computational sociology project on trust and behavior in anonymous digital markets.",
@@ -397,13 +407,6 @@ export const UIUX_PROJECTS: Project[] = [
     links: [{ label: "Project", href: "/work/special-olympics", type: "site" }],
     status: "in-progress",
     image: "/images/uiux-special-olympics.png",
-  },
-  {
-    name: "Special Olympics App",
-    description: "Mobile app IA redesign and user flow for the Special Olympics PA volunteer app.",
-    links: [{ label: "Project", href: "/work/special-olympics-app", type: "site" }],
-    status: "in-progress",
-    image: "/images/so-app-ia.png",
   },
   {
     name: "App Team Carolina",

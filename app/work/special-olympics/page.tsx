@@ -40,7 +40,7 @@ export default function SpecialOlympicsPage() {
       </Link>
 
       <h1 className="text-3xl font-semibold mb-2">Special Olympics</h1>
-      <p className="text-sm text-text-muted mb-10">UX research and website redesign + rebuild.</p>
+      <p className="text-sm text-text-muted mb-10">UX research, website redesign + rebuild, and supplementary mobile app IA.</p>
 
       <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-16" style={{ aspectRatio: "16/9" }}>
         <Image src="/images/uiux-special-olympics.png" alt="Special Olympics project" fill sizes="(min-width: 896px) 896px, 100vw" className="object-cover" />
@@ -133,6 +133,39 @@ export default function SpecialOlympicsPage() {
               <p className="text-sm text-text-muted leading-relaxed">
                 After rebuilding 8 webpages in JavaScript and HTML/CSS, I ran a usability survey with Special Olympics volunteers. Volunteers found the redesigned navigation significantly easier to use and task completion improved. The prominence of the donation page also contributed to <span className="font-medium text-black">over $97,993 in fundraising</span>.
               </p>
+            </div>
+
+          </div>
+        </section>
+
+        {/* Supplementary: Mobile App IA */}
+        <section>
+          <SectionHeading>Mobile App (Supplementary)</SectionHeading>
+          <div className="flex flex-col gap-10">
+
+            <div>
+              <p className="text-sm text-text-muted leading-relaxed">
+                Alongside the website redesign, I also worked on a supplementary mobile app project. The focus was on restructuring the original information architecture and designing a cleaner user flow for volunteers using the app.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold mb-2">Information Architecture</h3>
+              <p className="text-sm text-text-muted leading-relaxed mb-4">
+                The original IA had the same core issues as the website — unclear hierarchy, duplicated sections, and no obvious path for a new volunteer. The redesigned IA simplified the top-level structure and made volunteer onboarding its own distinct path.
+              </p>
+              <div className="flex flex-col gap-3">
+                <Image src="/images/so-app-ia-1.png" alt="Original app information architecture" width={1667} height={1499} style={{ width: "100%", height: "auto" }} className="rounded-fillet border border-border" />
+                <Image src="/images/so-app-ia-2.png" alt="New app flow chart" width={1751} height={1499} style={{ width: "100%", height: "auto" }} className="rounded-fillet border border-border" />
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold mb-2">User Flow</h3>
+              <p className="text-sm text-text-muted leading-relaxed mb-4">
+                The new flow chart maps the end-to-end experience from opening the app through completing a volunteer registration. Key decision points (logged in vs. new user, form completion) are clearly separated to reduce confusion and drop-off.
+              </p>
+              <Image src="/images/so-app-ia-3.png" alt="New app user flow" width={2391} height={1499} style={{ width: "100%", height: "auto" }} className="rounded-fillet border border-border" />
             </div>
 
           </div>

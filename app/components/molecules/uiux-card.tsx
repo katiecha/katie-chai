@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Tooltip } from "@/app/components/atoms/tooltip"
+import { InProgressBadge, LockBadge } from "@/app/components/atoms/status-badge"
 import { previewHref } from "@/app/lib/links"
 import type { Project } from "@/app/work/data"
 
@@ -23,14 +23,8 @@ export function UIUXCard({ project }: { project: Project }) {
       <div className="p-4">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="font-semibold text-sm">{project.name}</span>
-          <Tooltip wide label="🔒 Password-protected — email katie.h.chai@gmail.com for the password.">
-            <span className="text-sm leading-none select-none">🔒</span>
-          </Tooltip>
-          {project.status === "in-progress" && (
-            <Tooltip label="in progress">
-              <span className="text-sm leading-none select-none">⚠️</span>
-            </Tooltip>
-          )}
+          <LockBadge />
+          {project.status === "in-progress" && <InProgressBadge />}
         </div>
         <p className="text-sm text-text-muted mt-1">{project.description}</p>
       </div>
