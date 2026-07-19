@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { IconLink } from "@/app/components/atoms/icon-link"
+import { MobileNavMenu } from "@/app/components/organisms/mobile-nav-menu"
 import { SOCIAL_LINKS } from "@/app/work/data"
 
 export function Nav() {
@@ -31,9 +32,10 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <IconLink href={SOCIAL_LINKS.github} label="GitHub" className="p-1 -m-1 text-text-muted hover:text-black transition-colors rounded-sm" />
-          <IconLink href={SOCIAL_LINKS.linkedin} label="LinkedIn" className="p-1 -m-1 text-text-muted hover:text-black transition-colors rounded-sm" />
-          <IconLink href={SOCIAL_LINKS.x} label="X" className="p-1 -m-1 text-text-muted hover:text-black transition-colors rounded-sm" />
+          <IconLink href={SOCIAL_LINKS.github} label="GitHub" className="p-2.5 -m-2.5 text-text-muted hover:text-black transition-colors rounded-sm" />
+          <IconLink href={SOCIAL_LINKS.linkedin} label="LinkedIn" className="p-2.5 -m-2.5 text-text-muted hover:text-black transition-colors rounded-sm" />
+          <IconLink href={SOCIAL_LINKS.x} label="X" className="p-2.5 -m-2.5 text-text-muted hover:text-black transition-colors rounded-sm" />
+          <MobileNavMenu />
         </div>
       </div>
     </header>

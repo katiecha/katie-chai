@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import type { ReactNode } from "react"
 
 type TooltipProps = {
@@ -7,10 +10,15 @@ type TooltipProps = {
 }
 
 export function Tooltip({ label, children, wide = false }: TooltipProps) {
+  const [open, setOpen] = useState(false)
+
   return (
-    <span className="relative group/tooltip cursor-default">
+    <span
+      className="relative group/tooltip cursor-default"
+      onClick={() => setOpen((o) => !o)}
+    >
       {children}
-      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 z-tooltip opacity-0 group-hover/tooltip:opacity-100 transition-opacity pointer-events-none">
+      <span className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 z-tooltip transition-opacity pointer-events-none md:group-hover/tooltip:opacity-100 ${open ? "opacity-100" : "opacity-0"}`}>
         <span className={`block text-xs text-text-primary bg-white border border-border shadow-sm px-2 py-0.5 rounded-md ${wide ? "w-48 whitespace-normal text-center leading-snug py-1" : "whitespace-nowrap"}`}>
           {label}
         </span>
