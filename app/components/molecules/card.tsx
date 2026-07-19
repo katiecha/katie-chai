@@ -2,7 +2,7 @@ import Image from "next/image"
 import { BookMarked } from "lucide-react"
 import { IconLink, ICON_SIZE } from "@/app/components/atoms/icon-link"
 import { LanguageDot } from "@/app/components/atoms/language-dot"
-import { InProgressBadge, LockBadge } from "@/app/components/atoms/status-badge"
+import { InProgressBadge, VisibilityBadge } from "@/app/components/atoms/status-badge"
 import { previewHref } from "@/app/lib/links"
 import type { Project } from "@/app/work/data"
 
@@ -37,8 +37,8 @@ export function Card({ project, variant, imageFit = "cover", imageAspectRatio = 
           <div className="flex items-center gap-2 min-w-0">
             <BookMarked size={ICON_SIZE.sm} className="text-text-subtle shrink-0" />
             <h3 className="text-sm font-semibold text-link truncate">{project.name}</h3>
+            <VisibilityBadge status={project.status} />
             {project.status === "in-progress" && <InProgressBadge />}
-            {project.status === "private" && <LockBadge />}
           </div>
           {project.links.length > 0 && (
             <div className="relative z-10 flex items-center gap-2 shrink-0">

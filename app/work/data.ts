@@ -98,7 +98,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         name: "PO Agent",
-        description: "An agent pipeline for pharmacy order batching, with a React dashboard for live results. Private repo — email me to learn more.",
+        description: "An agent pipeline for pharmacy order batching, with a React dashboard for live results. Private repo. Email me to learn more!",
         links: [
           { label: "GitHub", href: "https://github.com/katiecha/po-agent", type: "github" },
         ],
@@ -396,28 +396,28 @@ export const CATEGORIES: Category[] = [
 export const UIUX_PROJECTS: Project[] = [
   {
     name: "Carolina Adapts Toys for Children",
-    description: "Website design & redesign.",
+    description: "Design and redesign of the website for a student-run nonprofit that adapts toys for kids the toy market overlooks.",
     links: [{ label: "Project", href: "/work/catch", type: "site" }],
     status: "in-progress",
     image: "/images/uiux-catch.png",
   },
   {
     name: "Special Olympics",
-    description: "UX research and website redesign + rebuild.",
+    description: "UX research, redesign, and rebuild of the Special Olympics PA site: simpler navigation for volunteers and more donations.",
     links: [{ label: "Project", href: "/work/special-olympics", type: "site" }],
     status: "in-progress",
     image: "/images/uiux-special-olympics.png",
   },
   {
     name: "App Team Carolina",
-    description: "Various projects from the UI/UX Design Academy.",
+    description: "A semester of UI/UX mockups from App Team Carolina's Design Academy: restaurant, dating, health, and app-redesign concepts.",
     links: [{ label: "Project", href: "/work/app-team-carolina", type: "site" }],
     status: "in-progress",
     image: "/images/uiux-app-team.png",
   },
   {
     name: "Jeni's Ice Cream",
-    description: "A self-directed concept redesign of the Jeni's Splendid Ice Creams app.",
+    description: "A self-directed concept redesign of the Jeni's app, reimagining flavor discovery, gifting, and how frozen pints get ordered.",
     links: [{ label: "Project", href: "/work/jenis", type: "site" }],
     status: "in-progress",
     image: "/images/uiux-jenis.jpg",

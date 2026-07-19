@@ -37,7 +37,7 @@ export function DropdownFilter({ label, options, value, onChange }: DropdownFilt
     <div ref={ref} className="relative shrink-0">
       <button
         onClick={() => setOpen((o) => !o)}
-        className={`flex items-center gap-1.5 px-4 min-h-10 text-sm border rounded-md transition-colors whitespace-nowrap cursor-pointer ${
+        className={`flex items-center gap-1.5 px-4 py-1.5 text-sm border rounded-md transition-colors whitespace-nowrap cursor-pointer ${
           isActive
             ? "border-black bg-black text-white"
             : "border-border hover:border-border-hover bg-surface-muted text-black"

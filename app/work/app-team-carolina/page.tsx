@@ -99,7 +99,7 @@ export default function AppTeamCarolinaPage() {
             <div>
               <ProjectHeading>Alpine&apos;s Bagels: A Bagel Shop App</ProjectHeading>
               <ProjectDescription>
-                An app for Alpine&apos;s Bagels, a popular spot at UNC-Chapel Hill. This week&apos;s focus was on design fundamentals — each principle was applied throughout the interface.
+                An app for Alpine&apos;s Bagels, a popular spot at UNC-Chapel Hill. This week&apos;s focus was on design fundamentals. Each principle was applied throughout the interface.
               </ProjectDescription>
               <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-4" style={{ aspectRatio: "16/9" }}>
                 <Image src="/images/app-team-carolina/alpines-bagels.jpg" alt="Alpine's Bagels app mockup" fill sizes="(min-width: 896px) 896px, 100vw" className="object-contain" />

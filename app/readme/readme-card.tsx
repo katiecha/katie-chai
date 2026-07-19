@@ -4,9 +4,9 @@ import { useState } from "react"
 import { Eye, Pencil } from "lucide-react"
 import { ICON_SIZE } from "@/app/components/atoms/icon-link"
 
-const RAW_MARKDOWN = `# 👋 hi, i'm katie!
+const RAW_MARKDOWN = `# 👋 Hi, I'm Katie!
 
-**swe @ greenboard**
+**SWE @ Greenboard**
 
 ## ✅ Where do I work?
 I am currently a Software Engineer for [Greenboard](https://www.greenboard.com/) ([YC W24](https://www.ycombinator.com/companies/greenboard)).
@@ -66,11 +66,11 @@ export function ReadmeCard() {
         <div className="px-10 py-8 flex flex-col gap-6">
 
           {/* Title */}
-          <h1 className="text-2xl font-bold">👋 hi, i&apos;m katie!</h1>
+          <h1 className="text-2xl font-bold">👋 Hi, I&apos;m Katie!</h1>
           <hr className="border-border" />
 
           {/* Subtitle */}
-          <p className="text-base font-semibold">swe @ greenboard</p>
+          <p className="text-base font-semibold">SWE @ Greenboard</p>
 
           {/* Sections */}
           <div className="flex flex-col gap-8">

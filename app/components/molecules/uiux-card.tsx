@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { InProgressBadge, LockBadge } from "@/app/components/atoms/status-badge"
+import { InProgressBadge, VisibilityBadge } from "@/app/components/atoms/status-badge"
 import { previewHref } from "@/app/lib/links"
 import type { Project } from "@/app/work/data"
 
@@ -23,10 +23,10 @@ export function UIUXCard({ project }: { project: Project }) {
       <div className="p-4">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="font-semibold text-sm">{project.name}</span>
-          <LockBadge />
+          <VisibilityBadge status={project.status} />
           {project.status === "in-progress" && <InProgressBadge />}
         </div>
-        <p className="text-sm text-text-muted mt-1">{project.description}</p>
+        <p className="text-sm text-text-muted mt-1 line-clamp-2 min-h-[2.5rem]">{project.description}</p>
       </div>
     </div>
   )

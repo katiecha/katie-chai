@@ -1,6 +1,6 @@
 import { IconLink } from "@/app/components/atoms/icon-link"
 import { LanguageDot } from "@/app/components/atoms/language-dot"
-import { InProgressBadge, LockBadge } from "@/app/components/atoms/status-badge"
+import { InProgressBadge, VisibilityBadge } from "@/app/components/atoms/status-badge"
 import { previewHref } from "@/app/lib/links"
 import type { Project } from "@/app/work/data"
 
@@ -26,8 +26,8 @@ export function Row({ project }: { project: Project }) {
             ) : (
               <span className="font-semibold text-sm text-link">{project.name}</span>
             )}
+            <VisibilityBadge status={project.status} />
             {project.status === "in-progress" && <InProgressBadge />}
-            {project.status === "private" && <LockBadge />}
           </div>
 
           {project.description && (
