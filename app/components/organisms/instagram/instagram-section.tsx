@@ -150,7 +150,7 @@ export function InstagramSection() {
       </div>
 
       <Section title="Posters, Merch & Other" size="sm">
-        <div className="columns-2 sm:columns-3 md:columns-4 gap-3">
+        <div className="columns-2 md:columns-4 gap-2 md:gap-3">
           {POSTER_MERCH_ITEMS.map((item) => (
             <div key={item.image} className="mb-3 break-inside-avoid">
               <Card

@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Nav } from "@/app/components/organisms/nav"
 import { Footer } from "@/app/components/organisms/footer"
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <div className="relative z-0 isolate">{children}</div>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )

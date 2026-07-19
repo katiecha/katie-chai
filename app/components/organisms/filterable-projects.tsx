@@ -62,20 +62,22 @@ export function FilterableCSProjects({ categories }: { categories: Category[] })
 
   return (
     <div>
-      <div className="flex items-center gap-2 mb-4 flex-wrap">
+      <div className="flex flex-col gap-2 mb-4 md:flex-row md:items-center md:flex-wrap">
         <SearchInput value={search} onChange={setSearch} />
-        <DropdownFilter
-          label="Language"
-          options={orderedLanguages}
-          value={activeLanguage}
-          onChange={setActiveLanguage}
-        />
-        <DropdownFilter
-          label="Framework"
-          options={orderedFrameworks}
-          value={activeFramework}
-          onChange={setActiveFramework}
-        />
+        <div className="flex items-center gap-2">
+          <DropdownFilter
+            label="Language"
+            options={orderedLanguages}
+            value={activeLanguage}
+            onChange={setActiveLanguage}
+          />
+          <DropdownFilter
+            label="Framework"
+            options={orderedFrameworks}
+            value={activeFramework}
+            onChange={setActiveFramework}
+          />
+        </div>
       </div>
 
       {visibleCategories.length === 0 ? (
