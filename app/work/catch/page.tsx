@@ -2,21 +2,11 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { SectionHeading } from "@/app/components/atoms/section-heading"
+import { ImagePlaceholder } from "@/app/components/molecules/image-placeholder"
 
 export const metadata: Metadata = {
   title: "Carolina Adapts Toys for Children - Katie Chai",
   description: "Website design and redesign for CATCH, a student-run nonprofit adapting toys for children.",
-}
-
-function ImagePlaceholder({ label, aspect = "16/9" }: { label: string; aspect?: string }) {
-  return (
-    <div
-      className="w-full rounded-fillet border border-dashed border-border bg-surface-hover flex items-center justify-center px-6 text-center"
-      style={{ aspectRatio: aspect }}
-    >
-      <span className="text-xs text-text-subtle leading-relaxed">{label}</span>
-    </div>
-  )
 }
 
 export default function CatchPage() {
@@ -41,7 +31,7 @@ export default function CatchPage() {
           <SectionHeading>Overview</SectionHeading>
           <div className="flex flex-col gap-4 text-sm text-text-muted leading-relaxed">
             <p>
-              Carolina Adapts Toys for Children (CATCH) is a student-run nonprofit at UNC-Chapel Hill that adapts and builds toys for children who fall through the cracks of the mainstream toy market. I worked on the design and redesign of their website — the marketing site as well as the underlying toy catalog and inventory experience.
+              Carolina Adapts Toys for Children (CATCH) is a student-run nonprofit at UNC-Chapel Hill that adapts and builds toys for children who fall through the cracks of the mainstream toy market. I worked on the design and redesign of their website, including the marketing site as well as the underlying toy catalog and inventory experience.
             </p>
             <p>
               The full case study is still being written up. The sections below are placeholders for the research, redesign, and final screens to come.
@@ -53,16 +43,16 @@ export default function CatchPage() {
         <section>
           <SectionHeading>The Problem</SectionHeading>
           <p className="text-sm text-text-muted leading-relaxed mb-6">
-            Write-up in progress — the problem framing and current-state audit will go here.
+            Write-up in progress. The problem framing and current-state audit will go here.
           </p>
-          <ImagePlaceholder label="Before — current CATCH site / pain points" />
+          <ImagePlaceholder label="Before: current CATCH site / pain points" />
         </section>
 
         {/* Redesign */}
         <section>
           <SectionHeading>Redesign</SectionHeading>
           <p className="text-sm text-text-muted leading-relaxed mb-6">
-            Write-up in progress — the redesigned pages and key flows will go here.
+            Write-up in progress. The redesigned pages and key flows will go here.
           </p>
           <div className="flex flex-col gap-3">
             <ImagePlaceholder label="Redesigned homepage" />

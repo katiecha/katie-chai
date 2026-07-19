@@ -1,6 +1,6 @@
-import { Tooltip } from "@/app/components/atoms/tooltip"
 import { IconLink } from "@/app/components/atoms/icon-link"
 import { LanguageDot } from "@/app/components/atoms/language-dot"
+import { InProgressBadge, VisibilityBadge } from "@/app/components/atoms/status-badge"
 import { previewHref } from "@/app/lib/links"
 import type { Project } from "@/app/work/data"
 
@@ -26,16 +26,8 @@ export function Row({ project }: { project: Project }) {
             ) : (
               <span className="font-semibold text-sm text-link">{project.name}</span>
             )}
-            {project.status === "in-progress" && (
-              <Tooltip label="in progress">
-                <span className="text-sm leading-none select-none">⚠️</span>
-              </Tooltip>
-            )}
-            {project.status === "private" && (
-              <Tooltip label="private — available on request">
-                <span className="text-sm leading-none select-none">🔒</span>
-              </Tooltip>
-            )}
+            <VisibilityBadge status={project.status} />
+            {project.status === "in-progress" && <InProgressBadge />}
           </div>
 
           {project.description && (

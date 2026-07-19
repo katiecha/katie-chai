@@ -25,7 +25,7 @@
   --color-overlay-dark:  #1a1a1a; /* near-black — story viewer backdrop   */
 
   /* ─── Border radius ─────────────────────────────────────── */
-  --radius-fillet: 2px; /* very slight rounding on cards / containers */
+  --radius-fillet: 8px; /* subtle rounding on cards / image containers */
 }
 
 /*
