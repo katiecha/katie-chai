@@ -19,7 +19,9 @@ export function StoryViewer({ highlight, activeFrame, progress, username, avatar
   const frameSrc = highlight.frames[activeFrame]
 
   return (
-    <div className="fixed inset-x-0 bottom-0 top-14 z-modal bg-overlay-dark flex items-center justify-center">
+    <div className="fixed inset-x-0 bottom-0 top-14 z-modal bg-overlay-dark flex items-center justify-between">
+      <button className="flex-1 h-full cursor-pointer" onClick={onPrev} aria-label="Previous story" />
+
       <div className="relative h-[90vh] rounded-2xl overflow-hidden bg-black shrink-0" style={{ aspectRatio: "9/16" }}>
         <Image src={frameSrc} alt={`${highlight.label} ${activeFrame + 1}`} fill sizes="(min-width: 768px) 500px, 100vw" className="object-cover" priority />
 
@@ -47,6 +49,8 @@ export function StoryViewer({ highlight, activeFrame, progress, username, avatar
         <button className="absolute left-0 top-0 bottom-0 w-1/3 z-20 cursor-pointer" onClick={onPrev} aria-label="Previous story" />
         <button className="absolute right-0 top-0 bottom-0 w-2/3 z-20 cursor-pointer" onClick={onNext} aria-label="Next story" />
       </div>
+
+      <button className="flex-1 h-full cursor-pointer" onClick={onNext} aria-label="Next story" />
 
       <button onClick={onClose} className="absolute top-5 right-5 z-10 text-white/80 hover:text-white transition-colors p-3 cursor-pointer" aria-label="Close">
         <X size={ICON_SIZE.lg} strokeWidth={2.5} />
