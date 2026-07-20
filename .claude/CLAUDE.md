@@ -9,6 +9,8 @@
 - Next.js 16 (App Router, TypeScript strict mode)
 - Tailwind CSS v4 (`@theme` block in `globals.css` for design tokens)
 - No database — all data is static in `app/work/data.ts` and `app/play/data.ts`
+- Path alias `@/*` → repo root, so imports include the `app/` segment (`@/app/components/...`, `@/app/work/data`). Use the alias for all cross-module imports — never relative `../` across directories.
+- Fonts load via `next/font/google` (`Inter`) in `app/layout.tsx`, applied as `inter.className` on `<html>`; the `--font-sans` token mirrors it.
 
 ## Component Architecture — Atomic Design
 
@@ -69,6 +71,14 @@ Never hardcode `size={16}` on an icon — import `ICON_SIZE` and pick a bucket. 
 
 **`scrollbar-hide`**: Tailwind v4 does not include this utility. It is defined manually in `globals.css` under `@layer utilities`. Do not try to install a plugin for it.
 
+**`globals.css` structure**: single `@import "tailwindcss"` (no separate config file). `@theme` holds colors, radius, **and** the z-index scale (`--z-nav/--z-tooltip/--z-modal`). The **typography-scale reference comment block** in this file is the canonical type-scale doc — consult it when picking text sizes/weights. Base rules (`box-sizing`, `scroll-behavior: smooth`) sit outside any layer.
+
+**Icons & Tailwind idioms** (follow the observed conventions):
+- `transition-colors` is the default transition on any `hover:` color change; `transition-all duration-150` for border/transform on cards.
+- `group` / `group-hover:` for parent-driven hover, including named groups (`group/tooltip` → `md:group-hover/tooltip:opacity-100`).
+- Add explicit `cursor-pointer` on interactive `<div>`/`<button>` elements; `shrink-0` on icons/avatars and horizontal-scroll children.
+- Input focus style is `focus:outline-none focus:border-border-hover`.
+
 ## Patterns
 
 ### Page shell
@@ -92,6 +102,32 @@ Use `previewHref()` from `app/lib/links.ts` to pick the primary click target for
 ### Icon-link tap targets
 `IconLink` (atom) adds `p-1 -m-1` around the icon to expand the click target to ~40px without shifting layout. Preserve this pattern when overriding `className`.
 
+### Component authoring
+- **Props typing**: declare a module-level `type <ComponentName>Props = {}` and destructure it inline in the signature. No `interface`, no `Readonly<>`. A trivial single-prop component may inline the type (`{ children }: { children: ReactNode }`).
+- **Declaration**: always `export function Name(...)` with the export on the declaration. Reserve `const` arrow functions for local event handlers; private same-file helpers are non-exported `function`s.
+- **No class-merge util**: there is deliberately no `cn()`/clsx/classnames. Build conditional classes with template literals + ternaries, using `?? ""` as the fallback for an optional `className`.
+- **React imports**: `import type { ReactNode }` (not `React.ReactNode`); import hooks by name (`import { useState } from "react"`), never `React.useState`. No `forwardRef`. **No barrel/`index.ts` files** — import every component by its full path.
+- **File layout**: put module-level constants and lookup maps (`Record<...>`, size-variant maps keyed by a union) above the component that uses them.
+
+### Data & types
+- **Types live in `data.ts` and are re-exported per page**: `app/work/data.ts` is the canonical home for `Project`, `ProjectLink`, `LinkType`, `Category`; `app/play/data.ts` re-exports them (`export type { Project, ProjectLink }`) alongside its page-local types. There is no separate `types.ts`.
+- **No `id` field** — collections are keyed by `project.name` in `.map()`. Name is the de-facto id.
+- **Tag semantics**: `tags` = languages only; `frameworks` = libraries/engines/platforms.
+- Data is exported as `UPPER_SNAKE_CASE` typed const arrays/objects (`SOCIAL_LINKS`, `CURRENT_PROJECTS`, …). `SOCIAL_LINKS` is the single source for social/resume URLs — consume it, don't re-hardcode links.
+- **Image paths**: per-project case studies under `/images/<slug>/...`; flat one-off thumbnails as `/images/<prefix>-<slug>.png` (e.g. `uiux-`). Internal navigation uses a site-relative `href` with `type: "site"`.
+
+### Analytics
+Vercel Web Analytics. `<Analytics />` is mounted once in `app/layout.tsx`. Import `{ track }` from `@vercel/analytics` and call it **only inside `onClick` handlers, never during render**. Always use the `ANALYTICS_EVENTS` const map in `app/lib/analytics.ts` — never hardcode the event-name string. Keep event data to ≤2 primitive (string/number/bool) props. `IconLink` forwards analytics via its `eventName`/`eventData` props.
+
+### Auth (password-gated case studies)
+`/work/*` detail routes are gated via an **API route + httpOnly cookie**, not middleware. `app/api/unlock/route.ts` validates `process.env.UIUX_PASSWORD` and sets the `uiux_auth` cookie; `isProtectedPath()` in `app/lib/protected.ts` is the path predicate; the unlock UI is `app/work/unlock/page.tsx`. API-route convention: `app/api/<name>/route.ts` with named `export async function POST` using `NextRequest`/`NextResponse` from `next/server`.
+
+### Page metadata
+Every page exports `export const metadata: Metadata` (typed via `import type { Metadata } from "next"`) with a manual `"<Page> - Katie Chai"` title suffix and a `description`. Do not introduce `title.template` or `metadataBase`.
+
+### next/image
+Two modes: (a) `fill` + `sizes` + `object-cover`/`object-contain` — never omit `sizes` when using `fill`; the standard full-width case-study value is `sizes="(min-width: 896px) 896px, 100vw"`. (b) explicit `width`/`height` + `style={{ width: "100%", height: "auto" }}` for known-dimension diagrams. `alt` is always meaningful, or explicitly `""` for decorative images.
+
 ## Rules
 - Named exports only, no default exports
 - Server components by default; `"use client"` only on leaf components that need state or browser APIs
@@ -103,6 +139,8 @@ Use `previewHref()` from `app/lib/links.ts` to pick the primary click target for
 - Semantic HTML (`<section>`, `<nav>`, `<header>`, etc.)
 - `lang="en"` on `<html>`
 - All `target="_blank"` links must have `rel="noopener noreferrer"` and `aria-label`
+- Decorative inline SVG icons carry `aria-hidden="true"`
+- Icon-only interactive elements always get an `aria-label` (dynamic where stateful, e.g. `open ? "Close menu" : "Open menu"`)
 
 ## Responsive
 - Mobile-first; primary breakpoint is `md` (768px)
@@ -114,3 +152,4 @@ Use `previewHref()` from `app/lib/links.ts` to pick the primary click target for
 - Functions/hooks: camelCase
 - Constants: UPPER_SNAKE_CASE
 - Tailwind class order: layout → spacing → typography → color → border → effects
+- Style baseline: no semicolons, double quotes, `??` for fallbacks

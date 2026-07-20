@@ -4,6 +4,8 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Nav } from "@/app/components/organisms/nav"
 import { Footer } from "@/app/components/organisms/footer"
+import { ConsoleGreeting } from "@/app/components/atoms/console-greeting"
+import { EggRain } from "@/app/components/atoms/egg-rain"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -14,11 +16,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={inter.className} data-scroll-behavior="smooth">
       <body className="bg-white text-black antialiased">
         <Nav />
         <div className="relative z-0 isolate">{children}</div>
         <Footer />
+        <ConsoleGreeting />
+        <EggRain />
         <Analytics />
       </body>
     </html>

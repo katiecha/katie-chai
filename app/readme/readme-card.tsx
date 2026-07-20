@@ -1,8 +1,10 @@
 "use client"
 
 import { useState } from "react"
+import { track } from "@vercel/analytics"
 import { Eye, Pencil } from "lucide-react"
 import { ICON_SIZE } from "@/app/components/atoms/icon-link"
+import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
 
 const RAW_MARKDOWN = `# 👋 Hi, I'm Katie!
 
@@ -34,6 +36,8 @@ In the more distant past, I've...
 - I enjoy food studies. My favorite class in college was [EATS 101](https://abby-reimer.com/2015/03/18/eats-101-exemplary-or-unattainable/)! I also enjoy baking.
 - 🏐 Fun fact: My sand and indoor volleyball teams won the UNC intramural championship!
 - Also, feel free to check out my [resume](https://docs.google.com/document/d/1dFJq7Y5QSiKG9yClFOjeBNlUsXZ42uupHCC59a9BNa4/edit?tab=t.0)!
+
+<!-- 🥚 you found the raw view. email me "readme easter egg" and I'll be very impressed! -->
 `
 
 export function ReadmeCard() {
@@ -59,11 +63,11 @@ export function ReadmeCard() {
 
       {/* Body */}
       {isRaw ? (
-        <pre className="px-10 py-8 text-xs sm:text-sm text-text-primary font-mono leading-relaxed whitespace-pre-wrap break-words">
+        <pre className="px-5 py-6 md:px-10 md:py-8 text-xs sm:text-sm text-text-primary font-mono leading-relaxed whitespace-pre-wrap break-words">
           {RAW_MARKDOWN}
         </pre>
       ) : (
-        <div className="px-10 py-8 flex flex-col gap-6">
+        <div className="px-5 py-6 md:px-10 md:py-8 flex flex-col gap-6">
 
           {/* Title */}
           <h1 className="text-2xl font-bold">👋 Hi, I&apos;m Katie!</h1>
@@ -99,9 +103,9 @@ export function ReadmeCard() {
               <h2 className="text-sm font-semibold mb-3 flex items-center gap-1.5">🏢 Where did I intern?</h2>
               <ul className="space-y-5 text-sm text-text-muted">
                 <li>
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span>♊️</span>
-                    <span className="font-medium text-black">Google</span>
+                  <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
+                    <span className="shrink-0">♊️</span>
+                    <span className="font-medium text-black shrink-0">Google</span>
                     <span className="text-xs text-text-subtle">- Summer 2025</span>
                   </div>
                   <p className="leading-relaxed pl-6">
@@ -109,9 +113,9 @@ export function ReadmeCard() {
                   </p>
                 </li>
                 <li>
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span>🩺</span>
-                    <span className="font-medium text-black">Hone Health</span>
+                  <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
+                    <span className="shrink-0">🩺</span>
+                    <span className="font-medium text-black shrink-0">Hone Health</span>
                     <span className="text-xs text-text-subtle">- Spring 2025, Fall 2025</span>
                   </div>
                   <p className="leading-relaxed pl-6">
@@ -119,9 +123,9 @@ export function ReadmeCard() {
                   </p>
                 </li>
                 <li>
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span>🩻</span>
-                    <span className="font-medium text-black">Medtronic</span>
+                  <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
+                    <span className="shrink-0">🩻</span>
+                    <span className="font-medium text-black shrink-0">Medtronic</span>
                     <span className="text-xs text-text-subtle">- Summer 2024</span>
                   </div>
                   <p className="leading-relaxed pl-6">
@@ -159,7 +163,7 @@ export function ReadmeCard() {
                   <span className="shrink-0">•</span>
                   <span>
                     Also, feel free to check out my{" "}
-                    <a href="https://docs.google.com/document/d/1dFJq7Y5QSiKG9yClFOjeBNlUsXZ42uupHCC59a9BNa4/edit?tab=t.0" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline underline-offset-2">resume</a>!
+                    <a href="https://docs.google.com/document/d/1dFJq7Y5QSiKG9yClFOjeBNlUsXZ42uupHCC59a9BNa4/edit?tab=t.0" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline underline-offset-2" onClick={() => track(ANALYTICS_EVENTS.resumeClick, { location: "readme" })}>resume</a>!
                   </span>
                 </li>
               </ul>

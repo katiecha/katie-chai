@@ -27,7 +27,7 @@ export function Row({ project }: { project: Project }) {
               <span className="font-semibold text-sm text-link">{project.name}</span>
             )}
             <VisibilityBadge status={project.status} />
-            {project.status === "in-progress" && <InProgressBadge />}
+            {project.inProgress && <InProgressBadge />}
           </div>
 
           {project.description && (

@@ -117,7 +117,7 @@ export function InstagramSection() {
         />
 
         <HorizontalScroller className="px-6 pb-8">
-          <div className="flex gap-7">
+          <div className="flex gap-4 md:gap-7">
             {IG_HIGHLIGHTS.map((highlight, i) => (
               <Story
                 key={highlight.label}

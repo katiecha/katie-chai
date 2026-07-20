@@ -1,4 +1,4 @@
-export type LinkType = "github" | "demo" | "site" | "figma" | "youtube" | "docs" | "x" | "linkedin"
+export type LinkType = "github" | "demo" | "site" | "figma" | "youtube" | "docs" | "x" | "linkedin" | "mail" | "resume"
 
 export type ProjectLink = {
   label: string
@@ -10,7 +10,8 @@ export type Project = {
   name: string
   description: string
   links: ProjectLink[]
-  status?: "in-progress" | "private"
+  status?: "private"
+  inProgress?: boolean
   image?: string
   imagePosition?: string
   videoEmbed?: string
@@ -30,6 +31,7 @@ export const SOCIAL_LINKS = {
   github: "https://github.com/katiecha",
   linkedin: "https://www.linkedin.com/in/katie-chai",
   x: "https://x.com/katiechaii",
+  email: "katie.h.chai@gmail.com",
   resume: "https://docs.google.com/document/d/1dFJq7Y5QSiKG9yClFOjeBNlUsXZ42uupHCC59a9BNa4/edit?tab=t.0",
 }
 
@@ -41,6 +43,7 @@ export const CURRENT_PROJECTS: Project[] = [
       { label: "Website", href: "https://www.katiech.ai/", type: "site" },
       { label: "X", href: "https://x.com/RegolithAi", type: "x" },
     ],
+    inProgress: true,
   },
   {
     name: "jeancha.ai",
@@ -50,7 +53,7 @@ export const CURRENT_PROJECTS: Project[] = [
       { label: "Site", href: "https://jeanch.ai/", type: "site" },
     ],
     tags: ["TypeScript"],
-    frameworks: ["React", "Three.js"],
+    frameworks: ["Next.js", "React", "Three.js"],
   },
   {
     name: "Resy Bot",
@@ -68,7 +71,7 @@ export const CURRENT_PROJECTS: Project[] = [
       { label: "GitHub", href: "https://github.com/katiecha/NC-ASK", type: "github" },
     ],
     tags: ["TypeScript", "Python"],
-    frameworks: ["React"],
+    frameworks: ["React", "FastAPI"],
   },
 ]
 
@@ -85,7 +88,7 @@ export const CATEGORIES: Category[] = [
           { label: "Site", href: "https://jeanch.ai/", type: "site" },
         ],
         tags: ["TypeScript"],
-        frameworks: ["React", "Three.js"],
+        frameworks: ["Next.js", "React", "Three.js"],
       },
       {
         name: "NC ASK",
@@ -94,7 +97,7 @@ export const CATEGORIES: Category[] = [
           { label: "GitHub", href: "https://github.com/katiecha/NC-ASK", type: "github" },
         ],
         tags: ["TypeScript", "Python"],
-        frameworks: ["React"],
+        frameworks: ["React", "FastAPI"],
       },
       {
         name: "PO Agent",
@@ -104,7 +107,7 @@ export const CATEGORIES: Category[] = [
         ],
         status: "private",
         tags: ["Python", "TypeScript"],
-        frameworks: ["React"],
+        frameworks: ["React", "FastAPI"],
       },
       {
         name: "Paywall Remover",
@@ -113,7 +116,6 @@ export const CATEGORIES: Category[] = [
           { label: "GitHub", href: "https://github.com/katiecha/paywall-remover", type: "github" },
         ],
         tags: ["JavaScript"],
-        frameworks: ["Chrome Extension"],
       },
       {
         name: "LinkedIn Queens Solver",
@@ -139,8 +141,8 @@ export const CATEGORIES: Category[] = [
           { label: "Site", href: "https://www.catch-inc.com/", type: "site" },
           { label: "GitHub", href: "https://github.com/cssgunc/catch", type: "github" },
         ],
-        tags: ["TypeScript"],
-        frameworks: ["React"],
+        tags: ["JavaScript"],
+        frameworks: ["React", "Three.js", "Firebase"],
       },
       {
         name: "ReSearch",
@@ -150,7 +152,7 @@ export const CATEGORIES: Category[] = [
           { label: "GitHub", href: "https://github.com/researph/ReSearch", type: "github" },
         ],
         tags: ["TypeScript", "Python"],
-        frameworks: ["React"],
+        frameworks: ["Next.js", "React", "Express"],
       },
       {
         name: "Allergy Forecaster",
@@ -159,8 +161,8 @@ export const CATEGORIES: Category[] = [
           { label: "YouTube", href: "https://youtu.be/btPoCuaHIxs?si=-YUrUHb5ikpzJXdC", type: "youtube" },
           { label: "GitHub", href: "https://github.com/426finalproject/finalproject", type: "github" },
         ],
-        tags: ["TypeScript"],
-        frameworks: ["React"],
+        tags: ["JavaScript"],
+        frameworks: ["Express"],
       },
       {
         name: "A Cookbook Website",
@@ -185,10 +187,20 @@ export const CATEGORIES: Category[] = [
   {
     title: "AI Infrastructure",
     emoji: "⚙️",
-    projects: [],
-    note: "Personal collections of Claude Code skills and workflows for AI-assisted engineering and research. I have a public research toolkit and a private engineering toolkit.",
-    noteLinks: [
-      { label: "Research toolkit", href: "https://github.com/katiecha/research-skills-and-rules", type: "github" },
+    projects: [
+      {
+        name: "Research Toolkit",
+        description: "A personal collection of Claude Code skills and workflows for AI-assisted research.",
+        links: [
+          { label: "GitHub", href: "https://github.com/katiecha/research-skills-and-rules", type: "github" },
+        ],
+      },
+      {
+        name: "Engineering Toolkit",
+        description: "A personal collection of Claude Code skills and workflows for AI-assisted engineering.",
+        links: [],
+        status: "private",
+      },
     ],
   },
   {
@@ -305,6 +317,7 @@ export const CATEGORIES: Category[] = [
         description: "A computer vision, facial expression detection system that matches your expressions to images.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/computer-vision-nailoong", type: "github" }],
         tags: ["Python"],
+        frameworks: ["TensorFlow", "OpenCV"],
       },
       {
         name: "Wordle",
@@ -347,6 +360,7 @@ export const CATEGORIES: Category[] = [
         description: "Epidemiology research project for Honors Carolina.",
         links: [],
         status: "private",
+        inProgress: true,
         tags: ["R", "SAS"],
       },
       {
@@ -367,7 +381,7 @@ export const CATEGORIES: Category[] = [
         name: "VR Maze Game",
         description: "A VR maze game project made with UNC CARVR.",
         links: [{ label: "GitHub", href: "https://github.com/carolina-ar-vr/VR-Maze-Game", type: "github" }],
-        status: "in-progress",
+        inProgress: true,
         tags: ["C#"],
         frameworks: ["Unity"],
       },
@@ -398,28 +412,28 @@ export const UIUX_PROJECTS: Project[] = [
     name: "Carolina Adapts Toys for Children",
     description: "Design and redesign of the website for a student-run nonprofit that adapts toys for kids the toy market overlooks.",
     links: [{ label: "Project", href: "/work/catch", type: "site" }],
-    status: "in-progress",
+    inProgress: true,
     image: "/images/uiux-catch.png",
   },
   {
     name: "Special Olympics",
     description: "UX research, redesign, and rebuild of the Special Olympics PA site: simpler navigation for volunteers and more donations.",
     links: [{ label: "Project", href: "/work/special-olympics", type: "site" }],
-    status: "in-progress",
+    inProgress: true,
     image: "/images/uiux-special-olympics.png",
   },
   {
     name: "App Team Carolina",
     description: "A semester of UI/UX mockups from App Team Carolina's Design Academy: restaurant, dating, health, and app-redesign concepts.",
     links: [{ label: "Project", href: "/work/app-team-carolina", type: "site" }],
-    status: "in-progress",
+    inProgress: true,
     image: "/images/uiux-app-team.png",
   },
   {
     name: "Jeni's Ice Cream",
     description: "A self-directed concept redesign of the Jeni's app, reimagining flavor discovery, gifting, and how frozen pints get ordered.",
     links: [{ label: "Project", href: "/work/jenis", type: "site" }],
-    status: "in-progress",
+    inProgress: true,
     image: "/images/uiux-jenis.jpg",
   },
 ]

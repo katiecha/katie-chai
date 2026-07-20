@@ -59,7 +59,7 @@ export function DropdownFilter({ label, options, value, onChange }: DropdownFilt
       </button>
 
       {open && (
-        <div className="absolute top-full mt-1 right-0 z-tooltip bg-white border border-border rounded-md shadow-md py-1 min-w-40 max-h-64 overflow-y-auto">
+        <div className="absolute top-full mt-1 left-0 z-tooltip bg-white border border-border rounded-md shadow-md py-1 min-w-40 max-h-64 overflow-y-auto">
           <button
             onClick={() => { onChange(null); setOpen(false) }}
             className={`w-full text-left px-3 py-1.5 text-sm hover:bg-surface transition-colors cursor-pointer ${!value ? "font-medium" : "text-text-muted"}`}
