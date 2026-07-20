@@ -1,6 +1,10 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { track } from "@vercel/analytics"
 import { InProgressBadge, VisibilityBadge } from "@/app/components/atoms/status-badge"
+import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
 import { previewHref } from "@/app/lib/links"
 import type { Project } from "@/app/work/data"
 
@@ -24,7 +28,7 @@ export function UIUXCard({ project }: { project: Project }) {
         <div className="flex items-center gap-2 flex-wrap">
           <span className="font-semibold text-sm">{project.name}</span>
           <VisibilityBadge status={project.status} />
-          {project.status === "in-progress" && <InProgressBadge />}
+          {project.inProgress && <InProgressBadge />}
         </div>
         <p className="text-sm text-text-muted mt-1 line-clamp-2 min-h-[2.5rem]">{project.description}</p>
       </div>
@@ -32,7 +36,8 @@ export function UIUXCard({ project }: { project: Project }) {
   )
 
   const href = previewHref(project.links)
+  const onClick = () => track(ANALYTICS_EVENTS.projectPreviewClick, { project: project.name })
   if (!href) return shell
-  if (href.startsWith("/")) return <Link href={href}>{shell}</Link>
-  return <a href={href} target="_blank" rel="noopener noreferrer" aria-label={project.name}>{shell}</a>
+  if (href.startsWith("/")) return <Link href={href} onClick={onClick}>{shell}</Link>
+  return <a href={href} target="_blank" rel="noopener noreferrer" aria-label={project.name} onClick={onClick}>{shell}</a>
 }

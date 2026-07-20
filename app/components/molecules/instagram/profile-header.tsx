@@ -1,6 +1,10 @@
+"use client"
+
+import { track } from "@vercel/analytics"
 import { ChevronDown, MoreHorizontal, UserPlus } from "lucide-react"
 import { ICON_SIZE } from "@/app/components/atoms/icon-link"
 import { ProfilePicture } from "@/app/components/molecules/instagram/profile-picture"
+import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
 
 type ProfileHeaderProps = {
   username: string
@@ -67,6 +71,7 @@ export function ProfileHeader({
             <a
               href={`mailto:${messageEmail}`}
               className="h-10 min-w-0 flex-1 px-4 rounded-md bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center transition-colors md:min-w-[150px] md:flex-none"
+              onClick={() => track(ANALYTICS_EVENTS.contactClick, { location: "instagram" })}
             >
               Message
             </a>

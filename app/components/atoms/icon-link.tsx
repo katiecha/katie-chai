@@ -1,4 +1,7 @@
-import { Link } from "lucide-react"
+"use client"
+
+import { track } from "@vercel/analytics"
+import { Link, Mail, FileText } from "lucide-react"
 import { XIcon } from "@/app/components/atoms/x-icon"
 import { FigmaIcon } from "@/app/components/atoms/figma-icon"
 import { GitHubIcon } from "@/app/components/atoms/github-icon"
@@ -16,15 +19,18 @@ function Icon({ type, href, size = ICON_SIZE.sm }: { type?: LinkType; href: stri
   const resolved = type ?? inferType(href)
   switch (resolved) {
     case "github":   return <GitHubIcon size={size} />
-    case "x":        return <XIcon size={size} />
+    case "x":        return <XIcon size={size * 0.85} />
     case "youtube":  return <YouTubeIcon size={size} />
     case "figma":    return <FigmaIcon size={size} />
     case "linkedin": return <LinkedInIcon size={size} />
-    default:         return <Link size={size} />
+    case "mail":     return <Mail size={size} strokeWidth={2.5} />
+    case "resume":   return <FileText size={size} strokeWidth={2.5} />
+    default:         return <Link size={size} strokeWidth={2.5} />
   }
 }
 
 function inferType(href: string): LinkType {
+  if (href.startsWith("mailto:"))                                return "mail"
   if (href.includes("github.com"))                               return "github"
   if (href.includes("youtube.com") || href.includes("youtu.be")) return "youtube"
   if (href.includes("x.com") || href.includes("twitter.com"))   return "x"
@@ -39,9 +45,11 @@ type IconLinkProps = {
   type?: LinkType
   size?: number
   className?: string
+  eventName?: string
+  eventData?: Record<string, string>
 }
 
-export function IconLink({ href, label, type, size = ICON_SIZE.sm, className }: IconLinkProps) {
+export function IconLink({ href, label, type, size = ICON_SIZE.sm, className, eventName, eventData }: IconLinkProps) {
   return (
     <a
       href={href}
@@ -49,6 +57,7 @@ export function IconLink({ href, label, type, size = ICON_SIZE.sm, className }: 
       rel="noopener noreferrer"
       aria-label={label}
       className={className ?? "p-1 -m-1 text-text-subtle hover:text-black transition-colors rounded-sm"}
+      onClick={eventName ? () => track(eventName, eventData) : undefined}
     >
       <Icon type={type} href={href} size={size} />
     </a>

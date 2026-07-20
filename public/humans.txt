@@ -1,0 +1,17 @@
+/* TEAM */
+  Developer: Katie Chai
+  Role: Software Engineer @ Greenboard (YC W24)
+  Contact: katie.h.chai [@] gmail.com
+  Location: probably near a volleyball court
+
+/* SITE */
+  Stack: Next.js 16, TypeScript, Tailwind CSS v4
+  Hosting: Vercel
+  Components: atomic design (atoms → molecules → organisms)
+
+/* FUEL */
+  Coffee order: a Celsius, or a matcha with coconut water instead of milk
+
+/* EGG */
+  Yes, the favicon is an egg. 🥚
+  You found humans.txt — that makes you one of the good ones.

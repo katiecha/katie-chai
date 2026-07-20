@@ -9,7 +9,7 @@
   --z-modal:   200;  /* full-screen overlays (story viewer)    */
 
   /* ─── Semantic color tokens ─────────────────────────────── */
-  --color-border:        #e5e7eb; /* gray-200  — default borders          */
+  --color-border:        #d0d7de; /* GitHub border — default borders      */
   --color-border-hover:  #9ca3af; /* gray-400  — hover / active borders   */
 
   --color-link:          #0969da; /* GitHub blue — clickable project names */
@@ -57,6 +57,36 @@
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  /* ─── Easter eggs ─────────────────────────────────────────
+     egg-fall: Konami-code egg rain (atoms/egg-rain.tsx)
+   ────────────────────────────────────────────────────────── */
+  @keyframes egg-fall {
+    from {
+      transform: translateY(-3rem) rotate(0deg);
+    }
+    to {
+      transform: translateY(110vh) rotate(360deg);
+    }
+  }
+  .animate-egg-fall {
+    animation: egg-fall linear both;
+  }
+
+}
+
+/* ─── Print easter egg ──────────────────────────────────────
+   Only appears on paper (or print preview).
+ ──────────────────────────────────────────────────────────── */
+@media print {
+  body::after {
+    content: "🥚 you printed my website?? email me \"print easter egg\", I'm genuinely impressed.";
+    display: block;
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 12px;
+    color: var(--color-text-muted);
   }
 }
 

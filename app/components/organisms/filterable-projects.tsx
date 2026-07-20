@@ -17,7 +17,7 @@ const LANGUAGE_ORDER = [
 ]
 
 const FRAMEWORK_ORDER = [
-  "React", "Three.js", "Unity", "Chrome Extension",
+  "React", "Next.js", "Three.js", "Express", "FastAPI", "Firebase", "Unity", "TensorFlow", "OpenCV",
 ]
 
 export function FilterableCSProjects({ categories }: { categories: Category[] }) {

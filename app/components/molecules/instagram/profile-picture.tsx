@@ -6,15 +6,15 @@ type ProfilePictureRing = "none" | "plain" | "gradient"
 const SIZE_CLASSES: Record<ProfilePictureSize, string> = {
   sm: "w-8 h-8",
   md: "w-16 h-16",
-  lg: "w-24 h-24",
-  xl: "w-36 h-36",
+  lg: "w-16 h-16 md:w-24 md:h-24",
+  xl: "w-24 h-24 md:w-36 md:h-36",
 }
 
-const SIZE_PX: Record<ProfilePictureSize, number> = {
-  sm: 32,
-  md: 64,
-  lg: 96,
-  xl: 144,
+const SIZE_SIZES: Record<ProfilePictureSize, string> = {
+  sm: "32px",
+  md: "64px",
+  lg: "(min-width: 768px) 96px, 64px",
+  xl: "(min-width: 768px) 144px, 96px",
 }
 
 type ProfilePictureProps = {
@@ -38,7 +38,7 @@ export function ProfilePicture({
 }: ProfilePictureProps) {
   const avatar = (
     <div className={`relative rounded-full overflow-hidden ${SIZE_CLASSES[size]} ${className ?? ""}`}>
-      <Image src={src} alt={alt} fill sizes={`${SIZE_PX[size]}px`} className={fit === "cover" ? "object-cover" : "object-contain"} priority={priority} />
+      <Image src={src} alt={alt} fill sizes={SIZE_SIZES[size]} className={fit === "cover" ? "object-cover" : "object-contain"} priority={priority} />
     </div>
   )
 

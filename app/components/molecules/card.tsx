@@ -1,8 +1,12 @@
+"use client"
+
 import Image from "next/image"
+import { track } from "@vercel/analytics"
 import { BookMarked } from "lucide-react"
 import { IconLink, ICON_SIZE } from "@/app/components/atoms/icon-link"
 import { LanguageDot } from "@/app/components/atoms/language-dot"
 import { InProgressBadge, VisibilityBadge } from "@/app/components/atoms/status-badge"
+import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
 import { previewHref } from "@/app/lib/links"
 import type { Project } from "@/app/work/data"
 
@@ -30,6 +34,7 @@ export function Card({ project, variant, imageFit = "cover", imageAspectRatio = 
             rel="noopener noreferrer"
             aria-label={project.name}
             className="absolute inset-0 rounded-fillet"
+            onClick={() => track(ANALYTICS_EVENTS.projectPreviewClick, { project: project.name })}
           />
         )}
 
@@ -38,12 +43,20 @@ export function Card({ project, variant, imageFit = "cover", imageAspectRatio = 
             <BookMarked size={ICON_SIZE.sm} className="text-text-subtle shrink-0" />
             <h3 className="text-sm font-semibold text-link truncate">{project.name}</h3>
             <VisibilityBadge status={project.status} />
-            {project.status === "in-progress" && <InProgressBadge />}
+            {project.inProgress && <InProgressBadge />}
           </div>
           {project.links.length > 0 && (
             <div className="relative z-10 flex items-center gap-2 shrink-0">
               {project.links.map((link) => (
-                <IconLink key={link.href} href={link.href} label={link.label} type={link.type} size={ICON_SIZE.sm} />
+                <IconLink
+                  key={link.href}
+                  href={link.href}
+                  label={link.label}
+                  type={link.type}
+                  size={ICON_SIZE.sm}
+                  eventName={ANALYTICS_EVENTS.projectLinkClick}
+                  eventData={{ project: project.name, type: link.type ?? "site" }}
+                />
               ))}
             </div>
           )}
@@ -72,6 +85,7 @@ export function Card({ project, variant, imageFit = "cover", imageAspectRatio = 
           rel="noopener noreferrer"
           aria-label={project.name}
           className="absolute inset-0"
+          onClick={() => track(ANALYTICS_EVENTS.projectPreviewClick, { project: project.name })}
         />
       )}
 
@@ -103,7 +117,15 @@ export function Card({ project, variant, imageFit = "cover", imageAspectRatio = 
           {project.links.length > 0 && (
             <div className="relative z-10 flex items-center gap-2 shrink-0">
               {project.links.map((link) => (
-                <IconLink key={link.href} href={link.href} label={link.label} type={link.type} size={ICON_SIZE.sm} />
+                <IconLink
+                  key={link.href}
+                  href={link.href}
+                  label={link.label}
+                  type={link.type}
+                  size={ICON_SIZE.sm}
+                  eventName={ANALYTICS_EVENTS.projectLinkClick}
+                  eventData={{ project: project.name, type: link.type ?? "site" }}
+                />
               ))}
             </div>
           )}
