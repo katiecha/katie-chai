@@ -1,17 +1,12 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import Image from "next/image"
+import { SectionHeading } from "@/app/components/atoms/section-heading"
 import { ImagePlaceholder } from "@/app/components/molecules/image-placeholder"
+import { CaseStudyHeader } from "@/app/work/case-study-header"
 
 export const metadata: Metadata = {
   title: "Special Olympics - Katie Chai",
   description: "UX research and website redesign for Special Olympics.",
-}
-
-function SectionHeading({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="text-xs font-semibold tracking-widest uppercase text-text-subtle mb-4">{children}</h2>
-  )
 }
 
 function Quote({ children }: { children: React.ReactNode }) {
@@ -25,16 +20,12 @@ function Quote({ children }: { children: React.ReactNode }) {
 export default function SpecialOlympicsPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-16">
-      <Link href="/work" className="text-sm text-text-subtle hover:text-black transition-colors inline-flex items-center gap-1 mb-8">
-        ← Back to Work
-      </Link>
-
-      <h1 className="text-3xl font-semibold mb-2">Special Olympics</h1>
-      <p className="text-sm text-text-muted mb-10">UX research, website redesign + rebuild, and supplementary mobile app IA.</p>
-
-      <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-16" style={{ aspectRatio: "16/9" }}>
-        <Image src="/images/uiux-special-olympics.png" alt="Special Olympics project" fill sizes="(min-width: 896px) 896px, 100vw" className="object-cover" />
-      </div>
+      <CaseStudyHeader
+        title="Special Olympics"
+        subtitle="UX research, website redesign + rebuild, and supplementary mobile app IA."
+        heroSrc="/images/uiux-special-olympics.png"
+        heroAlt="Special Olympics project"
+      />
 
       <div className="flex flex-col gap-14">
 

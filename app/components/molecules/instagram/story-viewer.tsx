@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { X } from "lucide-react"
-import { ICON_SIZE } from "@/app/components/atoms/icon-link"
-import { ProfilePicture } from "@/app/components/molecules/instagram/profile-picture"
+import { ICON_SIZE } from "@/app/components/molecules/icon-link"
+import { ProfilePicture } from "@/app/components/atoms/instagram/profile-picture"
 import type { Highlight } from "@/app/play/data"
 
 type StoryViewerProps = {

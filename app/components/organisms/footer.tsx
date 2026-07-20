@@ -1,4 +1,4 @@
-import { IconLink, ICON_SIZE } from "@/app/components/atoms/icon-link"
+import { IconLink, ICON_SIZE } from "@/app/components/molecules/icon-link"
 import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
 import { SOCIAL_LINKS } from "@/app/work/data"
 

@@ -15,8 +15,8 @@ export type Project = {
   image?: string
   imagePosition?: string
   videoEmbed?: string
-  tags?: string[]        // languages only (TypeScript, Python, C#, …)
-  frameworks?: string[]  // libraries/engines/platforms (React, Unity, …)
+  tags?: string[]   // languages only (TypeScript, Python, C#, …)
+  other?: string[]  // other tags — libraries, engines, platforms (React, Unity, …)
 }
 
 export type Category = {
@@ -53,7 +53,7 @@ export const CURRENT_PROJECTS: Project[] = [
       { label: "Site", href: "https://jeanch.ai/", type: "site" },
     ],
     tags: ["TypeScript"],
-    frameworks: ["Next.js", "React", "Three.js"],
+    other: ["Next.js", "React", "Three.js"],
   },
   {
     name: "Resy Bot",
@@ -71,7 +71,7 @@ export const CURRENT_PROJECTS: Project[] = [
       { label: "GitHub", href: "https://github.com/katiecha/NC-ASK", type: "github" },
     ],
     tags: ["TypeScript", "Python"],
-    frameworks: ["React", "FastAPI"],
+    other: ["React", "FastAPI"],
   },
 ]
 
@@ -88,7 +88,7 @@ export const CATEGORIES: Category[] = [
           { label: "Site", href: "https://jeanch.ai/", type: "site" },
         ],
         tags: ["TypeScript"],
-        frameworks: ["Next.js", "React", "Three.js"],
+        other: ["Next.js", "React", "Three.js"],
       },
       {
         name: "NC ASK",
@@ -97,7 +97,7 @@ export const CATEGORIES: Category[] = [
           { label: "GitHub", href: "https://github.com/katiecha/NC-ASK", type: "github" },
         ],
         tags: ["TypeScript", "Python"],
-        frameworks: ["React", "FastAPI"],
+        other: ["React", "FastAPI"],
       },
       {
         name: "PO Agent",
@@ -107,7 +107,7 @@ export const CATEGORIES: Category[] = [
         ],
         status: "private",
         tags: ["Python", "TypeScript"],
-        frameworks: ["React", "FastAPI"],
+        other: ["React", "FastAPI"],
       },
       {
         name: "Paywall Remover",
@@ -142,7 +142,7 @@ export const CATEGORIES: Category[] = [
           { label: "GitHub", href: "https://github.com/cssgunc/catch", type: "github" },
         ],
         tags: ["JavaScript"],
-        frameworks: ["React", "Three.js", "Firebase"],
+        other: ["React", "Three.js", "Firebase"],
       },
       {
         name: "ReSearch",
@@ -152,7 +152,7 @@ export const CATEGORIES: Category[] = [
           { label: "GitHub", href: "https://github.com/researph/ReSearch", type: "github" },
         ],
         tags: ["TypeScript", "Python"],
-        frameworks: ["Next.js", "React", "Express"],
+        other: ["Next.js", "React", "Express"],
       },
       {
         name: "Allergy Forecaster",
@@ -162,7 +162,7 @@ export const CATEGORIES: Category[] = [
           { label: "GitHub", href: "https://github.com/426finalproject/finalproject", type: "github" },
         ],
         tags: ["JavaScript"],
-        frameworks: ["Express"],
+        other: ["Express"],
       },
       {
         name: "A Cookbook Website",
@@ -317,7 +317,7 @@ export const CATEGORIES: Category[] = [
         description: "A computer vision, facial expression detection system that matches your expressions to images.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/computer-vision-nailoong", type: "github" }],
         tags: ["Python"],
-        frameworks: ["TensorFlow", "OpenCV"],
+        other: ["TensorFlow", "OpenCV"],
       },
       {
         name: "Wordle",
@@ -383,7 +383,7 @@ export const CATEGORIES: Category[] = [
         links: [{ label: "GitHub", href: "https://github.com/carolina-ar-vr/VR-Maze-Game", type: "github" }],
         inProgress: true,
         tags: ["C#"],
-        frameworks: ["Unity"],
+        other: ["Unity"],
       },
     ],
   },

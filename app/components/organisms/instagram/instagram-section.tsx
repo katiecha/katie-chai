@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react"
 import { Grid3x3, UserSquare } from "lucide-react"
-import { ICON_SIZE } from "@/app/components/atoms/icon-link"
+import { ICON_SIZE } from "@/app/components/molecules/icon-link"
 import { HorizontalScroller } from "@/app/components/molecules/horizontal-scroller"
 import { Section } from "@/app/components/molecules/section"
 import { IG_POSTS, IG_HIGHLIGHTS, MERCH, POSTERS } from "@/app/play/data"
+import { SOCIAL_LINKS } from "@/app/work/data"
 import { Card } from "@/app/components/molecules/card"
 import { ProfileHeader } from "@/app/components/molecules/instagram/profile-header"
 import { Story } from "@/app/components/molecules/instagram/story"
@@ -113,7 +114,7 @@ export function InstagramSection() {
           bioTitle="Carolina Adapts Toys for Children 🤖"
           description="I created branding materials + managed social media / email communications."
           followHref="https://www.instagram.com/catch_unc"
-          messageEmail="katie.h.chai@gmail.com"
+          messageEmail={SOCIAL_LINKS.email}
         />
 
         <HorizontalScroller className="px-6 pb-8">

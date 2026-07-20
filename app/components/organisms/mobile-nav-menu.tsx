@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
-import { ICON_SIZE } from "@/app/components/atoms/icon-link"
+import { ICON_SIZE } from "@/app/components/molecules/icon-link"
 
 export function MobileNavMenu() {
   const [open, setOpen] = useState(false)

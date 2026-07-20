@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import Image from "next/image"
 import { SectionHeading } from "@/app/components/atoms/section-heading"
 import { DefinitionGrid } from "@/app/components/molecules/definition-grid"
 import { ImagePlaceholder } from "@/app/components/molecules/image-placeholder"
+import { CaseStudyHeader } from "@/app/work/case-study-header"
 
 export const metadata: Metadata = {
   title: "Jeni's Splendid Ice Creams - Katie Chai",
@@ -87,17 +86,13 @@ const PERSONAS = [
 export default function JenisPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-16">
-      <Link href="/work" className="text-sm text-text-subtle hover:text-black transition-colors inline-flex items-center gap-1 mb-8">
-        ← Back to Work
-      </Link>
-
-      <h1 className="text-3xl font-semibold mb-2">Jeni&apos;s Splendid Ice Creams</h1>
-      <p className="text-sm text-text-muted mb-1">A self-directed UX case study on flavor discovery and gifting.</p>
-      <p className="text-xs text-text-subtle mb-10">Self-directed study · Mobile app · UX research + UI</p>
-
-      <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-16" style={{ aspectRatio: "16/9" }}>
-        <Image src="/images/uiux-jenis.jpg" alt="Jeni's Splendid Ice Creams case study" fill sizes="(min-width: 896px) 896px, 100vw" className="object-cover" />
-      </div>
+      <CaseStudyHeader
+        title="Jeni's Splendid Ice Creams"
+        subtitle="A self-directed UX case study on flavor discovery and gifting."
+        meta="Self-directed study · Mobile app · UX research + UI"
+        heroSrc="/images/uiux-jenis.jpg"
+        heroAlt="Jeni's Splendid Ice Creams case study"
+      />
 
       <div className="flex flex-col gap-14">
 

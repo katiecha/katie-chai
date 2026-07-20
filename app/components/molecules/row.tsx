@@ -1,6 +1,6 @@
-import { IconLink } from "@/app/components/atoms/icon-link"
 import { LanguageDot } from "@/app/components/atoms/language-dot"
-import { InProgressBadge, VisibilityBadge } from "@/app/components/atoms/status-badge"
+import { ProjectBadges } from "@/app/components/molecules/project-badges"
+import { ProjectLinks } from "@/app/components/molecules/project-links"
 import { previewHref } from "@/app/lib/links"
 import type { Project } from "@/app/work/data"
 
@@ -26,8 +26,7 @@ export function Row({ project }: { project: Project }) {
             ) : (
               <span className="font-semibold text-sm text-link">{project.name}</span>
             )}
-            <VisibilityBadge status={project.status} />
-            {project.inProgress && <InProgressBadge />}
+            <ProjectBadges project={project} />
           </div>
 
           {project.description && (
@@ -37,13 +36,7 @@ export function Row({ project }: { project: Project }) {
           {primaryTag && <LanguageDot tag={primaryTag} size="sm" />}
         </div>
 
-        {project.links.length > 0 && (
-          <div className="flex items-center gap-2.5 shrink-0 mt-0.5">
-            {project.links.map((link) => (
-              <IconLink key={link.href} href={link.href} label={link.label} type={link.type} />
-            ))}
-          </div>
-        )}
+        <ProjectLinks project={project} className="flex items-center gap-2.5 shrink-0 mt-0.5" />
       </div>
     </div>
   )

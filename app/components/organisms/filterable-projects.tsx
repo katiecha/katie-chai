@@ -5,7 +5,7 @@ import { Row } from "@/app/components/molecules/row"
 import { Section } from "@/app/components/molecules/section"
 import { SearchInput } from "@/app/components/atoms/search-input"
 import { DropdownFilter } from "@/app/components/molecules/dropdown-filter"
-import { IconLink } from "@/app/components/atoms/icon-link"
+import { IconLink } from "@/app/components/molecules/icon-link"
 import type { Category } from "@/app/work/data"
 
 const LANGUAGE_ORDER = [
@@ -16,27 +16,27 @@ const LANGUAGE_ORDER = [
   "C#", "Swift",
 ]
 
-const FRAMEWORK_ORDER = [
+const OTHER_ORDER = [
   "React", "Next.js", "Three.js", "Express", "FastAPI", "Firebase", "Unity", "TensorFlow", "OpenCV",
 ]
 
 export function FilterableCSProjects({ categories }: { categories: Category[] }) {
   const [search, setSearch] = useState("")
   const [activeLanguage, setActiveLanguage] = useState<string | null>(null)
-  const [activeFramework, setActiveFramework] = useState<string | null>(null)
+  const [activeOther, setActiveOther] = useState<string | null>(null)
 
   const presentLanguages = new Set(
     categories.flatMap((cat) => cat.projects.flatMap((p) => p.tags ?? []))
   )
-  const presentFrameworks = new Set(
-    categories.flatMap((cat) => cat.projects.flatMap((p) => p.frameworks ?? []))
+  const presentOther = new Set(
+    categories.flatMap((cat) => cat.projects.flatMap((p) => p.other ?? []))
   )
 
   const orderedLanguages = LANGUAGE_ORDER.filter((t) => presentLanguages.has(t))
-  const orderedFrameworks = FRAMEWORK_ORDER.filter((f) => presentFrameworks.has(f))
+  const orderedOther = OTHER_ORDER.filter((f) => presentOther.has(f))
 
   const query = search.trim().toLowerCase()
-  const hasFilter = Boolean(activeLanguage || activeFramework || query)
+  const hasFilter = Boolean(activeLanguage || activeOther || query)
 
   const visibleCategories = categories
     .map((cat) => {
@@ -46,11 +46,11 @@ export function FilterableCSProjects({ categories }: { categories: Category[] })
         ...cat,
         projects: cat.projects.filter((p) => {
           const matchesLanguage = activeLanguage ? p.tags?.includes(activeLanguage) : true
-          const matchesFramework = activeFramework ? p.frameworks?.includes(activeFramework) : true
+          const matchesOther = activeOther ? p.other?.includes(activeOther) : true
           const matchesSearch = query
             ? p.name.toLowerCase().includes(query) || p.description.toLowerCase().includes(query)
             : true
-          return matchesLanguage && matchesFramework && matchesSearch
+          return matchesLanguage && matchesOther && matchesSearch
         }),
       }
     })
@@ -72,10 +72,10 @@ export function FilterableCSProjects({ categories }: { categories: Category[] })
             onChange={setActiveLanguage}
           />
           <DropdownFilter
-            label="Framework"
-            options={orderedFrameworks}
-            value={activeFramework}
-            onChange={setActiveFramework}
+            label="Other"
+            options={orderedOther}
+            value={activeOther}
+            onChange={setActiveOther}
           />
         </div>
       </div>
