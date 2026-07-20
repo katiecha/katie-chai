@@ -3,11 +3,13 @@
 import Image from "next/image"
 import { track } from "@vercel/analytics"
 import { BookMarked } from "lucide-react"
-import { IconLink, ICON_SIZE } from "@/app/components/atoms/icon-link"
+import { ICON_SIZE } from "@/app/components/molecules/icon-link"
 import { LanguageDot } from "@/app/components/atoms/language-dot"
-import { InProgressBadge, VisibilityBadge } from "@/app/components/atoms/status-badge"
+import { ProjectBadges } from "@/app/components/molecules/project-badges"
+import { ProjectLinks } from "@/app/components/molecules/project-links"
 import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
 import { previewHref } from "@/app/lib/links"
+import { CARD_SHELL_HOVER } from "@/app/lib/styles"
 import type { Project } from "@/app/work/data"
 
 type CardProps = {
@@ -18,7 +20,7 @@ type CardProps = {
   imageSizes?: string
 }
 
-const shell = "relative border border-border rounded-fillet hover:border-border-hover transition-all duration-150 cursor-pointer"
+const shell = `relative ${CARD_SHELL_HOVER} transition-all duration-150 cursor-pointer`
 
 export function Card({ project, variant, imageFit = "cover", imageAspectRatio = "16/9", imageSizes = "(min-width: 768px) 50vw, 100vw" }: CardProps) {
   const href = previewHref(project.links)
@@ -42,24 +44,9 @@ export function Card({ project, variant, imageFit = "cover", imageAspectRatio = 
           <div className="flex items-center gap-2 min-w-0">
             <BookMarked size={ICON_SIZE.sm} className="text-text-subtle shrink-0" />
             <h3 className="text-sm font-semibold text-link truncate">{project.name}</h3>
-            <VisibilityBadge status={project.status} />
-            {project.inProgress && <InProgressBadge />}
+            <ProjectBadges project={project} />
           </div>
-          {project.links.length > 0 && (
-            <div className="relative z-10 flex items-center gap-2 shrink-0">
-              {project.links.map((link) => (
-                <IconLink
-                  key={link.href}
-                  href={link.href}
-                  label={link.label}
-                  type={link.type}
-                  size={ICON_SIZE.sm}
-                  eventName={ANALYTICS_EVENTS.projectLinkClick}
-                  eventData={{ project: project.name, type: link.type ?? "site" }}
-                />
-              ))}
-            </div>
-          )}
+          <ProjectLinks project={project} className="relative z-10 flex items-center gap-2 shrink-0" />
         </div>
 
         {project.description && (
@@ -114,21 +101,7 @@ export function Card({ project, variant, imageFit = "cover", imageAspectRatio = 
       <div className="p-4 flex flex-col gap-2">
         <div className="flex items-start justify-between gap-3">
           <span className="text-sm font-semibold">{project.name}</span>
-          {project.links.length > 0 && (
-            <div className="relative z-10 flex items-center gap-2 shrink-0">
-              {project.links.map((link) => (
-                <IconLink
-                  key={link.href}
-                  href={link.href}
-                  label={link.label}
-                  type={link.type}
-                  size={ICON_SIZE.sm}
-                  eventName={ANALYTICS_EVENTS.projectLinkClick}
-                  eventData={{ project: project.name, type: link.type ?? "site" }}
-                />
-              ))}
-            </div>
-          )}
+          <ProjectLinks project={project} className="relative z-10 flex items-center gap-2 shrink-0" />
         </div>
 
         {project.description && (

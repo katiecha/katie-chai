@@ -1,19 +1,16 @@
 import Image from "next/image"
+import { FunFactCard } from "@/app/readme/fun-fact-card"
 
 const CLAUDE_CODE_URL = "https://claude.com/product/claude-code"
 
 export function ClaudeCodeFunFactCard() {
   return (
-    <a
+    <FunFactCard
       href={CLAUDE_CODE_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Claude Code"
-      className="block border border-border rounded-fillet p-3 hover:border-border-hover transition-colors"
+      emoji="🤖"
+      title="Claude Code Usage"
+      ariaLabel="Claude Code"
     >
-      <p className="text-xs font-semibold mb-2 flex items-center gap-1.5">
-        <span>🤖</span> Claude Code Usage
-      </p>
       <div className="relative w-full aspect-[1112/520] rounded-fillet overflow-hidden">
         <Image
           src="/images/claude-code/usage.png"
@@ -23,6 +20,6 @@ export function ClaudeCodeFunFactCard() {
           className="object-contain"
         />
       </div>
-    </a>
+    </FunFactCard>
   )
 }

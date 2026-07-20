@@ -1,8 +1,7 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import Image from "next/image"
 import { SectionHeading } from "@/app/components/atoms/section-heading"
 import { ImagePlaceholder } from "@/app/components/molecules/image-placeholder"
+import { CaseStudyHeader } from "@/app/work/case-study-header"
 
 export const metadata: Metadata = {
   title: "Carolina Adapts Toys for Children - Katie Chai",
@@ -12,17 +11,13 @@ export const metadata: Metadata = {
 export default function CatchPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-16">
-      <Link href="/work" className="text-sm text-text-subtle hover:text-black transition-colors inline-flex items-center gap-1 mb-8">
-        ← Back to Work
-      </Link>
-
-      <h1 className="text-3xl font-semibold mb-2">Carolina Adapts Toys for Children</h1>
-      <p className="text-sm text-text-muted mb-1">Website design and redesign for a student-run nonprofit.</p>
-      <p className="text-xs text-text-subtle mb-10">Client project · Website · UX + UI</p>
-
-      <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-16" style={{ aspectRatio: "16/9" }}>
-        <Image src="/images/uiux-catch.png" alt="CATCH website redesign" fill sizes="(min-width: 896px) 896px, 100vw" className="object-cover" />
-      </div>
+      <CaseStudyHeader
+        title="Carolina Adapts Toys for Children"
+        subtitle="Website design and redesign for a student-run nonprofit."
+        meta="Client project · Website · UX + UI"
+        heroSrc="/images/uiux-catch.png"
+        heroAlt="CATCH website redesign"
+      />
 
       <div className="flex flex-col gap-14">
 

@@ -2,7 +2,8 @@
 
 import { Suspense, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
-import Link from "next/link"
+import { BackLink } from "@/app/work/back-link"
+import { SOCIAL_LINKS } from "@/app/work/data"
 
 function UnlockForm() {
   const router = useRouter()
@@ -41,7 +42,7 @@ function UnlockForm() {
         <h1 className="text-lg font-semibold mb-2">Protected project</h1>
         <p className="text-sm text-text-muted leading-relaxed">
           This UI/UX case study is password-protected. Enter the password to continue, or email{" "}
-          <span className="text-text-primary">katie.h.chai@gmail.com</span> for access.
+          <span className="text-text-primary">{SOCIAL_LINKS.email}</span> for access.
         </p>
       </div>
 
@@ -69,12 +70,7 @@ function UnlockForm() {
       </form>
 
       <div className="text-center mt-6">
-        <Link
-          href="/work"
-          className="text-sm text-text-subtle hover:text-black transition-colors inline-flex items-center gap-1"
-        >
-          ← Back to Work
-        </Link>
+        <BackLink />
       </div>
     </div>
   )

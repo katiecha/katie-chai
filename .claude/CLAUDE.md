@@ -19,22 +19,24 @@ Components live in `app/components/` organized by Brad Frost's Atomic Design:
 ```
 app/components/
   atoms/       Indivisible building blocks. No internal composition of other components.
-               icons, icon-link, tag, tooltip, search-input, language-dot
-  molecules/   Groups of 2+ atoms forming a single unit.
-               section, page-header, page-shell, hero-header, row, card,
-               uiux-card, dropdown-filter, horizontal-scroller
+               icons, tag, tooltip, search-input, language-dot, section-heading,
+               instagram/ (profile-picture)
+  molecules/   Compose atoms (and, when needed, other molecules) into a single unit.
+               icon-link, status-badge, project-badges, project-links, section,
+               page-shell, row, card, dropdown-filter, horizontal-scroller,
+               definition-grid, image-placeholder, instagram/ (sub-components)
   organisms/   Complex, self-contained sections composed of molecules and atoms.
-               nav, footer, filterable-projects
-               instagram/ (instagram-section + its sub-components)
+               nav, footer, filterable-projects, mobile-nav-menu
+               instagram/ (instagram-section)
 ```
 
-**Import direction is strictly one-way: organisms → molecules → atoms. Never import upward or sideways across branches.**
+**Import direction: never import upward (atoms import no components; molecules never import organisms). Molecules may compose other molecules and organisms other organisms, but prefer reaching down a tier when possible.**
 
 When adding a component:
 - Can it stand alone with no other component imports? → atom
 - Does it combine atoms into one cohesive unit? → molecule
 - Is it a full section or feature of a page? → organism
-- Is it page-specific and not reused elsewhere? → co-locate with the page (e.g. `app/work/`)
+- Is it page-specific and not reused elsewhere? → co-locate with the page (e.g. `app/work/` holds `hero-header`, `uiux-card`, `back-link`, `case-study-header`; `app/play/` holds `page-header`; `app/readme/` holds `fun-fact-card` + its wrappers)
 
 **Data files always stay co-located with their page** (`app/work/data.ts`, `app/play/data.ts`). Never move them into `app/components/`. Shared utility functions live in `app/lib/`.
 
@@ -57,7 +59,7 @@ All visual primitives are defined in `app/globals.css` under `@theme`:
 
 Never use raw Tailwind gray values (`gray-500`, `gray-100`, etc.), raw hex codes (`bg-[#...]`), or inline style hexes — always use semantic tokens.
 
-**Icon sizes** live in `atoms/icon-link.tsx` as the exported `ICON_SIZE` constant, not in CSS (Lucide icons take a `size={number}` prop):
+**Icon sizes** live in `molecules/icon-link.tsx` as the exported `ICON_SIZE` constant, not in CSS (Lucide icons take a `size={number}` prop):
 
 ```ts
 ICON_SIZE.sm   // 14 — cards, tags, compact contexts
@@ -66,6 +68,8 @@ ICON_SIZE.lg   // 20 — hero, large UI
 ```
 
 Never hardcode `size={16}` on an icon — import `ICON_SIZE` and pick a bucket. Same applies to language dot colors: the `TAG_COLORS` map in `atoms/language-dot.tsx` uses raw hex ONLY because those are GitHub Linguist's canonical language identifier colors (external data, not our design system).
+
+**Card chrome**: the bordered-panel shell classes are the `CARD_SHELL` / `CARD_SHELL_HOVER` constants in `app/lib/styles.ts` — never re-type `border border-border rounded-fillet …` inline on a card/panel.
 
 **`rounded-fillet` vs `rounded-md`**: use `rounded-fillet` (2px) on cards and image containers for near-imperceptible rounding. Use `rounded-md` (6px) on interactive controls — buttons, inputs, dropdowns. These are intentionally different.
 
@@ -112,7 +116,7 @@ Use `previewHref()` from `app/lib/links.ts` to pick the primary click target for
 ### Data & types
 - **Types live in `data.ts` and are re-exported per page**: `app/work/data.ts` is the canonical home for `Project`, `ProjectLink`, `LinkType`, `Category`; `app/play/data.ts` re-exports them (`export type { Project, ProjectLink }`) alongside its page-local types. There is no separate `types.ts`.
 - **No `id` field** — collections are keyed by `project.name` in `.map()`. Name is the de-facto id.
-- **Tag semantics**: `tags` = languages only; `frameworks` = libraries/engines/platforms.
+- **Tag semantics**: `tags` = languages only; `other` = libraries/engines/platforms.
 - Data is exported as `UPPER_SNAKE_CASE` typed const arrays/objects (`SOCIAL_LINKS`, `CURRENT_PROJECTS`, …). `SOCIAL_LINKS` is the single source for social/resume URLs — consume it, don't re-hardcode links.
 - **Image paths**: per-project case studies under `/images/<slug>/...`; flat one-off thumbnails as `/images/<prefix>-<slug>.png` (e.g. `uiux-`). Internal navigation uses a site-relative `href` with `type: "site"`.
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
-import { HeroHeader } from "@/app/components/molecules/hero-header"
-import { UIUXCard } from "@/app/components/molecules/uiux-card"
+import { HeroHeader } from "@/app/work/hero-header"
+import { UIUXCard } from "@/app/work/uiux-card"
 import { Card } from "@/app/components/molecules/card"
 import { Section } from "@/app/components/molecules/section"
 import { PageShell } from "@/app/components/molecules/page-shell"

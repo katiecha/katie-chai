@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Card } from "@/app/components/molecules/card"
 import { Section } from "@/app/components/molecules/section"
-import { PageHeader } from "@/app/components/molecules/page-header"
+import { PageHeader } from "@/app/play/page-header"
 import { PageShell } from "@/app/components/molecules/page-shell"
 import { InstagramSection } from "@/app/components/organisms/instagram/instagram-section"
 import { ENGINEERING_PROJECTS } from "@/app/play/data"

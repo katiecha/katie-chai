@@ -3,8 +3,10 @@
 import { useState } from "react"
 import { track } from "@vercel/analytics"
 import { Eye, Pencil } from "lucide-react"
-import { ICON_SIZE } from "@/app/components/atoms/icon-link"
+import { ICON_SIZE } from "@/app/components/molecules/icon-link"
 import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
+import { SOCIAL_LINKS } from "@/app/work/data"
+import { CARD_SHELL } from "@/app/lib/styles"
 
 const RAW_MARKDOWN = `# 👋 Hi, I'm Katie!
 
@@ -35,7 +37,7 @@ In the more distant past, I've...
 ## 🎉 What do you do for fun?
 - I enjoy food studies. My favorite class in college was [EATS 101](https://abby-reimer.com/2015/03/18/eats-101-exemplary-or-unattainable/)! I also enjoy baking.
 - 🏐 Fun fact: My sand and indoor volleyball teams won the UNC intramural championship!
-- Also, feel free to check out my [resume](https://docs.google.com/document/d/1dFJq7Y5QSiKG9yClFOjeBNlUsXZ42uupHCC59a9BNa4/edit?tab=t.0)!
+- Also, feel free to check out my [resume](${SOCIAL_LINKS.resume})!
 
 <!-- 🥚 you found the raw view. email me "readme easter egg" and I'll be very impressed! -->
 `
@@ -44,7 +46,7 @@ export function ReadmeCard() {
   const [isRaw, setIsRaw] = useState(false)
 
   return (
-    <div className="border border-border rounded-fillet overflow-hidden">
+    <div className={`${CARD_SHELL} overflow-hidden`}>
 
       {/* File header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border">
@@ -163,7 +165,7 @@ export function ReadmeCard() {
                   <span className="shrink-0">•</span>
                   <span>
                     Also, feel free to check out my{" "}
-                    <a href="https://docs.google.com/document/d/1dFJq7Y5QSiKG9yClFOjeBNlUsXZ42uupHCC59a9BNa4/edit?tab=t.0" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline underline-offset-2" onClick={() => track(ANALYTICS_EVENTS.resumeClick, { location: "readme" })}>resume</a>!
+                    <a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline underline-offset-2" onClick={() => track(ANALYTICS_EVENTS.resumeClick, { location: "readme" })}>resume</a>!
                   </span>
                 </li>
               </ul>

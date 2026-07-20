@@ -2,8 +2,8 @@
 
 import { track } from "@vercel/analytics"
 import { ChevronDown, MoreHorizontal, UserPlus } from "lucide-react"
-import { ICON_SIZE } from "@/app/components/atoms/icon-link"
-import { ProfilePicture } from "@/app/components/molecules/instagram/profile-picture"
+import { ICON_SIZE } from "@/app/components/molecules/icon-link"
+import { ProfilePicture } from "@/app/components/atoms/instagram/profile-picture"
 import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
 
 type ProfileHeaderProps = {

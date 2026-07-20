@@ -3,14 +3,15 @@
 import Image from "next/image"
 import Link from "next/link"
 import { track } from "@vercel/analytics"
-import { InProgressBadge, VisibilityBadge } from "@/app/components/atoms/status-badge"
+import { ProjectBadges } from "@/app/components/molecules/project-badges"
 import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
 import { previewHref } from "@/app/lib/links"
+import { CARD_SHELL_HOVER } from "@/app/lib/styles"
 import type { Project } from "@/app/work/data"
 
 export function UIUXCard({ project }: { project: Project }) {
   const shell = (
-    <div className="border border-border rounded-fillet hover:border-border-hover transition-all duration-150 cursor-pointer">
+    <div className={`${CARD_SHELL_HOVER} transition-all duration-150 cursor-pointer`}>
       <div className="relative h-40 bg-surface overflow-hidden rounded-t-fillet">
         {project.image ? (
           <Image
@@ -27,8 +28,7 @@ export function UIUXCard({ project }: { project: Project }) {
       <div className="p-4">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="font-semibold text-sm">{project.name}</span>
-          <VisibilityBadge status={project.status} />
-          {project.inProgress && <InProgressBadge />}
+          <ProjectBadges project={project} />
         </div>
         <p className="text-sm text-text-muted mt-1 line-clamp-2 min-h-[2.5rem]">{project.description}</p>
       </div>

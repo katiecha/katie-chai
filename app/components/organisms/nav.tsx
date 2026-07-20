@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { IconLink } from "@/app/components/atoms/icon-link"
+import { IconLink } from "@/app/components/molecules/icon-link"
 import { MobileNavMenu } from "@/app/components/organisms/mobile-nav-menu"
 import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
 import { SOCIAL_LINKS } from "@/app/work/data"
