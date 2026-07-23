@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { PageShell } from "@/app/components/molecules/page-shell"
 import { SectionHeading } from "@/app/components/atoms/section-heading"
 import { DefinitionGrid } from "@/app/components/molecules/definition-grid"
 import { ImagePlaceholder } from "@/app/components/molecules/image-placeholder"
@@ -85,7 +86,7 @@ const PERSONAS = [
 
 export default function JenisPage() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-16">
+    <PageShell>
       <CaseStudyHeader
         title="Jeni's Splendid Ice Creams"
         subtitle="A self-directed UX case study on flavor discovery and gifting."
@@ -223,6 +224,6 @@ export default function JenisPage() {
         </section>
 
       </div>
-    </main>
+    </PageShell>
   )
 }

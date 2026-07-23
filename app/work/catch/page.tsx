@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { PageShell } from "@/app/components/molecules/page-shell"
 import { SectionHeading } from "@/app/components/atoms/section-heading"
 import { ImagePlaceholder } from "@/app/components/molecules/image-placeholder"
 import { CaseStudyHeader } from "@/app/work/case-study-header"
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function CatchPage() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-16">
+    <PageShell>
       <CaseStudyHeader
         title="Carolina Adapts Toys for Children"
         subtitle="Website design and redesign for a student-run nonprofit."
@@ -56,6 +57,6 @@ export default function CatchPage() {
         </section>
 
       </div>
-    </main>
+    </PageShell>
   )
 }

@@ -6,10 +6,9 @@ import type { ReactNode } from "react"
 type TooltipProps = {
   label: ReactNode
   children: ReactNode
-  wide?: boolean
 }
 
-export function Tooltip({ label, children, wide = false }: TooltipProps) {
+export function Tooltip({ label, children }: TooltipProps) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -19,7 +18,7 @@ export function Tooltip({ label, children, wide = false }: TooltipProps) {
     >
       {children}
       <span className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 z-tooltip transition-opacity pointer-events-none md:group-hover/tooltip:opacity-100 ${open ? "opacity-100" : "opacity-0"}`}>
-        <span className={`block text-xs text-text-primary bg-white border border-border shadow-sm px-2 py-0.5 rounded-md ${wide ? "w-48 whitespace-normal text-center leading-snug py-1" : "whitespace-nowrap"}`}>
+        <span className="block text-xs text-text-primary bg-white border border-border shadow-sm px-2 py-0.5 rounded-md whitespace-nowrap">
           {label}
         </span>
         <span className="block w-2 h-2 bg-white border-b border-r border-border rotate-45 mx-auto -mt-1" />

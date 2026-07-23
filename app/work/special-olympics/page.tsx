@@ -1,4 +1,6 @@
 import type { Metadata } from "next"
+import { PageShell } from "@/app/components/molecules/page-shell"
+import type { ReactNode } from "react"
 import Image from "next/image"
 import { SectionHeading } from "@/app/components/atoms/section-heading"
 import { ImagePlaceholder } from "@/app/components/molecules/image-placeholder"
@@ -9,7 +11,7 @@ export const metadata: Metadata = {
   description: "UX research and website redesign for Special Olympics.",
 }
 
-function Quote({ children }: { children: React.ReactNode }) {
+function Quote({ children }: { children: ReactNode }) {
   return (
     <blockquote className="border-l-2 border-border pl-4 text-sm text-text-muted leading-relaxed italic">
       {children}
@@ -19,7 +21,7 @@ function Quote({ children }: { children: React.ReactNode }) {
 
 export default function SpecialOlympicsPage() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-16">
+    <PageShell>
       <CaseStudyHeader
         title="Special Olympics"
         subtitle="UX research, website redesign + rebuild, and supplementary mobile app IA."
@@ -153,6 +155,6 @@ export default function SpecialOlympicsPage() {
         </section>
 
       </div>
-    </main>
+    </PageShell>
   )
 }

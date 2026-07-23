@@ -37,26 +37,24 @@ export function DropdownFilter({ label, options, value, onChange }: DropdownFilt
     <div ref={ref} className="relative shrink-0">
       <button
         onClick={() => setOpen((o) => !o)}
-        className={`flex items-center gap-1.5 px-4 py-1.5 text-sm border rounded-md transition-colors whitespace-nowrap cursor-pointer ${
+        className={`flex items-center gap-1.5 py-1.5 text-sm border rounded-md transition-colors whitespace-nowrap cursor-pointer ${
           isActive
-            ? "border-black bg-black text-white"
-            : "border-border hover:border-border-hover bg-surface-muted text-black"
+            ? "pl-4 pr-9 border-black bg-black text-white"
+            : "px-4 border-border hover:border-border-hover bg-surface-muted text-black"
         }`}
       >
         {isActive ? value : label}
-        {isActive ? (
-          <span
-            role="button"
-            aria-label="Clear filter"
-            onClick={(e) => { e.stopPropagation(); onChange(null) }}
-            className="p-1.5 -m-1.5 opacity-70 hover:opacity-100 leading-none"
-          >
-            ×
-          </span>
-        ) : (
-          <FilledCaret />
-        )}
+        {!isActive && <FilledCaret />}
       </button>
+      {isActive && (
+        <button
+          aria-label="Clear filter"
+          onClick={() => onChange(null)}
+          className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-white opacity-70 hover:opacity-100 leading-none cursor-pointer"
+        >
+          ×
+        </button>
+      )}
 
       {open && (
         <div className="absolute top-full mt-1 left-0 z-tooltip bg-white border border-border rounded-md shadow-md py-1 min-w-40 max-h-64 overflow-y-auto">

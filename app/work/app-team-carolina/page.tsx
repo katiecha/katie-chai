@@ -1,4 +1,6 @@
 import type { Metadata } from "next"
+import { PageShell } from "@/app/components/molecules/page-shell"
+import type { ReactNode } from "react"
 import Image from "next/image"
 import { SectionHeading } from "@/app/components/atoms/section-heading"
 import { DefinitionGrid } from "@/app/components/molecules/definition-grid"
@@ -9,13 +11,13 @@ export const metadata: Metadata = {
   description: "UI/UX projects from the App Team Carolina Design Academy.",
 }
 
-function ProjectHeading({ children }: { children: React.ReactNode }) {
+function ProjectHeading({ children }: { children: ReactNode }) {
   return (
     <h3 className="text-sm font-semibold mb-2">{children}</h3>
   )
 }
 
-function ProjectDescription({ children }: { children: React.ReactNode }) {
+function ProjectDescription({ children }: { children: ReactNode }) {
   return (
     <p className="text-sm text-text-muted leading-relaxed mb-4">{children}</p>
   )
@@ -50,7 +52,7 @@ const DESIGN_PRINCIPLES = [
 
 export default function AppTeamCarolinaPage() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-16">
+    <PageShell>
       <CaseStudyHeader
         title="App Team Carolina"
         subtitle="Various projects from the UI/UX Design Academy."
@@ -79,7 +81,7 @@ export default function AppTeamCarolinaPage() {
               <ProjectDescription>
                 A local brunch restaurant app. The Brunchery had established brand colors to work with, while typography was up to me. It&apos;s egg-themed!
               </ProjectDescription>
-              <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-4" style={{ aspectRatio: "16/9" }}>
+              <div className="relative w-full aspect-video rounded-fillet overflow-hidden bg-surface-hover mb-4">
                 <Image src="/images/app-team-carolina/brunchery.jpg" alt="The Brunchery app mockup" fill sizes="(min-width: 896px) 896px, 100vw" className="object-contain" />
               </div>
               <p className="text-xs font-medium text-text-subtle uppercase tracking-wide mb-2">Feature requirements</p>
@@ -97,7 +99,7 @@ export default function AppTeamCarolinaPage() {
               <ProjectDescription>
                 An app for Alpine&apos;s Bagels, a popular spot at UNC-Chapel Hill. This week&apos;s focus was on design fundamentals. Each principle was applied throughout the interface.
               </ProjectDescription>
-              <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-4" style={{ aspectRatio: "16/9" }}>
+              <div className="relative w-full aspect-video rounded-fillet overflow-hidden bg-surface-hover mb-4">
                 <Image src="/images/app-team-carolina/alpines-bagels.jpg" alt="Alpine's Bagels app mockup" fill sizes="(min-width: 896px) 896px, 100vw" className="object-contain" />
               </div>
               <DefinitionGrid items={DESIGN_PRINCIPLES} />
@@ -112,6 +114,7 @@ export default function AppTeamCarolinaPage() {
                   href="https://www.instagram.com/alev.neto"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Alev Neto on Instagram"
                   className="underline underline-offset-2 hover:text-black transition-colors"
                 >
                   @alev.neto
@@ -120,7 +123,7 @@ export default function AppTeamCarolinaPage() {
               </ProjectDescription>
               <p className="text-xs font-medium text-text-subtle uppercase tracking-wide mb-2">Features</p>
               <FeatureList items={["Messaging", "Flower sending", "User profile section"]} />
-              <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mt-4" style={{ aspectRatio: "16/9" }}>
+              <div className="relative w-full aspect-video rounded-fillet overflow-hidden bg-surface-hover mt-4">
                 <Image src="/images/app-team-carolina/send-the-flowers.jpg" alt="Send The Flowers app mockup" fill sizes="(min-width: 896px) 896px, 100vw" className="object-contain" />
               </div>
             </div>
@@ -131,7 +134,7 @@ export default function AppTeamCarolinaPage() {
               <ProjectDescription>
                 A sleek and secure app for tracking menstrual cycles. The goal was a simple design that prioritizes user data privacy.
               </ProjectDescription>
-              <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-4" style={{ aspectRatio: "16/9" }}>
+              <div className="relative w-full aspect-video rounded-fillet overflow-hidden bg-surface-hover mb-4">
                 <Image src="/images/app-team-carolina/period-tracking.jpg" alt="Period tracking app mockup" fill sizes="(min-width: 896px) 896px, 100vw" className="object-contain" />
               </div>
               <p className="text-xs font-medium text-text-subtle uppercase tracking-wide mb-2">Features</p>
@@ -158,7 +161,7 @@ export default function AppTeamCarolinaPage() {
                 "Increased map functionality",
                 "Favorite button",
               ]} />
-              <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mt-4" style={{ aspectRatio: "16/9" }}>
+              <div className="relative w-full aspect-video rounded-fillet overflow-hidden bg-surface-hover mt-4">
                 <Image src="/images/app-team-carolina/parking-app.jpg" alt="Parking app redesign mockup" fill sizes="(min-width: 896px) 896px, 100vw" className="object-contain" />
               </div>
             </div>
@@ -169,7 +172,7 @@ export default function AppTeamCarolinaPage() {
               <ProjectDescription>
                 A redesign of TikTok completed during a UI/UX design workshop led by Morgan Roberts at UNC-Chapel Hill. Starting from a provided starter file, I designed the TikTok screen, built a prototype, and created a mockup.
               </ProjectDescription>
-              <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mt-4" style={{ aspectRatio: "16/9" }}>
+              <div className="relative w-full aspect-video rounded-fillet overflow-hidden bg-surface-hover mt-4">
                 <Image src="/images/app-team-carolina/tiktok.jpg" alt="TikTok recreation mockup" fill sizes="(min-width: 896px) 896px, 100vw" className="object-contain" />
               </div>
             </div>
@@ -178,6 +181,6 @@ export default function AppTeamCarolinaPage() {
         </section>
 
       </div>
-    </main>
+    </PageShell>
   )
 }

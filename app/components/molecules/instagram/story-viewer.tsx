@@ -19,7 +19,7 @@ export function StoryViewer({ highlight, activeFrame, progress, username, avatar
   const frameSrc = highlight.frames[activeFrame]
 
   return (
-    <div className="fixed inset-x-0 bottom-0 top-14 z-modal bg-overlay-dark flex items-center justify-between">
+    <div className="fixed inset-0 z-modal bg-overlay-dark flex items-center justify-between">
       <button className="flex-1 h-full cursor-pointer" onClick={onPrev} aria-label="Previous story" />
 
       <div className="relative h-[90vh] rounded-2xl overflow-hidden bg-black shrink-0" style={{ aspectRatio: "9/16" }}>
