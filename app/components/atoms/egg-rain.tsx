@@ -85,7 +85,7 @@ export function EggRain() {
           >
             🥚
           </span>
-          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 mt-16 px-4 py-2 text-sm font-medium text-text-primary bg-background border border-border rounded-md shadow-md whitespace-nowrap">
+          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 text-sm font-medium text-text-primary bg-background border border-border rounded-md shadow-md whitespace-nowrap">
             🥇 a golden egg?! email me &quot;golden egg&quot; and I&apos;ll be VERY impressed!
           </span>
         </>
