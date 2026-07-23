@@ -6,15 +6,7 @@ import { SOCIAL_LINKS } from "@/app/work/data"
 
 export function Nav() {
   return (
-    <header
-      className="border-b border-border"
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 100,
-        backgroundColor: "#ffffff",
-      }}
-    >
+    <header className="sticky top-0 z-nav bg-background border-b border-border">
       <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <MobileNavMenu />

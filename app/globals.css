@@ -46,6 +46,20 @@
  * ────────────────────────────────────────────────────────────
  */
 
+/* ─── Z-index utilities ─────────────────────────────────────────
+   Tailwind v4 has no --z-* theme namespace, so the @theme variables
+   above don't generate utilities on their own; define them here.
+ ──────────────────────────────────────────────────────────────── */
+@utility z-nav {
+  z-index: var(--z-nav);
+}
+@utility z-tooltip {
+  z-index: var(--z-tooltip);
+}
+@utility z-modal {
+  z-index: var(--z-modal);
+}
+
 /* ─── Scrollbar utilities ───────────────────────────────────────
    Tailwind v4 doesn't ship scrollbar-hide; define it here.
    Used on any overflow-x-auto row that shouldn't show a scrollbar.
