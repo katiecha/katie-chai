@@ -85,9 +85,9 @@ export function ReadmeCard() {
               <h2 className="text-sm font-semibold mb-3 flex items-center gap-1.5">✅ Where do I work?</h2>
               <p className="text-sm text-text-muted leading-relaxed">
                 I am currently a Software Engineer for{" "}
-                <a href="https://www.greenboard.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline underline-offset-2">Greenboard</a>
+                <a href="https://www.greenboard.com/" target="_blank" rel="noopener noreferrer" aria-label="Greenboard website" className="text-link hover:underline underline-offset-2">Greenboard</a>
                 {" "}(
-                <a href="https://www.ycombinator.com/companies/greenboard" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline underline-offset-2">YC W24</a>
+                <a href="https://www.ycombinator.com/companies/greenboard" target="_blank" rel="noopener noreferrer" aria-label="Greenboard on Y Combinator" className="text-link hover:underline underline-offset-2">YC W24</a>
                 ).
               </p>
             </section>
@@ -96,7 +96,7 @@ export function ReadmeCard() {
               <h2 className="text-sm font-semibold mb-3 flex items-center gap-1.5">💻 What did I study?</h2>
               <p className="text-sm text-text-muted leading-relaxed">
                 I studied Computer Science (and Computational Biology / Bioinformatics) at Duke and UNC through the{" "}
-                <a href="https://robertsonscholars.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline underline-offset-2">Robertson Scholars Leadership Program</a>.
+                <a href="https://robertsonscholars.org" target="_blank" rel="noopener noreferrer" aria-label="Robertson Scholars Leadership Program website" className="text-link hover:underline underline-offset-2">Robertson Scholars Leadership Program</a>.
                 I graduated in December 2025!
               </p>
             </section>
@@ -153,7 +153,7 @@ export function ReadmeCard() {
                   <span className="shrink-0">•</span>
                   <span>
                     I enjoy food studies. My favorite class in college was{" "}
-                    <a href="https://abby-reimer.com/2015/03/18/eats-101-exemplary-or-unattainable/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline underline-offset-2">EATS 101</a>!
+                    <a href="https://abby-reimer.com/2015/03/18/eats-101-exemplary-or-unattainable/" target="_blank" rel="noopener noreferrer" aria-label="Article about the EATS 101 course" className="text-link hover:underline underline-offset-2">EATS 101</a>!
                     I also enjoy baking.
                   </span>
                 </li>
@@ -165,7 +165,7 @@ export function ReadmeCard() {
                   <span className="shrink-0">•</span>
                   <span>
                     Also, feel free to check out my{" "}
-                    <a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline underline-offset-2" onClick={() => track(ANALYTICS_EVENTS.resumeClick, { location: "readme" })}>resume</a>!
+                    <a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener noreferrer" aria-label="Katie's resume" className="text-link hover:underline underline-offset-2" onClick={() => track(ANALYTICS_EVENTS.resumeClick, { location: "readme" })}>resume</a>!
                   </span>
                 </li>
               </ul>

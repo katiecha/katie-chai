@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
+import { unlockToken } from "@/app/lib/auth"
 
 export async function POST(req: NextRequest) {
   const password = process.env.UIUX_PASSWORD
@@ -16,7 +17,7 @@ export async function POST(req: NextRequest) {
   }
 
   const res = NextResponse.json({ ok: true })
-  res.cookies.set("uiux_auth", password, {
+  res.cookies.set("uiux_auth", await unlockToken(password), {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",

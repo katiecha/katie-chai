@@ -53,7 +53,7 @@ All visual primitives are defined in `app/globals.css` under `@theme`:
 --color-surface-hover                 /* hover backgrounds                    */
 --color-surface-muted                 /* GitHub grey #f6f8fa — filter buttons */
 --color-overlay-dark                  /* IG story viewer backdrop             */
---radius-fillet                       /* 2px — very slight rounding on cards/images */
+--radius-fillet                       /* 8px — subtle rounding on cards/images */
 --z-nav, --z-tooltip, --z-modal
 ```
 
@@ -71,7 +71,7 @@ Never hardcode `size={16}` on an icon — import `ICON_SIZE` and pick a bucket. 
 
 **Card chrome**: the bordered-panel shell classes are the `CARD_SHELL` / `CARD_SHELL_HOVER` constants in `app/lib/styles.ts` — never re-type `border border-border rounded-fillet …` inline on a card/panel.
 
-**`rounded-fillet` vs `rounded-md`**: use `rounded-fillet` (2px) on cards and image containers for near-imperceptible rounding. Use `rounded-md` (6px) on interactive controls — buttons, inputs, dropdowns. These are intentionally different.
+**`rounded-fillet` vs `rounded-md`**: use `rounded-fillet` (8px) on cards and image containers. Use `rounded-md` (6px) on interactive controls — buttons, inputs, dropdowns. These are intentionally different tokens; change card rounding only via `--radius-fillet`.
 
 **`scrollbar-hide`**: Tailwind v4 does not include this utility. It is defined manually in `globals.css` under `@layer utilities`. Do not try to install a plugin for it.
 

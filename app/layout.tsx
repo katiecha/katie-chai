@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import type { ReactNode } from "react"
 import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   description: "Software engineer interested in intelligence, infrastructure, and good design.",
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.className} data-scroll-behavior="smooth">
       <body className="bg-white text-black antialiased">

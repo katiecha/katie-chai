@@ -77,7 +77,7 @@ export function Card({ project, variant, imageFit = "cover", imageAspectRatio = 
       )}
 
       {project.videoEmbed ? (
-        <div className="relative w-full bg-black" style={{ aspectRatio: "16/9" }}>
+        <div className="relative w-full aspect-video bg-black">
           <iframe
             src={project.videoEmbed}
             title={project.name}

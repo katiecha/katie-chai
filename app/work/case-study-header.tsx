@@ -18,7 +18,7 @@ export function CaseStudyHeader({ title, subtitle, meta, heroSrc, heroAlt }: Cas
       <p className={`text-sm text-text-muted ${meta ? "mb-1" : "mb-10"}`}>{subtitle}</p>
       {meta && <p className="text-xs text-text-subtle mb-10">{meta}</p>}
 
-      <div className="relative w-full rounded-fillet overflow-hidden bg-surface-hover mb-16" style={{ aspectRatio: "16/9" }}>
+      <div className="relative w-full aspect-video rounded-fillet overflow-hidden bg-surface-hover mb-16">
         <Image src={heroSrc} alt={heroAlt} fill sizes="(min-width: 896px) 896px, 100vw" className="object-cover" />
       </div>
     </>

@@ -1,6 +1,7 @@
 "use client"
 
 import { Suspense, useState } from "react"
+import type { FormEvent } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { BackLink } from "@/app/work/back-link"
 import { SOCIAL_LINKS } from "@/app/work/data"
@@ -14,7 +15,7 @@ function UnlockForm() {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  async function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: FormEvent) {
     e.preventDefault()
     if (loading) return
     setLoading(true)
