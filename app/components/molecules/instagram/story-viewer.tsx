@@ -1,3 +1,6 @@
+"use client"
+
+import { createPortal } from "react-dom"
 import Image from "next/image"
 import { X } from "lucide-react"
 import { ICON_SIZE } from "@/app/components/molecules/icon-link"
@@ -18,7 +21,10 @@ type StoryViewerProps = {
 export function StoryViewer({ highlight, activeFrame, progress, username, avatarSrc, onClose, onPrev, onNext }: StoryViewerProps) {
   const frameSrc = highlight.frames[activeFrame]
 
-  return (
+  // Portal to <body>: layout.tsx wraps page content in an `isolate z-0`
+  // stacking context, so a modal rendered in place can never paint above
+  // the z-nav header no matter its own z-index.
+  return createPortal(
     <div className="fixed inset-0 z-modal bg-overlay-dark flex items-center justify-between">
       <button className="flex-1 h-full cursor-pointer" onClick={onPrev} aria-label="Previous story" />
 
@@ -55,6 +61,7 @@ export function StoryViewer({ highlight, activeFrame, progress, username, avatar
       <button onClick={onClose} className="absolute top-5 right-5 z-10 text-white/80 hover:text-white transition-colors p-3 cursor-pointer" aria-label="Close">
         <X size={ICON_SIZE.lg} strokeWidth={2.5} />
       </button>
-    </div>
+    </div>,
+    document.body
   )
 }
