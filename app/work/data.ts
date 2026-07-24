@@ -44,6 +44,7 @@ export const CURRENT_PROJECTS: Project[] = [
       { label: "X", href: "https://x.com/RegolithAi", type: "x" },
     ],
     inProgress: true,
+    tags: ["Python"],
   },
   {
     name: "jeancha.ai",
