@@ -11,8 +11,8 @@ Scaffold a new API endpoint following project conventions.
 
 ## Choosing the Right Pattern
 
-- **tRPC** — internal app usage (client ↔ server within this app)
-- **REST** — external consumers or webhooks
+- **tRPC** - internal app usage (client ↔ server within this app)
+- **REST** - external consumers or webhooks
 
 ## tRPC Procedure
 
@@ -87,12 +87,12 @@ export async function POST(req: NextRequest) {
 
 ## Rules
 
-- All inputs validated with Zod — no exceptions
+- All inputs validated with Zod - no exceptions
 - Enforce auth before any DB access
 - Never trust client input
 - Return shape: `{ data: T }` on success, `{ error: string }` on failure
 - All mutations must be idempotent and retry-safe
-- No DB calls outside `/server/services` — API layer calls service layer only
+- No DB calls outside `/server/services` - API layer calls service layer only
 - No raw SQL unless unavoidable and documented
 
 ## Anti-Patterns

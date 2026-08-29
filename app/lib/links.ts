@@ -6,3 +6,8 @@ export function previewHref(links: ProjectLink[]): string | undefined {
     links[0]?.href
   )
 }
+
+export function orderedLinks(links: ProjectLink[]): ProjectLink[] {
+  const isGithub = (l: ProjectLink) => l.type === "github" || l.href.includes("github.com")
+  return [...links.filter(l => !isGithub(l)), ...links.filter(isGithub)]
+}

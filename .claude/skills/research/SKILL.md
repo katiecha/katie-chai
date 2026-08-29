@@ -17,7 +17,7 @@ Research is compression. Find everything relevant, return only what's needed.
 
 ## Process
 
-1. **Identify the real task** — What are we actually trying to accomplish?
+1. **Identify the real task** - What are we actually trying to accomplish?
 
 2. **Find relevant code**:
    - Entry points (routes, handlers, components)
@@ -47,8 +47,8 @@ Write findings to `research.md` in the current working directory:
 [One sentence describing what we're trying to accomplish]
 
 ## Relevant Files
-- `path/to/file.ts:123` — [why it matters]
-- `path/to/other.ts:45-67` — [why it matters]
+- `path/to/file.ts:123` - [why it matters]
+- `path/to/other.ts:45-67` - [why it matters]
 
 ## Existing Patterns
 [How similar things are done in this codebase]
@@ -71,10 +71,10 @@ Write findings to `research.md` in the current working directory:
 
 ## Rules
 
-- Research is READ-ONLY — do not modify code
-- Compress findings — return essence, not everything
-- Be objective — do not hunt for bugs during research
-- Note uncertainty — mark assumptions as such
+- Research is READ-ONLY - do not modify code
+- Compress findings - return essence, not everything
+- Be objective - do not hunt for bugs during research
+- Note uncertainty - mark assumptions as such
 
 ## Failure Behavior
 

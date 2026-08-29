@@ -21,11 +21,11 @@ app/<route>/
 
 ## Rules
 
-- Server Component by default — no `"use client"` unless the page itself needs browser APIs
+- Server Component by default - no `"use client"` unless the page itself needs browser APIs
 - Every page exports `metadata` or `generateMetadata`
 - Semantic HTML: `<main>`, `<section>`, `<h1>` hierarchy
-- Mobile-first layout — `md` breakpoint only
-- Next.js requires default exports on `page.tsx`, `layout.tsx`, `loading.tsx`, `error.tsx` — this is the only exception to the named exports rule
+- Mobile-first layout - `md` breakpoint only
+- Next.js requires default exports on `page.tsx`, `layout.tsx`, `loading.tsx`, `error.tsx` - this is the only exception to the named exports rule
 
 ## Patterns
 
@@ -94,7 +94,7 @@ export default function Error({
 
 ## Anti-Patterns
 
-- Business logic inside page components — push to server actions or services
+- Business logic inside page components - push to server actions or services
 - Missing `metadata` export
 - `"use client"` at the page level without browser API need
 - Skipping `loading.tsx` for pages with async data

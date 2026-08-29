@@ -35,28 +35,28 @@ verification_required:
 | `complex-task` | `decompose` | `planner`, `agent-workflow` |
 | `state` | `manage-state` | `verify` |
 | `backend` | `backend-reliability` | `security-review`, `verify` |
-| `conversational` | — | — |
+| `conversational` | - | - |
 | `unknown` | `gather-context` | `decompose` |
 
 ## Available Skills
 
-- `agent-workflow` — enforces the research → plan → implement → verify loop
-- `backend-reliability` — rules for idempotency, retries, logging, queues
-- `code-reviewer` — pre-PR bug and correctness review
-- `create-api` — tRPC procedure or REST endpoint scaffold
-- `create-component` — reusable React component scaffold
-- `create-data-table` — server-driven data table scaffold
-- `create-page` — Next.js App Router page scaffold with metadata and states
-- `decompose` — breaks complex tasks into independently testable steps
-- `evaluate` — defines success criteria, edge cases, and failure modes
-- `fallback-handler` — handles execution failures with alternative approaches
-- `gather-context` — reads relevant files and rules before implementation
-- `manage-state` — explicit state patterns, no hidden shared state
-- `planner` — produces goal, file list, ordered steps, risks, and test approach
-- `research` — deep read-only codebase exploration, writes to research.md
-- `security-review` — auth, input, DB query, and external API security audit
-- `task-router` — this skill; classifies and routes tasks
-- `verify` — labels claims as verified / inference / unknown before proceeding
+- `agent-workflow` - enforces the research → plan → implement → verify loop
+- `backend-reliability` - rules for idempotency, retries, logging, queues
+- `code-reviewer` - pre-PR bug and correctness review
+- `create-api` - tRPC procedure or REST endpoint scaffold
+- `create-component` - reusable React component scaffold
+- `create-data-table` - server-driven data table scaffold
+- `create-page` - Next.js App Router page scaffold with metadata and states
+- `decompose` - breaks complex tasks into independently testable steps
+- `evaluate` - defines success criteria, edge cases, and failure modes
+- `fallback-handler` - handles execution failures with alternative approaches
+- `gather-context` - reads relevant files and rules before implementation
+- `manage-state` - explicit state patterns, no hidden shared state
+- `planner` - produces goal, file list, ordered steps, risks, and test approach
+- `research` - deep read-only codebase exploration, writes to research.md
+- `security-review` - auth, input, DB query, and external API security audit
+- `task-router` - this skill; classifies and routes tasks
+- `verify` - labels claims as verified / inference / unknown before proceeding
 
 ## Rules
 
@@ -71,9 +71,9 @@ verification_required:
 
 ## Risk Levels
 
-- `low` — read-only, explanation, conversational
-- `medium` — code changes scoped to one file or component
-- `high` — data mutation, auth, infra, changes to shared patterns
+- `low` - read-only, explanation, conversational
+- `medium` - code changes scoped to one file or component
+- `high` - data mutation, auth, infra, changes to shared patterns
 
 ## When to Stop
 

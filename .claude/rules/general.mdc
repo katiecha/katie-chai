@@ -30,10 +30,10 @@ alwaysApply: true
 - Global mutable state
 
 ## Agent Workflow
-1. **Research** — Identify relevant files, understand patterns
-2. **Plan** — Define goal, list files, outline steps, identify risks
-3. **Implement** — Execute strictly per plan, minimal changes
-4. **Verify** — Type correctness, edge cases, no regressions
+1. **Research** - Identify relevant files, understand patterns
+2. **Plan** - Define goal, list files, outline steps, identify risks
+3. **Implement** - Execute strictly per plan, minimal changes
+4. **Verify** - Type correctness, edge cases, no regressions
 
 ## Definition of Done
 - Fully type-safe

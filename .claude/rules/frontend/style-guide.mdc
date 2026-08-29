@@ -2,7 +2,7 @@
 globs: app/**/*.tsx,components/**/*.tsx,**/*.css
 alwaysApply: false
 ---
-# Regolith — Style Guide
+# Regolith - Style Guide
 
 ## Definition
 
@@ -21,7 +21,7 @@ It should feel closer to:
 - a **research notebook**
 - a **printed essay**
 
-—not a startup landing page.
+- not a startup landing page.
 
 **Principle:**
 > Ideas > interface
@@ -30,11 +30,11 @@ It should feel closer to:
 
 ## Brand Principles
 
-- **Formed, not designed** — systems emerge through iteration and pressure
-- **Signal from noise** — clarity is the result of refinement
-- **Restraint** — remove until only the essential remains
-- **Time as a material** — maturity is part of the system
-- **Fragments → structure** — meaning is assembled, not imposed
+- **Formed, not designed** - systems emerge through iteration and pressure
+- **Signal from noise** - clarity is the result of refinement
+- **Restraint** - remove until only the essential remains
+- **Time as a material** - maturity is part of the system
+- **Fragments → structure** - meaning is assembled, not imposed
 
 ---
 

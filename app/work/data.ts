@@ -16,7 +16,7 @@ export type Project = {
   imagePosition?: string
   videoEmbed?: string
   tags?: string[]   // languages only (TypeScript, Python, C#, …)
-  other?: string[]  // other tags — libraries, engines, platforms (React, Unity, …)
+  other?: string[]  // other tags - libraries, engines, platforms (React, Unity, …)
 }
 
 export type Category = {
@@ -42,8 +42,10 @@ export const CURRENT_PROJECTS: Project[] = [
     links: [
       { label: "Website", href: "https://www.katiech.ai/", type: "site" },
       { label: "X", href: "https://x.com/RegolithAi", type: "x" },
+      { label: "GitHub", href: "https://github.com/katiecha/regolith-core", type: "github" },
     ],
     inProgress: true,
+    status: "private",
     tags: ["Python"],
   },
   {
@@ -102,7 +104,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         name: "PO Agent",
-        description: "An agent pipeline for pharmacy order batching, with a React dashboard for live results. Private repo. Email me to learn more!",
+        description: "A rules-first pharmacy order combining pipeline, deterministic compliance rules handle most cases, with an LLM resolving only gray-zone edge cases. Event-driven backend (FastAPI) with a React dashboard for live results. Private repo. Email me to learn more!",
         links: [
           { label: "GitHub", href: "https://github.com/katiecha/po-agent", type: "github" },
         ],

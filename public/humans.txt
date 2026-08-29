@@ -14,4 +14,4 @@
 
 /* EGG */
   Yes, the favicon is an egg. 🥚
-  You found humans.txt — that makes you one of the good ones.
+  You found humans.txt - that makes you one of the good ones.

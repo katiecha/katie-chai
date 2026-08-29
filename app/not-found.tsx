@@ -10,7 +10,7 @@ export default function NotFound() {
           This is not the page you&apos;re looking for.
         </h1>
         <p className="text-sm text-text-muted font-mono">
-          katiecha / <span className="font-semibold text-black">this-page</span> — repo not found 🥚
+          katiecha / <span className="font-semibold text-black">this-page</span> - repo not found 🥚
         </p>
         <Link
           href="/work"

@@ -12,9 +12,9 @@ tags: [review]
 
 Label claims:
 
-* verified — confirmed by reading source
-* inference — logical conclusion from evidence
-* unknown — cannot determine
+* verified - confirmed by reading source
+* inference - logical conclusion from evidence
+* unknown - cannot determine
 
 ### 2. Format Check
 
