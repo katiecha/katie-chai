@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
 import Image from "next/image"
 import { X } from "lucide-react"
@@ -20,12 +21,17 @@ type StoryViewerProps = {
 
 export function StoryViewer({ highlight, activeFrame, progress, username, avatarSrc, onClose, onPrev, onNext }: StoryViewerProps) {
   const frameSrc = highlight.frames[activeFrame]
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    closeButtonRef.current?.focus()
+  }, [])
 
   // Portal to <body>: layout.tsx wraps page content in an `isolate z-0`
   // stacking context, so a modal rendered in place can never paint above
   // the z-nav header no matter its own z-index.
   return createPortal(
-    <div className="fixed inset-0 z-modal bg-overlay-dark flex items-center justify-between">
+    <div role="dialog" aria-modal="true" aria-label="Story viewer" className="fixed inset-0 z-modal bg-overlay-dark flex items-center justify-between">
       <button className="flex-1 h-full cursor-pointer" onClick={onPrev} aria-label="Previous story" />
 
       <div className="relative h-[90vh] rounded-2xl overflow-hidden bg-black shrink-0" style={{ aspectRatio: "9/16" }}>
@@ -58,7 +64,7 @@ export function StoryViewer({ highlight, activeFrame, progress, username, avatar
 
       <button className="flex-1 h-full cursor-pointer" onClick={onNext} aria-label="Next story" />
 
-      <button onClick={onClose} className="absolute top-5 right-5 z-10 text-white/80 hover:text-white transition-colors p-3 cursor-pointer" aria-label="Close">
+      <button ref={closeButtonRef} onClick={onClose} className="absolute top-5 right-5 z-10 text-white/80 hover:text-white transition-colors p-3 cursor-pointer" aria-label="Close">
         <X size={ICON_SIZE.lg} strokeWidth={2.5} />
       </button>
     </div>,

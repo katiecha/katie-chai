@@ -71,7 +71,7 @@ export const CURRENT_PROJECTS: Project[] = [
     name: "NC ASK",
     description: "An RAG educational platform (React, TypeScript, FastAPI, Supabase vector database, Gemini) that provides info about NC autism resources",
     links: [
-      { label: "GitHub", href: "https://github.com/katiecha/NC-ASK", type: "github" },
+      { label: "GitHub", href: "https://github.com/NC-ASK/NC-ASK", type: "github" },
     ],
     tags: ["TypeScript", "Python"],
     other: ["React", "FastAPI"],
@@ -97,7 +97,7 @@ export const CATEGORIES: Category[] = [
         name: "NC ASK",
         description: "An RAG educational platform (React, TypeScript, FastAPI, Supabase vector database, Gemini) that provides info about NC autism resources",
         links: [
-          { label: "GitHub", href: "https://github.com/katiecha/NC-ASK", type: "github" },
+          { label: "GitHub", href: "https://github.com/NC-ASK/NC-ASK", type: "github" },
         ],
         tags: ["TypeScript", "Python"],
         other: ["React", "FastAPI"],
@@ -290,14 +290,6 @@ export const CATEGORIES: Category[] = [
         name: "Transaction Tracking",
         description: "My first Java program to track transactions.",
         links: [{ label: "GitHub", href: "https://github.com/katiecha/data-structure-implementations/tree/main/java-intro", type: "github" }],
-        tags: ["Java"],
-      },
-      {
-        name: "Puzzle Game",
-        description: "An imitation of a simple Akari Puzzle",
-        links: [
-          { label: "Demo", href: "https://www.katie-chai.com/work/akari", type: "demo" },
-        ],
         tags: ["Java"],
       },
     ],

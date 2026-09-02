@@ -12,7 +12,7 @@ export function SearchInput({ value, onChange, placeholder = "Find a project..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full px-3 py-1.5 text-sm border border-border rounded-md bg-white placeholder:text-text-subtle focus:outline-none focus:border-border-hover transition-colors"
+        className="w-full px-3 py-1.5 text-sm border border-border rounded-md bg-white placeholder:text-text-subtle focus:outline-none focus:border-border-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-hover transition-colors"
       />
     </div>
   )

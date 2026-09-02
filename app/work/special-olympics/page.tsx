@@ -6,9 +6,25 @@ import { SectionHeading } from "@/app/components/atoms/section-heading"
 import { ImagePlaceholder } from "@/app/components/molecules/image-placeholder"
 import { CaseStudyHeader } from "@/app/work/case-study-header"
 
+const TITLE = "Special Olympics - Katie Chai"
+const DESCRIPTION = "UX research and website redesign for Special Olympics."
+
 export const metadata: Metadata = {
-  title: "Special Olympics - Katie Chai",
-  description: "UX research and website redesign for Special Olympics.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "https://katie-chai.com/work/special-olympics",
+    type: "website",
+    images: ["https://katie-chai.com/images/uiux-special-olympics.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["https://katie-chai.com/images/uiux-special-olympics.png"],
+  },
 }
 
 function Quote({ children }: { children: ReactNode }) {
@@ -138,8 +154,8 @@ export default function SpecialOlympicsPage() {
                 The original IA had the same core issues as the website: unclear hierarchy, duplicated sections, and no obvious path for a new volunteer. The redesigned IA simplified the top-level structure and made volunteer onboarding its own distinct path.
               </p>
               <div className="flex flex-col gap-3">
-                <Image src="/images/so-app-ia-1.png" alt="Original app information architecture" width={1667} height={1499} style={{ width: "100%", height: "auto" }} className="rounded-fillet border border-border" />
-                <Image src="/images/so-app-ia-2.png" alt="New app flow chart" width={1751} height={1499} style={{ width: "100%", height: "auto" }} className="rounded-fillet border border-border" />
+                <Image src="/images/so-app-ia-1.png" alt="Original app information architecture" width={1667} height={1499} sizes="(min-width: 896px) 896px, 100vw" style={{ width: "100%", height: "auto" }} className="rounded-fillet border border-border" />
+                <Image src="/images/so-app-ia-2.png" alt="New app flow chart" width={1751} height={1499} sizes="(min-width: 896px) 896px, 100vw" style={{ width: "100%", height: "auto" }} className="rounded-fillet border border-border" />
               </div>
             </div>
 
@@ -148,7 +164,7 @@ export default function SpecialOlympicsPage() {
               <p className="text-sm text-text-muted leading-relaxed mb-4">
                 The new flow chart maps the end-to-end experience from opening the app through completing a volunteer registration. Key decision points (logged in vs. new user, form completion) are clearly separated to reduce confusion and drop-off.
               </p>
-              <Image src="/images/so-app-ia-3.png" alt="New app user flow" width={2391} height={1499} style={{ width: "100%", height: "auto" }} className="rounded-fillet border border-border" />
+              <Image src="/images/so-app-ia-3.png" alt="New app user flow" width={2391} height={1499} sizes="(min-width: 896px) 896px, 100vw" style={{ width: "100%", height: "auto" }} className="rounded-fillet border border-border" />
             </div>
 
           </div>

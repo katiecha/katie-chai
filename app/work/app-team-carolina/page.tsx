@@ -6,9 +6,25 @@ import { SectionHeading } from "@/app/components/atoms/section-heading"
 import { DefinitionGrid } from "@/app/components/molecules/definition-grid"
 import { CaseStudyHeader } from "@/app/work/case-study-header"
 
+const TITLE = "App Team Carolina - Katie Chai"
+const DESCRIPTION = "UI/UX projects from the App Team Carolina Design Academy."
+
 export const metadata: Metadata = {
-  title: "App Team Carolina - Katie Chai",
-  description: "UI/UX projects from the App Team Carolina Design Academy.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "https://katie-chai.com/work/app-team-carolina",
+    type: "website",
+    images: ["https://katie-chai.com/images/uiux-app-team.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["https://katie-chai.com/images/uiux-app-team.png"],
+  },
 }
 
 function ProjectHeading({ children }: { children: ReactNode }) {

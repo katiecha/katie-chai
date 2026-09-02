@@ -60,6 +60,7 @@ export function InstagramSection() {
   // Auto-advance timer
   useEffect(() => {
     if (activeHighlight === null) return
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
     setProgress(0)
     const start = Date.now()
     let cancelled = false
@@ -150,7 +151,7 @@ export function InstagramSection() {
         </div>
       </div>
 
-      <Section title="Posters, Merch & Other" size="sm">
+      <Section title="Posters, Merch & Other" size="md">
         <div className="columns-2 md:columns-4 gap-2 md:gap-3">
           {POSTER_MERCH_ITEMS.map((item) => (
             <div key={item.image} className="mb-3 break-inside-avoid">

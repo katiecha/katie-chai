@@ -8,11 +8,27 @@ import { Footer } from "@/app/components/organisms/footer"
 import { ConsoleGreeting } from "@/app/components/atoms/console-greeting"
 import { EggRain } from "@/app/components/atoms/egg-rain"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"], display: "swap" })
+
+const SITE_TITLE = "Katie Chai"
+const SITE_DESCRIPTION = "Software engineer interested in intelligence, infrastructure, and good design."
 
 export const metadata: Metadata = {
-  title: "Katie Chai",
-  description: "Software engineer interested in intelligence, infrastructure, and good design.",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: "https://katie-chai.com",
+    type: "website",
+    images: ["https://katie-chai.com/images/headshot.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["https://katie-chai.com/images/headshot.jpg"],
+  },
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

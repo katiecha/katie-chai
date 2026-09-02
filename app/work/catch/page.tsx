@@ -4,9 +4,25 @@ import { SectionHeading } from "@/app/components/atoms/section-heading"
 import { ImagePlaceholder } from "@/app/components/molecules/image-placeholder"
 import { CaseStudyHeader } from "@/app/work/case-study-header"
 
+const TITLE = "Carolina Adapts Toys for Children - Katie Chai"
+const DESCRIPTION = "Website design and redesign for CATCH, a student-run nonprofit adapting toys for children."
+
 export const metadata: Metadata = {
-  title: "Carolina Adapts Toys for Children - Katie Chai",
-  description: "Website design and redesign for CATCH, a student-run nonprofit adapting toys for children.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "https://katie-chai.com/work/catch",
+    type: "website",
+    images: ["https://katie-chai.com/images/uiux-catch.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["https://katie-chai.com/images/uiux-catch.png"],
+  },
 }
 
 export default function CatchPage() {

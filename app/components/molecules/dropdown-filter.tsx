@@ -37,6 +37,8 @@ export function DropdownFilter({ label, options, value, onChange }: DropdownFilt
     <div ref={ref} className="relative shrink-0">
       <button
         onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        aria-haspopup="listbox"
         className={`flex items-center gap-1.5 py-1.5 text-sm border rounded-md transition-colors whitespace-nowrap cursor-pointer ${
           isActive
             ? "pl-4 pr-9 border-black bg-black text-white"

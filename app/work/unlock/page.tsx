@@ -56,7 +56,7 @@ function UnlockForm() {
           autoFocus
           aria-label="Password"
           aria-invalid={error}
-          className="w-full px-3 py-2 text-sm text-center bg-surface text-text-primary rounded-md border border-border focus:border-border-hover focus:outline-none"
+          className="w-full px-3 py-2 text-sm text-center bg-surface text-text-primary rounded-md border border-border focus:border-border-hover focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-hover"
         />
         {error && (
           <p className="text-xs text-text-muted text-center">Incorrect password. Try again.</p>

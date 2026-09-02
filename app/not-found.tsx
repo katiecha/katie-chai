@@ -1,5 +1,11 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { PageShell } from "@/app/components/molecules/page-shell"
+
+export const metadata: Metadata = {
+  title: "Page Not Found - Katie Chai",
+  description: "The page you're looking for doesn't exist.",
+}
 
 export default function NotFound() {
   return (

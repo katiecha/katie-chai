@@ -1,10 +1,6 @@
-"use client"
-
 import Image from "next/image"
-import Link from "next/link"
-import { track } from "@vercel/analytics"
 import { ProjectBadges } from "@/app/components/molecules/project-badges"
-import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
+import { ProjectPreviewLink } from "@/app/work/project-preview-link"
 import { previewHref } from "@/app/lib/links"
 import { CARD_SHELL_HOVER } from "@/app/lib/styles"
 import type { Project } from "@/app/work/data"
@@ -36,8 +32,10 @@ export function UIUXCard({ project }: { project: Project }) {
   )
 
   const href = previewHref(project.links)
-  const onClick = () => track(ANALYTICS_EVENTS.projectPreviewClick, { project: project.name })
   if (!href) return shell
-  if (href.startsWith("/")) return <Link href={href} onClick={onClick}>{shell}</Link>
-  return <a href={href} target="_blank" rel="noopener noreferrer" aria-label={project.name} onClick={onClick}>{shell}</a>
+  return (
+    <ProjectPreviewLink href={href} projectName={project.name}>
+      {shell}
+    </ProjectPreviewLink>
+  )
 }

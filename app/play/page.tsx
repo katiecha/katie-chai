@@ -6,9 +6,25 @@ import { PageShell } from "@/app/components/molecules/page-shell"
 import { InstagramSection } from "@/app/components/organisms/instagram/instagram-section"
 import { ENGINEERING_PROJECTS } from "@/app/play/data"
 
+const TITLE = "Play - Katie Chai"
+const DESCRIPTION = "Katie Chai's hobbies - engineering projects and graphic design."
+
 export const metadata: Metadata = {
-  title: "Play - Katie Chai",
-  description: "Katie Chai's hobbies - engineering projects and graphic design.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "https://katie-chai.com/play",
+    type: "website",
+    images: ["https://katie-chai.com/images/headshot.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["https://katie-chai.com/images/headshot.jpg"],
+  },
 }
 
 

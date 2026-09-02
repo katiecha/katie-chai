@@ -6,9 +6,25 @@ import { GitHubFunFactCard } from "@/app/readme/github-fun-fact-card"
 import { WisprFlowFunFactCard } from "@/app/readme/wispr-flow-fun-fact-card"
 import { ClaudeCodeFunFactCard } from "@/app/readme/claude-code-fun-fact-card"
 
+const TITLE = "README.md - Katie Chai"
+const DESCRIPTION = "A bit more about Katie Chai."
+
 export const metadata: Metadata = {
-  title: "README.md - Katie Chai",
-  description: "A bit more about Katie Chai.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "https://katie-chai.com/readme",
+    type: "website",
+    images: ["https://katie-chai.com/images/headshot.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["https://katie-chai.com/images/headshot.jpg"],
+  },
 }
 
 export default function ReadmePage() {

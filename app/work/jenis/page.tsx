@@ -5,9 +5,25 @@ import { DefinitionGrid } from "@/app/components/molecules/definition-grid"
 import { ImagePlaceholder } from "@/app/components/molecules/image-placeholder"
 import { CaseStudyHeader } from "@/app/work/case-study-header"
 
+const TITLE = "Jeni's Splendid Ice Creams - Katie Chai"
+const DESCRIPTION = "A self-directed UX case study on flavor discovery and gifting in a premium ice cream app."
+
 export const metadata: Metadata = {
-  title: "Jeni's Splendid Ice Creams - Katie Chai",
-  description: "A self-directed UX case study on flavor discovery and gifting in a premium ice cream app.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "https://katie-chai.com/work/jenis",
+    type: "website",
+    images: ["https://katie-chai.com/images/uiux-jenis.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["https://katie-chai.com/images/uiux-jenis.jpg"],
+  },
 }
 
 const PROBLEMS = [

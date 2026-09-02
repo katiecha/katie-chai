@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { Row } from "@/app/components/molecules/row"
 import { Section } from "@/app/components/molecules/section"
 import { SearchInput } from "@/app/components/atoms/search-input"
@@ -25,15 +25,19 @@ export function FilterableCSProjects({ categories }: { categories: Category[] })
   const [activeLanguage, setActiveLanguage] = useState<string | null>(null)
   const [activeOther, setActiveOther] = useState<string | null>(null)
 
-  const presentLanguages = new Set(
-    categories.flatMap((cat) => cat.projects.flatMap((p) => p.tags ?? []))
-  )
-  const presentOther = new Set(
-    categories.flatMap((cat) => cat.projects.flatMap((p) => p.other ?? []))
-  )
+  const { orderedLanguages, orderedOther } = useMemo(() => {
+    const presentLanguages = new Set(
+      categories.flatMap((cat) => cat.projects.flatMap((p) => p.tags ?? []))
+    )
+    const presentOther = new Set(
+      categories.flatMap((cat) => cat.projects.flatMap((p) => p.other ?? []))
+    )
 
-  const orderedLanguages = LANGUAGE_ORDER.filter((t) => presentLanguages.has(t))
-  const orderedOther = OTHER_ORDER.filter((f) => presentOther.has(f))
+    return {
+      orderedLanguages: LANGUAGE_ORDER.filter((t) => presentLanguages.has(t)),
+      orderedOther: OTHER_ORDER.filter((f) => presentOther.has(f)),
+    }
+  }, [categories])
 
   const query = search.trim().toLowerCase()
   const hasFilter = Boolean(activeLanguage || activeOther || query)

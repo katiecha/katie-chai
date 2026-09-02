@@ -1,12 +1,7 @@
-"use client"
-
-import { useState } from "react"
-import { track } from "@vercel/analytics"
-import { Eye, Pencil } from "lucide-react"
-import { ICON_SIZE } from "@/app/components/molecules/icon-link"
+import { TrackedLink } from "@/app/components/atoms/tracked-link"
 import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
 import { SOCIAL_LINKS } from "@/app/work/data"
-import { CARD_SHELL } from "@/app/lib/styles"
+import { ReadmeToggle } from "@/app/readme/readme-toggle"
 
 const RAW_MARKDOWN = `# 👋 Hi, I'm Katie!
 
@@ -43,138 +38,113 @@ In the more distant past, I've...
 `
 
 export function ReadmeCard() {
-  const [isRaw, setIsRaw] = useState(false)
+  const rendered = (
+    <div className="px-5 py-6 md:px-10 md:py-8 flex flex-col gap-6">
 
-  return (
-    <div className={`${CARD_SHELL} overflow-hidden`}>
+      {/* Title */}
+      <h1 className="text-2xl font-bold">👋 Hi, I&apos;m Katie!</h1>
+      <hr className="border-border" />
 
-      {/* File header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-border">
-        <span className="text-sm text-text-muted font-mono">
-          katiecha / <span className="font-semibold text-black">README.md</span>
-        </span>
-        <button
-          type="button"
-          onClick={() => setIsRaw((prev) => !prev)}
-          aria-label={isRaw ? "View rendered README.md" : "View raw README.md"}
-          className="p-1 -m-1 text-text-subtle hover:text-black transition-colors rounded-md"
-        >
-          {isRaw ? <Eye size={ICON_SIZE.md} /> : <Pencil size={ICON_SIZE.md} />}
-        </button>
+      {/* Subtitle */}
+      <p className="text-base font-semibold">SWE @ Greenboard</p>
+
+      {/* Sections */}
+      <div className="flex flex-col gap-8">
+
+        <section>
+          <h2 className="text-sm font-semibold mb-3 flex items-center gap-1.5">✅ Where do I work?</h2>
+          <p className="text-sm text-text-muted leading-relaxed">
+            I am currently a Software Engineer for{" "}
+            <a href="https://www.greenboard.com/" target="_blank" rel="noopener noreferrer" aria-label="Greenboard website" className="text-link hover:underline underline-offset-2">Greenboard</a>
+            {" "}(
+            <a href="https://www.ycombinator.com/companies/greenboard" target="_blank" rel="noopener noreferrer" aria-label="Greenboard on Y Combinator" className="text-link hover:underline underline-offset-2">YC W24</a>
+            ).
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-sm font-semibold mb-3 flex items-center gap-1.5">💻 What did I study?</h2>
+          <p className="text-sm text-text-muted leading-relaxed">
+            I studied Computer Science (and Computational Biology / Bioinformatics) at Duke and UNC through the{" "}
+            <a href="https://robertsonscholars.org" target="_blank" rel="noopener noreferrer" aria-label="Robertson Scholars Leadership Program website" className="text-link hover:underline underline-offset-2">Robertson Scholars Leadership Program</a>.
+            I graduated in December 2025!
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-sm font-semibold mb-3 flex items-center gap-1.5">🏢 Where did I intern?</h2>
+          <ul className="space-y-5 text-sm text-text-muted">
+            <li>
+              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
+                <span className="shrink-0">♊️</span>
+                <span className="font-medium text-black shrink-0">Google</span>
+                <span className="text-xs text-text-subtle">- Summer 2025</span>
+              </div>
+              <p className="leading-relaxed pl-6">
+                I interned for Google as a TPM, focusing on containerizing Gemini and applications of agentic AI frameworks within Google Public Sector!
+              </p>
+            </li>
+            <li>
+              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
+                <span className="shrink-0">🩺</span>
+                <span className="font-medium text-black shrink-0">Hone Health</span>
+                <span className="text-xs text-text-subtle">- Spring 2025, Fall 2025</span>
+              </div>
+              <p className="leading-relaxed pl-6">
+                SWE intern building a FastAPI backend for wearable data integration and a sentiment analysis dashboard using Hugging Face Transformers.
+              </p>
+            </li>
+            <li>
+              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
+                <span className="shrink-0">🩻</span>
+                <span className="font-medium text-black shrink-0">Medtronic</span>
+                <span className="text-xs text-text-subtle">- Summer 2024</span>
+              </div>
+              <p className="leading-relaxed pl-6">
+                I interned for Medtronic as a Software Engineer! I worked on the firmware and automated test frameworks for their new patch pump.
+              </p>
+            </li>
+          </ul>
+          <p className="text-sm text-text-muted mt-6 mb-3">In the more distant past, I&apos;ve...</p>
+          <ul className="space-y-1.5 text-sm text-text-muted">
+            <li className="flex items-baseline gap-2"><span className="shrink-0">🥇</span><span>Interned with Special Olympics as a Software Engineering Intern</span></li>
+            <li className="flex items-baseline gap-2"><span className="shrink-0">📚</span><span>TA-ed COMP 227 (Effective Peer Teaching in CS) and COMP 380 (Technology, Ethics, &amp; Culture) with Professor Tessa Joseph Nicholas</span></li>
+            <li className="flex items-baseline gap-2"><span className="shrink-0">🔎</span><span>Researched Epidemiology with Professor Jessie K. Edwards</span></li>
+            <li className="flex items-baseline gap-2"><span className="shrink-0">🧮</span><span>Researched Physical Mathematics with Professor Pedro J Sáenz</span></li>
+            <li className="flex items-baseline gap-2"><span className="shrink-0">🏕</span><span>Worked with Michael&apos;s Angels as a Summer Program Co-Director</span></li>
+            <li className="flex items-baseline gap-2"><span className="shrink-0">🛠️</span><span>Interned with Honeywell as a Mechanical Engineering Intern</span></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-sm font-semibold mb-3 flex items-center gap-1.5">🎉 What do you do for fun?</h2>
+          <ul className="space-y-1.5 text-sm text-text-muted">
+            <li className="flex items-baseline gap-2">
+              <span className="shrink-0">•</span>
+              <span>
+                I enjoy food studies. My favorite class in college was{" "}
+                <a href="https://abby-reimer.com/2015/03/18/eats-101-exemplary-or-unattainable/" target="_blank" rel="noopener noreferrer" aria-label="Article about the EATS 101 course" className="text-link hover:underline underline-offset-2">EATS 101</a>!
+                I also enjoy baking.
+              </span>
+            </li>
+            <li className="flex items-baseline gap-2">
+              <span className="shrink-0">🏐</span>
+              <span>Fun fact: My sand and indoor volleyball teams won the UNC intramural championship!</span>
+            </li>
+            <li className="flex items-baseline gap-2">
+              <span className="shrink-0">•</span>
+              <span>
+                Also, feel free to check out my{" "}
+                <TrackedLink href={SOCIAL_LINKS.resume} target="_blank" rel="noopener noreferrer" aria-label="Katie's resume" className="text-link hover:underline underline-offset-2" eventName={ANALYTICS_EVENTS.resumeClick} eventData={{ location: "readme" }}>resume</TrackedLink>!
+              </span>
+            </li>
+          </ul>
+        </section>
+
       </div>
 
-      {/* Body */}
-      {isRaw ? (
-        <pre className="px-5 py-6 md:px-10 md:py-8 text-xs sm:text-sm text-text-primary font-mono leading-relaxed whitespace-pre-wrap break-words">
-          {RAW_MARKDOWN}
-        </pre>
-      ) : (
-        <div className="px-5 py-6 md:px-10 md:py-8 flex flex-col gap-6">
-
-          {/* Title */}
-          <h1 className="text-2xl font-bold">👋 Hi, I&apos;m Katie!</h1>
-          <hr className="border-border" />
-
-          {/* Subtitle */}
-          <p className="text-base font-semibold">SWE @ Greenboard</p>
-
-          {/* Sections */}
-          <div className="flex flex-col gap-8">
-
-            <section>
-              <h2 className="text-sm font-semibold mb-3 flex items-center gap-1.5">✅ Where do I work?</h2>
-              <p className="text-sm text-text-muted leading-relaxed">
-                I am currently a Software Engineer for{" "}
-                <a href="https://www.greenboard.com/" target="_blank" rel="noopener noreferrer" aria-label="Greenboard website" className="text-link hover:underline underline-offset-2">Greenboard</a>
-                {" "}(
-                <a href="https://www.ycombinator.com/companies/greenboard" target="_blank" rel="noopener noreferrer" aria-label="Greenboard on Y Combinator" className="text-link hover:underline underline-offset-2">YC W24</a>
-                ).
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-sm font-semibold mb-3 flex items-center gap-1.5">💻 What did I study?</h2>
-              <p className="text-sm text-text-muted leading-relaxed">
-                I studied Computer Science (and Computational Biology / Bioinformatics) at Duke and UNC through the{" "}
-                <a href="https://robertsonscholars.org" target="_blank" rel="noopener noreferrer" aria-label="Robertson Scholars Leadership Program website" className="text-link hover:underline underline-offset-2">Robertson Scholars Leadership Program</a>.
-                I graduated in December 2025!
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-sm font-semibold mb-3 flex items-center gap-1.5">🏢 Where did I intern?</h2>
-              <ul className="space-y-5 text-sm text-text-muted">
-                <li>
-                  <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
-                    <span className="shrink-0">♊️</span>
-                    <span className="font-medium text-black shrink-0">Google</span>
-                    <span className="text-xs text-text-subtle">- Summer 2025</span>
-                  </div>
-                  <p className="leading-relaxed pl-6">
-                    I interned for Google as a TPM, focusing on containerizing Gemini and applications of agentic AI frameworks within Google Public Sector!
-                  </p>
-                </li>
-                <li>
-                  <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
-                    <span className="shrink-0">🩺</span>
-                    <span className="font-medium text-black shrink-0">Hone Health</span>
-                    <span className="text-xs text-text-subtle">- Spring 2025, Fall 2025</span>
-                  </div>
-                  <p className="leading-relaxed pl-6">
-                    SWE intern building a FastAPI backend for wearable data integration and a sentiment analysis dashboard using Hugging Face Transformers.
-                  </p>
-                </li>
-                <li>
-                  <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
-                    <span className="shrink-0">🩻</span>
-                    <span className="font-medium text-black shrink-0">Medtronic</span>
-                    <span className="text-xs text-text-subtle">- Summer 2024</span>
-                  </div>
-                  <p className="leading-relaxed pl-6">
-                    I interned for Medtronic as a Software Engineer! I worked on the firmware and automated test frameworks for their new patch pump.
-                  </p>
-                </li>
-              </ul>
-              <p className="text-sm text-text-muted mt-6 mb-3">In the more distant past, I&apos;ve...</p>
-              <ul className="space-y-1.5 text-sm text-text-muted">
-                <li className="flex items-baseline gap-2"><span className="shrink-0">🥇</span><span>Interned with Special Olympics as a Software Engineering Intern</span></li>
-                <li className="flex items-baseline gap-2"><span className="shrink-0">📚</span><span>TA-ed COMP 227 (Effective Peer Teaching in CS) and COMP 380 (Technology, Ethics, &amp; Culture) with Professor Tessa Joseph Nicholas</span></li>
-                <li className="flex items-baseline gap-2"><span className="shrink-0">🔎</span><span>Researched Epidemiology with Professor Jessie K. Edwards</span></li>
-                <li className="flex items-baseline gap-2"><span className="shrink-0">🧮</span><span>Researched Physical Mathematics with Professor Pedro J Sáenz</span></li>
-                <li className="flex items-baseline gap-2"><span className="shrink-0">🏕</span><span>Worked with Michael&apos;s Angels as a Summer Program Co-Director</span></li>
-                <li className="flex items-baseline gap-2"><span className="shrink-0">🛠️</span><span>Interned with Honeywell as a Mechanical Engineering Intern</span></li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-sm font-semibold mb-3 flex items-center gap-1.5">🎉 What do you do for fun?</h2>
-              <ul className="space-y-1.5 text-sm text-text-muted">
-                <li className="flex items-baseline gap-2">
-                  <span className="shrink-0">•</span>
-                  <span>
-                    I enjoy food studies. My favorite class in college was{" "}
-                    <a href="https://abby-reimer.com/2015/03/18/eats-101-exemplary-or-unattainable/" target="_blank" rel="noopener noreferrer" aria-label="Article about the EATS 101 course" className="text-link hover:underline underline-offset-2">EATS 101</a>!
-                    I also enjoy baking.
-                  </span>
-                </li>
-                <li className="flex items-baseline gap-2">
-                  <span className="shrink-0">🏐</span>
-                  <span>Fun fact: My sand and indoor volleyball teams won the UNC intramural championship!</span>
-                </li>
-                <li className="flex items-baseline gap-2">
-                  <span className="shrink-0">•</span>
-                  <span>
-                    Also, feel free to check out my{" "}
-                    <a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener noreferrer" aria-label="Katie's resume" className="text-link hover:underline underline-offset-2" onClick={() => track(ANALYTICS_EVENTS.resumeClick, { location: "readme" })}>resume</a>!
-                  </span>
-                </li>
-              </ul>
-            </section>
-
-          </div>
-
-        </div>
-      )}
     </div>
   )
+
+  return <ReadmeToggle rendered={rendered} raw={RAW_MARKDOWN} />
 }

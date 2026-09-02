@@ -90,6 +90,19 @@
 
 }
 
+/* ─── Reduced motion ─────────────────────────────────────────
+   Disable the egg-fall animation and smooth scrolling for users
+   who have requested reduced motion at the OS level.
+ ──────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-egg-fall {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* ─── Print easter egg ──────────────────────────────────────
    Only appears on paper (or print preview).
  ──────────────────────────────────────────────────────────── */

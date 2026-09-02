@@ -1,9 +1,7 @@
-"use client"
-
-import { track } from "@vercel/analytics"
 import { ChevronDown, MoreHorizontal, UserPlus } from "lucide-react"
 import { ICON_SIZE } from "@/app/components/molecules/icon-link"
 import { ProfilePicture } from "@/app/components/atoms/instagram/profile-picture"
+import { TrackedLink } from "@/app/components/atoms/tracked-link"
 import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
 
 type ProfileHeaderProps = {
@@ -68,13 +66,14 @@ export function ProfileHeader({
             >
               Following <ChevronDown size={ICON_SIZE.sm} />
             </a>
-            <a
+            <TrackedLink
               href={`mailto:${messageEmail}`}
               className="h-10 min-w-0 flex-1 px-4 rounded-md bg-surface hover:bg-surface-hover text-sm font-semibold text-text-primary flex items-center justify-center transition-colors md:min-w-[150px] md:flex-none"
-              onClick={() => track(ANALYTICS_EVENTS.contactClick, { location: "instagram" })}
+              eventName={ANALYTICS_EVENTS.contactClick}
+              eventData={{ location: "instagram" }}
             >
               Message
-            </a>
+            </TrackedLink>
             <button
               aria-label="Add person"
               className="w-9 h-10 rounded-md bg-surface hover:bg-surface-hover flex items-center justify-center transition-colors shrink-0"

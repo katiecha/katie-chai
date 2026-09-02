@@ -1,12 +1,10 @@
-"use client"
-
-import { track } from "@vercel/analytics"
 import { Link, Mail, FileText } from "lucide-react"
 import { XIcon } from "@/app/components/atoms/x-icon"
 import { FigmaIcon } from "@/app/components/atoms/figma-icon"
 import { GitHubIcon } from "@/app/components/atoms/github-icon"
 import { LinkedInIcon } from "@/app/components/atoms/linkedin-icon"
 import { YouTubeIcon } from "@/app/components/atoms/youtube-icon"
+import { TrackedLink } from "@/app/components/atoms/tracked-link"
 import type { LinkType } from "@/app/work/data"
 
 export const ICON_SIZE = {
@@ -51,15 +49,16 @@ type IconLinkProps = {
 
 export function IconLink({ href, label, type, size = ICON_SIZE.sm, className, eventName, eventData }: IconLinkProps) {
   return (
-    <a
+    <TrackedLink
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
       className={className ?? "p-1 -m-1 text-text-subtle hover:text-black transition-colors rounded-sm"}
-      onClick={eventName ? () => track(eventName, eventData) : undefined}
+      eventName={eventName}
+      eventData={eventData}
     >
       <Icon type={type} href={href} size={size} />
-    </a>
+    </TrackedLink>
   )
 }

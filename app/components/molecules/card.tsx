@@ -1,12 +1,10 @@
-"use client"
-
 import Image from "next/image"
-import { track } from "@vercel/analytics"
 import { BookMarked } from "lucide-react"
 import { ICON_SIZE } from "@/app/components/molecules/icon-link"
 import { LanguageDot } from "@/app/components/atoms/language-dot"
 import { ProjectBadges } from "@/app/components/molecules/project-badges"
 import { ProjectLinks } from "@/app/components/molecules/project-links"
+import { TrackedLink } from "@/app/components/atoms/tracked-link"
 import { ANALYTICS_EVENTS } from "@/app/lib/analytics"
 import { previewHref } from "@/app/lib/links"
 import { CARD_SHELL_HOVER } from "@/app/lib/styles"
@@ -30,13 +28,14 @@ export function Card({ project, variant, imageFit = "cover", imageAspectRatio = 
     return (
       <div className={`${shell} p-4 flex flex-col gap-3 h-full`}>
         {href && (
-          <a
+          <TrackedLink
             href={href}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={project.name}
             className="absolute inset-0 rounded-fillet"
-            onClick={() => track(ANALYTICS_EVENTS.projectPreviewClick, { project: project.name })}
+            eventName={ANALYTICS_EVENTS.projectPreviewClick}
+            eventData={{ project: project.name }}
           />
         )}
 
@@ -66,13 +65,14 @@ export function Card({ project, variant, imageFit = "cover", imageAspectRatio = 
   return (
     <div className={`${shell} overflow-hidden`}>
       {href && (
-        <a
+        <TrackedLink
           href={href}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={project.name}
           className="absolute inset-0"
-          onClick={() => track(ANALYTICS_EVENTS.projectPreviewClick, { project: project.name })}
+          eventName={ANALYTICS_EVENTS.projectPreviewClick}
+          eventData={{ project: project.name }}
         />
       )}
 

@@ -7,9 +7,25 @@ import { PageShell } from "@/app/components/molecules/page-shell"
 import { FilterableCSProjects } from "@/app/components/organisms/filterable-projects"
 import { CURRENT_PROJECTS, CATEGORIES, UIUX_PROJECTS } from "@/app/work/data"
 
+const TITLE = "Work - Katie Chai"
+const DESCRIPTION = "Katie Chai's portfolio of software engineering, systems, and design projects."
+
 export const metadata: Metadata = {
-  title: "Work - Katie Chai",
-  description: "Katie Chai's portfolio of software engineering, systems, and design projects.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "https://katie-chai.com/work",
+    type: "website",
+    images: ["https://katie-chai.com/images/headshot.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["https://katie-chai.com/images/headshot.jpg"],
+  },
 }
 
 export default function WorkPage() {
